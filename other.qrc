@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fabfile.py</file>
+        <file>README.md</file>
+    </qresource>
+</RCC>
