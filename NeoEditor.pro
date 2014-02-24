@@ -14,4 +14,5 @@ RESOURCES += \
     css.qrc \
     javascript.qrc \
     fonts.qrc \
-    images.qrc
+    images.qrc \
+    coffee.qrc

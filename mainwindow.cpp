@@ -26,7 +26,7 @@ void MainWindow::quit()
     this->quit();
 }
 
-void MainWindow::openFileDialog()
+QString MainWindow::openFileDialog()
 {
-    QFileDialog::getOpenFileName(this, tr("Open Image"), ".", tr("Image Files(*.jpg *.png)"));
+    return QFileDialog::getOpenFileName(this, tr("Open Image"), ".", tr("All files (*.*)"));
 }

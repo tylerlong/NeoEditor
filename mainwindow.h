@@ -17,7 +17,7 @@ public:
 
 protected slots:
     void quit();
-    void openFileDialog();
+    QString openFileDialog();
 
 private:
     QWebView * webView;
