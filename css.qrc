@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>css/index.css</file>
+        <file>css/semantic.min.css</file>
+    </qresource>
+</RCC>

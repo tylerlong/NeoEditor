@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>javascript/index.js</file>
+        <file>javascript/jquery.min.js</file>
+        <file>javascript/semantic.min.js</file>
+    </qresource>
+</RCC>
