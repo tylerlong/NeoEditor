@@ -5,11 +5,24 @@ MainWindow::MainWindow(QApplication *app)
     QDesktopWidget *desktop = app->desktop();
     this->resizeAndCenter(desktop->width(), desktop->height());
 
+    centralWidget = new QWidget(this);
+    this->setCentralWidget(centralWidget);
+
     webView = new QWebView(this);
     webView->load(QUrl("qrc:///html/index.html"));
     webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
     webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
-    this->setCentralWidget(webView);
+
+    treeView = new QTreeView(this);
+
+    QHBoxLayout *layout = new QHBoxLayout();
+    QVBoxLayout *leftLayout = new QVBoxLayout();
+    QVBoxLayout *rightLayout = new QVBoxLayout();
+    leftLayout->addWidget(treeView);
+    rightLayout->addWidget(webView);
+    layout->addLayout(leftLayout);
+    layout->addLayout(rightLayout);
+    centralWidget->setLayout(layout);
 }
 
 void MainWindow::resizeAndCenter(int screenWidth, int screenHeight)

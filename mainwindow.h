@@ -18,7 +18,9 @@ protected slots:
     QString openFileDialog();
 
 private:
-    QWebView * webView;
+    QWebView *webView;
+    QTreeView *treeView;
+    QWidget *centralWidget;
     void resizeAndCenter(int screenWidth, int screenHeight);
 };
 
