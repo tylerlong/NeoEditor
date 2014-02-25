@@ -1,10 +1,14 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow()
+MainWindow::MainWindow(QApplication *app)
 {
+    QDesktopWidget *desktop = app->desktop();
+    this->resizeAndCenter(desktop->width(), desktop->height());
+
     webView = new QWebView(this);
     webView->load(QUrl("qrc:///html/index.html"));
-    webView->page()->mainFrame()->addToJavaScriptWindowObject("qt", this);
+    webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
+    webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
     this->setCentralWidget(webView);
 }
 
@@ -19,11 +23,6 @@ void MainWindow::resizeAndCenter(int screenWidth, int screenHeight)
     }
     this->resize(screenWidth - marginLeft * 2, screenHeight - marginTop * 2);
     this->move(marginLeft, marginTop);
-}
-
-void MainWindow::quit()
-{
-    this->quit();
 }
 
 QString MainWindow::openFileDialog()

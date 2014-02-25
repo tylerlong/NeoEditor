@@ -12,15 +12,14 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow();
-    void resizeAndCenter(int screenWidth, int screenHeight);
+    MainWindow(QApplication *app);
 
 protected slots:
-    void quit();
     QString openFileDialog();
 
 private:
     QWebView * webView;
+    void resizeAndCenter(int screenWidth, int screenHeight);
 };
 
 

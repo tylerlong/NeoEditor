@@ -1,6 +1,6 @@
 $ ->
     $('#quit').click ->
-        qt.quit()
+        app.quit()
 
     $('#open').click ->
-        alert "You select file: #{qt.openFileDialog()}"
+        alert "You select file: #{mainWindow.openFileDialog()}"
