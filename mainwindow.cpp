@@ -15,9 +15,9 @@ MainWindow::MainWindow(QApplication *app)
 
     treeView = new QTreeView(this);
 
-    QHBoxLayout *layout = new QHBoxLayout();
-    QVBoxLayout *leftLayout = new QVBoxLayout();
-    QVBoxLayout *rightLayout = new QVBoxLayout();
+    QHBoxLayout *layout = new QHBoxLayout(this);
+    QVBoxLayout *leftLayout = new QVBoxLayout(this);
+    QVBoxLayout *rightLayout = new QVBoxLayout(this);
     leftLayout->addWidget(treeView);
     rightLayout->addWidget(webView);
     layout->addLayout(leftLayout);
