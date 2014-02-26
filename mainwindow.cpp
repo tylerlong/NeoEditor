@@ -5,7 +5,7 @@ MainWindow::MainWindow(QApplication *app)
     QDesktopWidget *desktop = app->desktop();
     this->resizeAndCenter(desktop->width(), desktop->height());
 
-    centralWidget = new QWidget(this);
+    QWidget *centralWidget = new QWidget(this);
     this->setCentralWidget(centralWidget);
 
     webView = new QWebView(this);
@@ -13,12 +13,27 @@ MainWindow::MainWindow(QApplication *app)
     webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
     webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
 
-    treeView = new QTreeView(this);
+    QLabel *label = new QLabel(this);
+    label->setText(QDir::homePath());
 
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    QVBoxLayout *leftLayout = new QVBoxLayout(this);
-    QVBoxLayout *rightLayout = new QVBoxLayout(this);
-    leftLayout->addWidget(treeView);
+    QTreeView *treeView1 = new QTreeView(this);
+    QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
+    fileSystemModel->setRootPath(QDir::homePath());
+    treeView1->setModel(fileSystemModel);
+    treeView1->setRootIndex(fileSystemModel->index(QDir::homePath()));
+    treeView1->setColumnHidden(1, true);
+    treeView1->setColumnHidden(2, true);
+    treeView1->setColumnHidden(3, true);
+    treeView1->setHeaderHidden(true);
+
+    QTreeView *treeView2 = new QTreeView(this);
+
+    QHBoxLayout *layout = new QHBoxLayout();
+    QVBoxLayout *leftLayout = new QVBoxLayout();
+    QVBoxLayout *rightLayout = new QVBoxLayout();
+    leftLayout->addWidget(label);
+    leftLayout->addWidget(treeView1);
+    leftLayout->addWidget(treeView2);
     rightLayout->addWidget(webView);
     layout->addLayout(leftLayout);
     layout->addLayout(rightLayout);

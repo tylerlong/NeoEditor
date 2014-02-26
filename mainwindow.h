@@ -19,8 +19,6 @@ protected slots:
 
 private:
     QWebView *webView;
-    QTreeView *treeView;
-    QWidget *centralWidget;
     void resizeAndCenter(int screenWidth, int screenHeight);
 };
 

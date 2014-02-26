@@ -7,3 +7,4 @@ NeoEditor is a desktop application while Slim Text only runs in Chrome browser.
 ## todo list
 
 1. FileTree, take sublime text as an example. Open folder and Open file
+2. maybe we can use docket widget as treeview root
