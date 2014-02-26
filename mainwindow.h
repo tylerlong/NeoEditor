@@ -5,8 +5,6 @@
 #include <QtWidgets>
 #include <QtWebKitWidgets>
 
-class QWebView;
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -18,7 +16,6 @@ protected slots:
     QString openFileDialog();
 
 private:
-    QWebView *webView;
     void resizeAndCenter(int screenWidth, int screenHeight);
 };
 
