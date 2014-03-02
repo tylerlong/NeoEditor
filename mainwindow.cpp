@@ -23,7 +23,7 @@ MainWindow::MainWindow(QApplication *app)
     webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
     webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
 
-    QSplitter *splitter = new QSplitter(Qt::Horizontal);
+    splitter = new QSplitter(Qt::Horizontal);
     splitter->addWidget(toolBox);
     splitter->addWidget(webView);
     this->setCentralWidget(splitter);
@@ -68,5 +68,12 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setColumnHidden(3, true);
     treeView->setHeaderHidden(true);
     toolBox->addItem(treeView, folderPath);
+    if(toolBox->count() == 1)
+    {
+        QList<int> list = splitter->sizes();
+        list[0] += 200;
+        list[1] -= 200;
+        splitter->setSizes(list);
+    }
     toolBox->setCurrentWidget(treeView);
 }
