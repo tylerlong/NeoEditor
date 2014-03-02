@@ -20,6 +20,8 @@ private slots:
 
 private:
     void resizeAndCenter(int screenWidth, int screenHeight);
+    void showFolderTree(QString folderPath);
+    QToolBox *toolBox;
 };
 
 

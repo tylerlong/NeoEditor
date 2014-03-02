@@ -15,19 +15,7 @@ MainWindow::MainWindow(QApplication *app)
     fileToolbar->addAction(openFolderAction);
 
     //left panel
-    QTreeView *treeView1 = new QTreeView(this);
-    QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
-    fileSystemModel->setRootPath(QDir::homePath());
-    treeView1->setModel(fileSystemModel);
-    treeView1->setRootIndex(fileSystemModel->index(QDir::homePath()));
-    treeView1->setColumnHidden(1, true);
-    treeView1->setColumnHidden(2, true);
-    treeView1->setColumnHidden(3, true);
-    treeView1->setHeaderHidden(true);
-    QTreeView *treeView2 = new QTreeView(this);
-    QToolBox *toolBox = new QToolBox(this);
-    toolBox->addItem(treeView1, QDir::homePath());
-    toolBox->addItem(treeView2, tr("test2"));
+    toolBox = new QToolBox(this);
 
     //right panel
     QWebView *webView = new QWebView(this);
@@ -61,9 +49,24 @@ QString MainWindow::openFileDialog()
 
 void MainWindow::openFolder()
 {
-    QString folder = QFileDialog::getExistingDirectory(this, tr("Open Directory"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    if(folder!=NULL)
+    QString folderPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    if(folderPath != NULL)
     {
-        QMessageBox::about(this, tr("title"), folder);
+        showFolderTree(folderPath);
     }
+}
+
+void MainWindow::showFolderTree(QString folderPath)
+{
+    QTreeView *treeView = new QTreeView(this);
+    QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
+    fileSystemModel->setRootPath(folderPath);
+    treeView->setModel(fileSystemModel);
+    treeView->setRootIndex(fileSystemModel->index(folderPath));
+    treeView->setColumnHidden(1, true);
+    treeView->setColumnHidden(2, true);
+    treeView->setColumnHidden(3, true);
+    treeView->setHeaderHidden(true);
+    toolBox->addItem(treeView, folderPath);
+    toolBox->setCurrentWidget(treeView);
 }
