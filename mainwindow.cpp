@@ -5,14 +5,6 @@ MainWindow::MainWindow(QApplication *app)
     QDesktopWidget *desktop = app->desktop();
     this->resizeAndCenter(desktop->width(), desktop->height());
 
-    QWidget *centralWidget = new QWidget(this);
-    this->setCentralWidget(centralWidget);
-
-    QWebView *webView = new QWebView(this);
-    webView->load(QUrl("qrc:///html/index.html"));
-    webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
-    webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
-
     QTreeView *treeView1 = new QTreeView(this);
     QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
     fileSystemModel->setRootPath(QDir::homePath());
@@ -29,6 +21,11 @@ MainWindow::MainWindow(QApplication *app)
     toolBox->addItem(treeView1, QDir::homePath());
     toolBox->addItem(treeView2, tr("test2"));
 
+    QWebView *webView = new QWebView(this);
+    webView->load(QUrl("qrc:///html/index.html"));
+    webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
+    webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
+
     QHBoxLayout *layout = new QHBoxLayout();
     QVBoxLayout *leftLayout = new QVBoxLayout();
     QVBoxLayout *rightLayout = new QVBoxLayout();
@@ -36,6 +33,8 @@ MainWindow::MainWindow(QApplication *app)
     rightLayout->addWidget(webView);
     layout->addLayout(leftLayout);
     layout->addLayout(rightLayout);
+    QWidget *centralWidget = new QWidget(this);
+    this->setCentralWidget(centralWidget);
     centralWidget->setLayout(layout);
 }
 
