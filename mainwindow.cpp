@@ -15,17 +15,14 @@ MainWindow::MainWindow(QApplication *app)
     fileToolbar->addAction(openFolderAction);
 
     //left panel
-    leftPanel = new QToolBox(this);
+    toolBox = new QToolBox(this);
 
     //right panel
-    QWebView *webView = new QWebView(this);
-    webView->load(QUrl("qrc:///html/index.html"));
-    webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
-    webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
+    tabWidget = new QTabWidget(this);
 
     splitter = new QSplitter(Qt::Horizontal);
-    splitter->addWidget(leftPanel);
-    splitter->addWidget(webView);
+    splitter->addWidget(toolBox);
+    splitter->addWidget(tabWidget);
     this->setCentralWidget(splitter);
 }
 
@@ -68,15 +65,15 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setColumnHidden(3, true);
     treeView->setHeaderHidden(true);
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
-    leftPanel->addItem(treeView, folderPath);
-    if(leftPanel->count() == 1)
+    toolBox->addItem(treeView, folderPath);
+    if(toolBox->count() == 1)
     {
         QList<int> list = splitter->sizes();
         list[0] += 200;
         list[1] -= 200;
         splitter->setSizes(list);
     }
-    leftPanel->setCurrentWidget(treeView);
+    toolBox->setCurrentWidget(treeView);
 }
 
 void MainWindow::openFile(QModelIndex modelIndex)
@@ -89,5 +86,10 @@ void MainWindow::openFile(QModelIndex modelIndex)
         return;
     }
     QString filePath = fileInfo.absoluteFilePath();
-    QMessageBox::about(this, "title", filePath);
+
+    QWebView *webView = new QWebView(this);
+    webView->load(QUrl("qrc:///html/index.html"));
+//    webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
+//    webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
+    tabWidget->addTab(webView, filePath);
 }
