@@ -90,4 +90,5 @@ void MainWindow::openFile(QModelIndex modelIndex)
     QWebView *webView = new QWebView(this);
     webView->load(QUrl("qrc:///html/editor.html"));
     tabWidget->addTab(webView, filePath);
+    tabWidget->setCurrentWidget(webView);
 }
