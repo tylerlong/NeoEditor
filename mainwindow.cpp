@@ -94,6 +94,21 @@ void MainWindow::openFile(QModelIndex modelIndex)
 
     QWebView *webView = new QWebView(this);
     webView->load(QUrl("qrc:///html/editor.html"));
+    connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
     tabWidget->addTab(webView, filePath);
     tabWidget->setCurrentWidget(webView);
+
+//    QFile file(filePath);
+//    if(!file.open(QIODevice::ReadOnly))
+//    {
+//        return;
+//    }
+//    QString result = QString(file.readAll());
+//    file.close();
+}
+
+void MainWindow::initACE()
+{
+    QWebView *webView = (QWebView*)sender();
+    webView->page()->mainFrame()->evaluateJavaScript(QString("var editor = ace.edit('editor');editor.setValue('hello world')"));
 }
