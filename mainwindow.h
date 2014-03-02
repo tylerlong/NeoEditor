@@ -16,7 +16,7 @@ protected slots:
     QString openFileDialog();
 
 private slots:
-    void open();
+    void openFolder();
 
 private:
     void resizeAndCenter(int screenWidth, int screenHeight);

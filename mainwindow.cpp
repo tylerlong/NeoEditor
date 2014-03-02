@@ -6,13 +6,13 @@ MainWindow::MainWindow(QApplication *app)
     this->resizeAndCenter(desktop->width(), desktop->height());
 
     //tool bar
-    QAction *openAction = new QAction(tr("&Open"), this);
-    openAction->setIcon(QIcon(":/images/document-open.svg"));
-    openAction->setShortcut(QKeySequence::Open);
-    openAction->setStatusTip(tr("Open a folder or file"));
-    connect(openAction, SIGNAL(triggered()), this, SLOT(open()));
+    QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
+    openFolderAction->setIcon(QIcon(":/images/folder-open.svg"));
+    openFolderAction->setShortcut(QKeySequence::Open);
+    openFolderAction->setStatusTip(tr("Open Folder"));
+    connect(openFolderAction, SIGNAL(triggered()), this, SLOT(openFolder()));
     QToolBar *fileToolbar = addToolBar(tr("&File"));
-    fileToolbar->addAction(openAction);
+    fileToolbar->addAction(openFolderAction);
 
     //left panel
     QTreeView *treeView1 = new QTreeView(this);
@@ -59,7 +59,11 @@ QString MainWindow::openFileDialog()
     return QFileDialog::getOpenFileName(this, tr("Open Image"), ".", tr("All files (*.*)"));
 }
 
-void MainWindow::open()
+void MainWindow::openFolder()
 {
-    QMessageBox::aboutQt(this, tr("title"));
+    QString folder = QFileDialog::getExistingDirectory(this, tr("Open Directory"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    if(folder!=NULL)
+    {
+        QMessageBox::about(this, tr("title"), folder);
+    }
 }

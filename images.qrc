@@ -9,5 +9,6 @@
         <file>images/loader-small-inverted.gif</file>
         <file>images/loader-small.gif</file>
         <file>images/document-open.svg</file>
+        <file>images/folder-open.svg</file>
     </qresource>
 </RCC>
