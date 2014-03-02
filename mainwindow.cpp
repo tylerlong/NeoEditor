@@ -67,6 +67,7 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setColumnHidden(2, true);
     treeView->setColumnHidden(3, true);
     treeView->setHeaderHidden(true);
+    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
     toolBox->addItem(treeView, folderPath);
     if(toolBox->count() == 1)
     {
@@ -76,4 +77,17 @@ void MainWindow::showFolderTree(QString folderPath)
         splitter->setSizes(list);
     }
     toolBox->setCurrentWidget(treeView);
+}
+
+void MainWindow::openFile(QModelIndex modelIndex)
+{
+    QTreeView *treeView = (QTreeView*)sender();
+    QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
+    QFileInfo fileInfo = fileSystemModel->fileInfo(modelIndex);
+    if(!fileInfo.isFile() || !fileInfo.isReadable())
+    {
+        return;
+    }
+    QString filePath = fileInfo.absoluteFilePath();
+    QMessageBox::about(this, "title", filePath);
 }

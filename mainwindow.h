@@ -17,6 +17,7 @@ protected slots:
 
 private slots:
     void openFolder();
+    void openFile(QModelIndex);
 
 private:
     void resizeAndCenter(int screenWidth, int screenHeight);
