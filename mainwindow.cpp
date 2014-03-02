@@ -2,6 +2,7 @@
 
 MainWindow::MainWindow(QApplication *app)
 {
+    //initial window size
     QDesktopWidget *desktop = app->desktop();
     this->resizeAndCenter(desktop->width(), desktop->height());
 
@@ -20,10 +21,12 @@ MainWindow::MainWindow(QApplication *app)
     //right panel
     tabWidget = new QTabWidget(this);
 
+    //layout
     splitter = new QSplitter(Qt::Horizontal);
     splitter->addWidget(toolBox);
     splitter->addWidget(tabWidget);
     this->setCentralWidget(splitter);
+    splitter->setVisible(false);
 }
 
 void MainWindow::resizeAndCenter(int screenWidth, int screenHeight)
@@ -55,6 +58,7 @@ void MainWindow::openFolder()
 
 void MainWindow::showFolderTree(QString folderPath)
 {
+    splitter->setVisible(true);
     QTreeView *treeView = new QTreeView(this);
     QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
     fileSystemModel->setRootPath(folderPath);
@@ -69,8 +73,8 @@ void MainWindow::showFolderTree(QString folderPath)
     if(toolBox->count() == 1)
     {
         QList<int> list = splitter->sizes();
-        list[0] += 200;
-        list[1] -= 200;
+        list[0] = 100;
+        list[1] = 400;
         splitter->setSizes(list);
     }
     toolBox->setCurrentWidget(treeView);
@@ -78,6 +82,7 @@ void MainWindow::showFolderTree(QString folderPath)
 
 void MainWindow::openFile(QModelIndex modelIndex)
 {
+    splitter->setVisible(true);
     QTreeView *treeView = (QTreeView*)sender();
     QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
     QFileInfo fileInfo = fileSystemModel->fileInfo(modelIndex);
