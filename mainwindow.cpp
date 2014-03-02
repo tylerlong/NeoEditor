@@ -5,6 +5,15 @@ MainWindow::MainWindow(QApplication *app)
     QDesktopWidget *desktop = app->desktop();
     this->resizeAndCenter(desktop->width(), desktop->height());
 
+    //tool bar
+    QAction *openAction = new QAction(tr("&Open"), this);
+    openAction->setIcon(QIcon(":/images/document-open.svg"));
+    openAction->setShortcut(QKeySequence::Open);
+    openAction->setStatusTip(tr("Open a folder or file"));
+    connect(openAction, SIGNAL(triggered()), this, SLOT(open()));
+    QToolBar *fileToolbar = addToolBar(tr("&File"));
+    fileToolbar->addAction(openAction);
+
     //left panel
     QTreeView *treeView1 = new QTreeView(this);
     QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
@@ -48,4 +57,9 @@ void MainWindow::resizeAndCenter(int screenWidth, int screenHeight)
 QString MainWindow::openFileDialog()
 {
     return QFileDialog::getOpenFileName(this, tr("Open Image"), ".", tr("All files (*.*)"));
+}
+
+void MainWindow::open()
+{
+    QMessageBox::aboutQt(this, tr("title"));
 }

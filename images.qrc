@@ -8,5 +8,6 @@
         <file>images/loader-mini.gif</file>
         <file>images/loader-small-inverted.gif</file>
         <file>images/loader-small.gif</file>
+        <file>images/document-open.svg</file>
     </qresource>
 </RCC>
