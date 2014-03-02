@@ -88,8 +88,6 @@ void MainWindow::openFile(QModelIndex modelIndex)
     QString filePath = fileInfo.absoluteFilePath();
 
     QWebView *webView = new QWebView(this);
-    webView->load(QUrl("qrc:///html/index.html"));
-//    webView->page()->mainFrame()->addToJavaScriptWindowObject("mainWindow", this);
-//    webView->page()->mainFrame()->addToJavaScriptWindowObject("app", app);
+    webView->load(QUrl("qrc:///html/editor.html"));
     tabWidget->addTab(webView, filePath);
 }
