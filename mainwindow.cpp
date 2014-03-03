@@ -28,6 +28,7 @@ MainWindow::MainWindow(QApplication *app)
     splitter->addWidget(tabWidget);
     this->setCentralWidget(splitter);
     splitter->setVisible(false);
+    splitter->setStretchFactor(1, 1);
 }
 
 void MainWindow::resizeAndCenter(int screenWidth, int screenHeight)
@@ -69,8 +70,8 @@ void MainWindow::showFolderTree(QString folderPath)
     if(toolBox->count() == 1)
     {
         QList<int> list = splitter->sizes();
-        list[0] = 100;
-        list[1] = 400;
+        list[0] = 200;
+        list[1] = 200;
         splitter->setSizes(list);
     }
     toolBox->setCurrentWidget(treeView);
