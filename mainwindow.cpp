@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "webview.h"
 
 MainWindow::MainWindow(QApplication *app)
 {
@@ -92,7 +93,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
     }
     QString filePath = fileInfo.absoluteFilePath();
 
-    QWebView *webView = new QWebView(this);
+    WebView *webView = new WebView(this, filePath);
     webView->load(QUrl("qrc:///html/editor.html"));
     connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
     tabWidget->addTab(webView, filePath);
@@ -109,6 +110,6 @@ void MainWindow::openFile(QModelIndex modelIndex)
 
 void MainWindow::initACE()
 {
-    QWebView *webView = (QWebView*)sender();
-    webView->page()->mainFrame()->evaluateJavaScript(QString("var editor = ace.edit('editor');editor.setValue('hello world')"));
+    WebView *webView = (WebView*)sender();
+    webView->page()->mainFrame()->evaluateJavaScript(QString("var editor = ace.edit('editor');editor.setValue('%1')").arg(webView->filePath()));
 }

@@ -2,10 +2,20 @@
 #define WEBVIEW_H
 
 
-class WebView
+#include <QtWebKitWidgets>
+
+class QWebView;
+
+class WebView : public QWebView
 {
+    Q_OBJECT
+
 public:
-    WebView();
+    WebView(QWidget* parent, QString filePath);
+    QString filePath();
+
+private:
+    QString mFilePath;
 };
 
 

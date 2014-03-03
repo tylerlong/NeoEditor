@@ -3,7 +3,6 @@
 
 
 #include <QtWidgets>
-#include <QtWebKitWidgets>
 
 class MainWindow : public QMainWindow
 {
