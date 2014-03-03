@@ -65,6 +65,7 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setColumnHidden(2, true);
     treeView->setColumnHidden(3, true);
     treeView->setHeaderHidden(true);
+    treeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
     toolBox->addItem(treeView, folderPath);
     if(toolBox->count() == 1)
