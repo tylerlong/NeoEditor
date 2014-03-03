@@ -103,17 +103,17 @@ void MainWindow::openFile(QModelIndex modelIndex)
 void MainWindow::initACE()
 {
     WebView *webView = (WebView*)sender();
-    QFile file(webView->filePath());
+    QString filePath = webView->filePath();
+    webView->page()->mainFrame()->evaluateJavaScript(QString("editor.getSession().setMode(modelist.getModeForPath('%1').mode);null;").arg(escapeJavascriptString(filePath)));
+    QFile file(filePath);
     if(!file.open(QIODevice::ReadOnly))
     {
         return;
     }
     QString content = QString(file.readAll());
     file.close();
-    QString javascriptString = QString("var editor = ace.edit('editor');editor.getSession().setMode('ace/mode/javascript');editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content));
-    webView->page()->mainFrame()->evaluateJavaScript(javascriptString);
+    webView->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
 }
-
 
 QString MainWindow::escapeJavascriptString(const QString &input)
 {
