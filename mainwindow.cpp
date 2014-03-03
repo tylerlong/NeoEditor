@@ -110,7 +110,7 @@ void MainWindow::initACE()
     }
     QString content = QString(file.readAll());
     file.close();
-    QString javascriptString = QString("var editor = ace.edit('editor');editor.setValue(\"%1\", -1);null;").arg(escapeJavascriptString(content));
+    QString javascriptString = QString("var editor = ace.edit('editor');editor.getSession().setMode('ace/mode/javascript');editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content));
     webView->page()->mainFrame()->evaluateJavaScript(javascriptString);
 }
 
@@ -118,13 +118,11 @@ void MainWindow::initACE()
 QString MainWindow::escapeJavascriptString(const QString &input)
 {
     QString output;
-    QRegExp regExp("(\\r|\\n|\\\\|\")");
+    QRegExp regExp("(\\r|\\n|\\\\|\')");
     int pos = 0, lastPos = 0;
-
     while ((pos = regExp.indexIn(input, pos)) != -1)
     {
         output += input.mid(lastPos, pos - lastPos);
-
         switch (regExp.cap(1).at(0).unicode())
         {
         case '\r':
@@ -133,14 +131,14 @@ QString MainWindow::escapeJavascriptString(const QString &input)
         case '\n':
             output += "\\n";
             break;
-        case '"':
-            output += "\\\"";
+        case '\'':
+            output += "\\\'";
             break;
         case '\\':
             output += "\\\\";
             break;
         }
-        pos++;
+        pos += 1;
         lastPos = pos;
     }
     output += input.mid(lastPos);
