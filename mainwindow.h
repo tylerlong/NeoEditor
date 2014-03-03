@@ -19,6 +19,7 @@ private slots:
     void saveFile();
     void openFile(QModelIndex modelIndex);
     void initACE();
+    void closeTab(int index);
 
 private:
     void resizeAndCenter(int screenWidth, int screenHeight);

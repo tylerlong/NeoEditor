@@ -29,6 +29,8 @@ MainWindow::MainWindow(QApplication *app)
 
     //right panel
     tabWidget = new QTabWidget(this);
+    tabWidget->setTabsClosable(true);
+    connect(tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
 
     //layout
     splitter = new QSplitter(Qt::Horizontal);
@@ -137,6 +139,11 @@ void MainWindow::initACE()
     QString content = QString(file.readAll());
     file.close();
     webView->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
+}
+
+void MainWindow::closeTab(int index)
+{
+    tabWidget->removeTab(index);
 }
 
 QString MainWindow::escapeJavascriptString(const QString &input)
