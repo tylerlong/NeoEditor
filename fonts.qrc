@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/droid_sans_mono.woff</file>
+    </qresource>
+</RCC>
