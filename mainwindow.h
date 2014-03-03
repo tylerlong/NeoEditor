@@ -17,7 +17,7 @@ protected slots:
 
 private slots:
     void openFolder();
-    void openFile(QModelIndex);
+    void openFile(QModelIndex modelIndex);
     void initACE();
 
 private:
