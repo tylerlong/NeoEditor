@@ -13,9 +13,6 @@ HEADERS += \
 
 RESOURCES += \
     html.qrc \
-    css.qrc \
     javascript.qrc \
-    fonts.qrc \
     images.qrc \
-    coffee.qrc \
     other.qrc

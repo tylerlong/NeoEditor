@@ -12,7 +12,7 @@ public:
     MainWindow(QApplication *app);
 
 protected slots:
-    QString openFileDialog();
+    // javascript callable slots here
 
 private slots:
     void openFolder();

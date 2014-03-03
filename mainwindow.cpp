@@ -43,11 +43,6 @@ void MainWindow::resizeAndCenter(int screenWidth, int screenHeight)
     this->move(marginLeft, marginTop);
 }
 
-QString MainWindow::openFileDialog()
-{
-    return QFileDialog::getOpenFileName(this, tr("Open Image"), ".", tr("All files (*.*)"));
-}
-
 void MainWindow::openFolder()
 {
     QString folderPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);

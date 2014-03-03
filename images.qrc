@@ -1,14 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/loader-large-inverted.gif</file>
-        <file>images/loader-large.gif</file>
-        <file>images/loader-medium-inverted.gif</file>
-        <file>images/loader-medium.gif</file>
-        <file>images/loader-mini-inverted.gif</file>
-        <file>images/loader-mini.gif</file>
-        <file>images/loader-small-inverted.gif</file>
-        <file>images/loader-small.gif</file>
-        <file>images/document-open.svg</file>
         <file>images/folder-open.svg</file>
     </qresource>
 </RCC>

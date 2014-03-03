@@ -1,8 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>javascript/jquery.min.js</file>
-        <file>javascript/semantic.min.js</file>
-        <file>javascript/index.js</file>
         <file>javascript/ace/src-min-noconflict/snippets/abap.js</file>
         <file>javascript/ace/src-min-noconflict/snippets/actionscript.js</file>
         <file>javascript/ace/src-min-noconflict/snippets/ada.js</file>
