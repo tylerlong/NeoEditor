@@ -11,4 +11,5 @@ An extensible text editor for the 21st Century.
 4. close tab
 5. remember opened folders and files
 6. close folder
-7.
+7. indicate file changed or not
+8. add states to saveFile icon

@@ -69,8 +69,15 @@ void MainWindow::saveFile()
         return;
     }
     WebView *webView = (WebView*)widget;
+    QString filePath = webView->filePath();
     QString content = webView->page()->mainFrame()->evaluateJavaScript(QString("editor.getValue()")).toString();
-    QMessageBox::about(this, webView->filePath(), content);
+    QFile file(filePath);
+    if(!file.open(QIODevice::WriteOnly))
+    {
+        return;
+    }
+    file.write(content.toUtf8());
+    file.close();
 }
 
 void MainWindow::showFolderTree(QString folderPath)
