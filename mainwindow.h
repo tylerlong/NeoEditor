@@ -22,10 +22,10 @@ private slots:
 private:
     void resizeAndCenter(int screenWidth, int screenHeight);
     void showFolderTree(QString folderPath);
+    QString escapeJavascriptString(const QString &input);
     QToolBox *toolBox;
     QSplitter *splitter;
     QTabWidget *tabWidget;
-    QString escapeJavascriptString(const QString & str);
 };
 
 
