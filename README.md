@@ -1,9 +1,9 @@
 # NeoEditor
 
-NeoEditor is rebirth of [Slim Text](http://slimtext.org).
+An extensible text editor for the 21st Century.
 
-NeoEditor is a desktop application while Slim Text only runs in Chrome browser.
 
 ## todo list
 
 1. don't open duplicate folders or files
+2. save file
