@@ -98,18 +98,50 @@ void MainWindow::openFile(QModelIndex modelIndex)
     connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
     tabWidget->addTab(webView, filePath);
     tabWidget->setCurrentWidget(webView);
-
-//    QFile file(filePath);
-//    if(!file.open(QIODevice::ReadOnly))
-//    {
-//        return;
-//    }
-//    QString result = QString(file.readAll());
-//    file.close();
 }
 
 void MainWindow::initACE()
 {
     WebView *webView = (WebView*)sender();
-    webView->page()->mainFrame()->evaluateJavaScript(QString("var editor = ace.edit('editor');editor.setValue('%1')").arg(webView->filePath()));
+    QFile file(webView->filePath());
+    if(!file.open(QIODevice::ReadOnly))
+    {
+        return;
+    }
+    QString result = QString(file.readAll());
+    file.close();
+    webView->page()->mainFrame()->evaluateJavaScript(QString("var editor = ace.edit('editor');editor.setValue(\"%1\");null;").arg(escapeJavascriptString(result)));
+}
+
+
+QString MainWindow::escapeJavascriptString(const QString & str)
+{
+    QString out;
+    QRegExp rx("(\\r|\\n|\\\\|\")");
+    int pos = 0, lastPos = 0;
+
+    while ((pos = rx.indexIn(str, pos)) != -1)
+    {
+        out += str.mid(lastPos, pos - lastPos);
+
+        switch (rx.cap(1).at(0).unicode())
+        {
+        case '\r':
+            out += "\\r";
+            break;
+        case '\n':
+            out += "\\n";
+            break;
+        case '"':
+            out += "\\\"";
+            break;
+        case '\\':
+            out += "\\\\";
+            break;
+        }
+        pos++;
+        lastPos = pos;
+    }
+    out += str.mid(lastPos);
+    return out;
 }

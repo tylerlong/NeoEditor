@@ -25,6 +25,7 @@ private:
     QToolBox *toolBox;
     QSplitter *splitter;
     QTabWidget *tabWidget;
+    QString escapeJavascriptString(const QString & str);
 };
 
 
