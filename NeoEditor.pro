@@ -4,10 +4,12 @@ QT += \
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    webview.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    webview.h
 
 RESOURCES += \
     html.qrc \
