@@ -8,13 +8,21 @@ MainWindow::MainWindow(QApplication *app)
     this->resizeAndCenter(desktop->width(), desktop->height());
 
     //tool bar
+    QToolBar *fileToolbar = addToolBar(tr("&File"));
+
     QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
     openFolderAction->setIcon(QIcon(":/images/folder-open.svg"));
     openFolderAction->setShortcut(QKeySequence::Open);
     openFolderAction->setStatusTip(tr("Open Folder"));
     connect(openFolderAction, SIGNAL(triggered()), this, SLOT(openFolder()));
-    QToolBar *fileToolbar = addToolBar(tr("&File"));
     fileToolbar->addAction(openFolderAction);
+
+    QAction *saveFileAction = new QAction(tr("&Save File"), this);
+    saveFileAction->setIcon(QIcon(":/images/document-save.svg"));
+    saveFileAction->setShortcut(QKeySequence::Save);
+    saveFileAction->setStatusTip("Save File");
+    connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
+    fileToolbar->addAction(saveFileAction);
 
     //left panel
     toolBox = new QToolBox(this);
@@ -51,6 +59,11 @@ void MainWindow::openFolder()
     {
         showFolderTree(folderPath);
     }
+}
+
+void MainWindow::saveFile()
+{
+    QMessageBox::about(this, "title", "saving file");
 }
 
 void MainWindow::showFolderTree(QString folderPath)
