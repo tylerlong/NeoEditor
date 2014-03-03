@@ -63,7 +63,13 @@ void MainWindow::openFolder()
 
 void MainWindow::saveFile()
 {
-    QMessageBox::about(this, "title", "saving file");
+    QWidget *widget = tabWidget->currentWidget();
+    if(widget == 0)
+    {
+        return;
+    }
+    WebView *webView = (WebView*)widget;
+    QMessageBox::about(this, "title", webView->filePath());
 }
 
 void MainWindow::showFolderTree(QString folderPath)
