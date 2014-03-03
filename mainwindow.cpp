@@ -110,7 +110,7 @@ void MainWindow::initACE()
     }
     QString content = QString(file.readAll());
     file.close();
-    QString javascriptString = QString("var editor = ace.edit('editor');editor.setValue(\"%1\");null;").arg(escapeJavascriptString(content));
+    QString javascriptString = QString("var editor = ace.edit('editor');editor.setValue(\"%1\", -1);null;").arg(escapeJavascriptString(content));
     webView->page()->mainFrame()->evaluateJavaScript(javascriptString);
 }
 
