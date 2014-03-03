@@ -69,7 +69,8 @@ void MainWindow::saveFile()
         return;
     }
     WebView *webView = (WebView*)widget;
-    QMessageBox::about(this, "title", webView->filePath());
+    QString content = webView->page()->mainFrame()->evaluateJavaScript(QString("editor.getValue()")).toString();
+    QMessageBox::about(this, webView->filePath(), content);
 }
 
 void MainWindow::showFolderTree(QString folderPath)
