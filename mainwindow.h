@@ -19,15 +19,16 @@ private slots:
     void saveFile();
     void openFile(QModelIndex modelIndex);
     void initACE();
-    void closeTab(int index);
+    void closeLeftTab(int index);
+    void closeRightTab(int index);
 
 private:
     void resizeAndCenter(int screenWidth, int screenHeight);
     void showFolderTree(QString folderPath);
     QString escapeJavascriptString(const QString &input);
-    QToolBox *toolBox;
     QSplitter *splitter;
-    QTabWidget *tabWidget;
+    QTabWidget *leftTabWidget;
+    QTabWidget *rightTabWidget;
 };
 
 

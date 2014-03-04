@@ -25,20 +25,26 @@ MainWindow::MainWindow(QApplication *app)
     fileToolbar->addAction(saveFileAction);
 
     //left panel
-    toolBox = new QToolBox(this);
+    leftTabWidget = new QTabWidget(this);
+    leftTabWidget->setTabPosition(QTabWidget::West);
+    leftTabWidget->setTabsClosable(true);
+    connect(leftTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeLeftTab(int)));
 
     //right panel
-    tabWidget = new QTabWidget(this);
-    tabWidget->setTabsClosable(true);
-    connect(tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
+    rightTabWidget = new QTabWidget(this);
+    rightTabWidget->setTabsClosable(true);
+    connect(rightTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeRightTab(int)));
 
     //layout
     splitter = new QSplitter(Qt::Horizontal);
-    splitter->addWidget(toolBox);
-    splitter->addWidget(tabWidget);
+    splitter->addWidget(leftTabWidget);
+    splitter->addWidget(rightTabWidget);
     this->setCentralWidget(splitter);
-    splitter->setVisible(false);
     splitter->setStretchFactor(1, 1);
+    QList<int> list = splitter->sizes();
+    list[0] = 240;
+    list[1] = 1; //right panel takes all the extra space
+    splitter->setSizes(list);
 }
 
 void MainWindow::resizeAndCenter(int screenWidth, int screenHeight)
@@ -65,7 +71,7 @@ void MainWindow::openFolder()
 
 void MainWindow::saveFile()
 {
-    QWidget *widget = tabWidget->currentWidget();
+    QWidget *widget = rightTabWidget->currentWidget();
     if(widget == 0)
     {
         return;
@@ -96,15 +102,8 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setHeaderHidden(true);
     treeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
-    toolBox->addItem(treeView, folderPath);
-    if(toolBox->count() == 1)
-    {
-        QList<int> list = splitter->sizes();
-        list[0] = 200;
-        list[1] = 200;
-        splitter->setSizes(list);
-    }
-    toolBox->setCurrentWidget(treeView);
+    leftTabWidget->addTab(treeView, folderPath);
+    leftTabWidget->setCurrentWidget(treeView);
 }
 
 void MainWindow::openFile(QModelIndex modelIndex)
@@ -122,8 +121,8 @@ void MainWindow::openFile(QModelIndex modelIndex)
     WebView *webView = new WebView(this, filePath);
     webView->load(QUrl("qrc:///html/editor.html"));
     connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
-    tabWidget->addTab(webView, filePath);
-    tabWidget->setCurrentWidget(webView);
+    rightTabWidget->addTab(webView, filePath);
+    rightTabWidget->setCurrentWidget(webView);
 }
 
 void MainWindow::initACE()
@@ -141,9 +140,14 @@ void MainWindow::initACE()
     webView->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
 }
 
-void MainWindow::closeTab(int index)
+void MainWindow::closeLeftTab(int index)
 {
-    tabWidget->removeTab(index);
+    leftTabWidget->removeTab(index);
+}
+
+void MainWindow::closeRightTab(int index)
+{
+    rightTabWidget->removeTab(index);
 }
 
 QString MainWindow::escapeJavascriptString(const QString &input)
