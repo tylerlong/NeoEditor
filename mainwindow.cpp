@@ -117,6 +117,13 @@ void MainWindow::openFile(QModelIndex modelIndex)
     int index = rightTabWidget->addTab(webView, fileInfo.fileName());
     rightTabWidget->setTabToolTip(index, filePath);
     rightTabWidget->setCurrentWidget(webView);
+    if(filePath.endsWith(".rb"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/ruby.png"));
+    }else if(filePath.endsWith(".py"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/python.ico"));
+    }
 }
 
 void MainWindow::initACE()
