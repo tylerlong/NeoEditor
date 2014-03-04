@@ -19,3 +19,4 @@ An extensible text editor for the 21st Century.
 17. fix font rendering issue  -- hard to fix
 18. ruby code tab show diamond icon, python code tab show snake icon ... etc.
 19. avoid using keyword `new`
+20. QWebView vs QWebkit

@@ -8,21 +8,22 @@ MainWindow::MainWindow(QApplication *app)
     this->resizeAndCenter(desktop->width(), desktop->height());
 
     //tool bar
-    QToolBar *fileToolbar = addToolBar(tr("&File"));
+    QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
+    addToolBar(Qt::RightToolBarArea, fileToolBar);
 
     QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
     openFolderAction->setIcon(QIcon(":/images/folder-open.svg"));
     openFolderAction->setShortcut(QKeySequence::Open);
     openFolderAction->setStatusTip(tr("Open Folder"));
     connect(openFolderAction, SIGNAL(triggered()), this, SLOT(openFolder()));
-    fileToolbar->addAction(openFolderAction);
+    fileToolBar->addAction(openFolderAction);
 
     QAction *saveFileAction = new QAction(tr("&Save File"), this);
     saveFileAction->setIcon(QIcon(":/images/document-save.svg"));
     saveFileAction->setShortcut(QKeySequence::Save);
     saveFileAction->setStatusTip("Save File");
     connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
-    fileToolbar->addAction(saveFileAction);
+    fileToolBar->addAction(saveFileAction);
 
     //left panel
     leftTabWidget = new QTabWidget(this);
