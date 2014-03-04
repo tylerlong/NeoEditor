@@ -41,9 +41,8 @@ MainWindow::MainWindow(QApplication *app)
     splitter->addWidget(rightTabWidget);
     this->setCentralWidget(splitter);
     splitter->setStretchFactor(1, 1);
-    QList<int> list = splitter->sizes();
-    list[0] = 240;
-    list[1] = 1; //right panel takes all the extra space
+    QList<int> list;
+    list << 240 << 1; //right panel takes all the extra space
     splitter->setSizes(list);
 }
 

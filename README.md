@@ -14,4 +14,7 @@ An extensible text editor for the 21st Century.
 10. ensure new line at the end of file
 11. check memory leak
 12. handle binary files
-13. refactor qlist code
+14. tab show tooltips
+15. new icon on tabs bar
+16. remove toolbar?
+17. fix font rendering issue
