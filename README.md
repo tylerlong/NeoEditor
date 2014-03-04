@@ -15,4 +15,3 @@ An extensible text editor for the 21st Century.
 11. check memory leak
 12. handle binary files
 13. refactor qlist code
-14. eliminate build warning message
