@@ -123,6 +123,24 @@ void MainWindow::openFile(QModelIndex modelIndex)
     }else if(filePath.endsWith(".py"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/python.ico"));
+    }else if(filePath.endsWith(".java"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/java.png"));
+    }else if(filePath.endsWith(".js"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/javascript.png"));
+    }else if(filePath.endsWith(".php"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/php.png"));
+    }else if(filePath.endsWith(".css"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/css.png"));
+    }else if(filePath.endsWith(".as"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/flash.png"));
+    }else if(filePath.endsWith(".html") || filePath.endsWith(".htm"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/html.png"));
     }
 }
 
