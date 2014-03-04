@@ -101,7 +101,9 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setHeaderHidden(true);
     treeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
-    leftTabWidget->addTab(treeView, folderPath);
+    QDir dir(folderPath);
+    int index = leftTabWidget->addTab(treeView, dir.dirName());
+    leftTabWidget->setTabToolTip(index, folderPath);
     leftTabWidget->setCurrentWidget(treeView);
 }
 
@@ -120,7 +122,8 @@ void MainWindow::openFile(QModelIndex modelIndex)
     WebView *webView = new WebView(this, filePath);
     webView->load(QUrl("qrc:///html/editor.html"));
     connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
-    rightTabWidget->addTab(webView, filePath);
+    int index = rightTabWidget->addTab(webView, fileInfo.fileName());
+    rightTabWidget->setTabToolTip(index, filePath);
     rightTabWidget->setCurrentWidget(webView);
 }
 

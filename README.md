@@ -14,7 +14,9 @@ An extensible text editor for the 21st Century.
 10. ensure new line at the end of file
 11. check memory leak
 12. handle binary files
-14. tab show tooltips
 15. new icon on tabs bar
 16. remove toolbar?
-17. fix font rendering issue
+17. fix font rendering issue  -- hard to fix
+18. ruby code tab show diamond icon, python code tab show snake icon ... etc.
+19. avoid using keyword `new`
+20. inline new objects?
