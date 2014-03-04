@@ -101,8 +101,7 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setHeaderHidden(true);
     treeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
-    QDir dir(folderPath);
-    int index = leftTabWidget->addTab(treeView, dir.dirName());
+    int index = leftTabWidget->addTab(treeView, QDir(folderPath).dirName());
     leftTabWidget->setTabToolTip(index, folderPath);
     leftTabWidget->setCurrentWidget(treeView);
 }
