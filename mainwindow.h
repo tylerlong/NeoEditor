@@ -23,7 +23,6 @@ private slots:
     void closeRightTab(int index);
 
 private:
-    void resizeAndCenter(int screenWidth, int screenHeight);
     void showFolderTree(QString folderPath);
     QString escapeJavascriptString(const QString &input);
     QSplitter *splitter;

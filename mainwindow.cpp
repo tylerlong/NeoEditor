@@ -4,8 +4,13 @@
 MainWindow::MainWindow(QApplication *app)
 {
     //initial window size
+    int width = 800;
+    int height = 450;
+    this->resize(width, height);
     QDesktopWidget *desktop = app->desktop();
-    this->resizeAndCenter(desktop->width(), desktop->height());
+    int marginLeft = (desktop->width() - width) / 2;
+    int marginTop = (desktop->height() - height) / 2;
+    this->move(marginLeft, marginTop);
 
     //tool bar
     QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
@@ -43,21 +48,8 @@ MainWindow::MainWindow(QApplication *app)
     this->setCentralWidget(splitter);
     splitter->setStretchFactor(1, 1);
     QList<int> list;
-    list << 240 << 1; //right panel takes all the extra space
+    list << 200 << 1; //right panel takes all the extra space
     splitter->setSizes(list);
-}
-
-void MainWindow::resizeAndCenter(int screenWidth, int screenHeight)
-{
-    int marginLeft = 200;
-    int marginTop = 100;
-    if(screenWidth < screenHeight)
-    {
-        marginLeft = 100;
-        marginTop = 200;
-    }
-    this->resize(screenWidth - marginLeft * 2, screenHeight - marginTop * 2);
-    this->move(marginLeft, marginTop);
 }
 
 void MainWindow::openFolder()
