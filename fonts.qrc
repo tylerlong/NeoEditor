@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>fonts/droid_sans_mono.woff</file>
+        <file>fonts/UbuntuMono-R.ttf</file>
     </qresource>
 </RCC>
