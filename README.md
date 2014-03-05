@@ -22,4 +22,6 @@ An extensible text editor for the 21st Century.
     5. defining the tile background colour in the .desktop file is a hackey solution
     6. https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
 27. show splash screen
-28.
+    1. not very necessary
+28. decrease splitter handle width
+29. remove treeView border
