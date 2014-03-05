@@ -25,3 +25,6 @@ An extensible text editor for the 21st Century.
 27. show splash screen
     1. not very necessary
 31. horizontal scroll bar and vertical scroll bar cross point color
+32. show minimap
+33. handle exceptions (file not readable, not writable, binary file...etc).
+34. bug, file tab tooltip color wrong
