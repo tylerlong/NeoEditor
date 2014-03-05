@@ -21,6 +21,7 @@ private slots:
     void initACE();
     void closeLeftTab(int index);
     void closeRightTab(int index);
+    void about();
 
 private:
     void showFolderTree(QString folderPath);

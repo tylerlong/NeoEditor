@@ -16,6 +16,12 @@ An extensible text editor for the 21st Century.
 12. handle binary files
 23. make it easily extensible
 24. change name to NotAtom and open source it?
-25. about dialog
 26. application icon background color (why is it green like Qt?)
-27.
+    1. It's unity laucher's backlight
+    2. there is specific functionality already in Ubuntu that enables apps to select any tile colour they like.
+    3. choosing the app icon and tile colour is up to the app author.
+    4. https://bugs.launchpad.net/ubuntu/+source/unity/+bug/1173886
+    5. defining the tile background colour in the .desktop file is a hackey solution
+    6. https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
+27. show splash screen
+28.

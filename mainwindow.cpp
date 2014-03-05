@@ -34,6 +34,12 @@ MainWindow::MainWindow(QApplication *app)
     connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
     fileToolBar->addAction(saveFileAction);
 
+    QAction *aboutAction = new QAction(tr("&About NeoEditor"), this);
+    aboutAction->setIcon(QIcon(":/images/neo.png"));
+    aboutAction->setStatusTip("About NeoEditor");
+    connect(aboutAction, SIGNAL(triggered()), this, SLOT(about()));
+    fileToolBar->addAction(aboutAction);
+
     //left panel
     leftTabWidget = new QTabWidget(this);
     leftTabWidget->setTabPosition(QTabWidget::West);
@@ -174,6 +180,11 @@ void MainWindow::closeLeftTab(int index)
 void MainWindow::closeRightTab(int index)
 {
     rightTabWidget->removeTab(index);
+}
+
+void MainWindow::about()
+{
+    QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.1.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/tylerlong\">Tyler Long</a> (tyler4long@gmail.com). All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
 }
 
 QString MainWindow::escapeJavascriptString(const QString &input)
