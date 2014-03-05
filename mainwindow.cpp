@@ -92,7 +92,17 @@ void MainWindow::saveFile()
 
 void MainWindow::showFolderTree(QString folderPath)
 {
-    splitter->setVisible(true);
+    for(int i = 0; i < leftTabWidget->count(); i++)
+    {
+        QTreeView *treeView = (QTreeView*)leftTabWidget->widget(i);
+        QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
+        if(folderPath == fileSystemModel->rootPath())
+        {
+            leftTabWidget->setCurrentIndex(i);
+            return;
+        }
+    }
+
     QTreeView *treeView = new QTreeView(this);
     QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
     fileSystemModel->setRootPath(folderPath);
@@ -106,12 +116,11 @@ void MainWindow::showFolderTree(QString folderPath)
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
     int index = leftTabWidget->addTab(treeView, QDir(folderPath).dirName());
     leftTabWidget->setTabToolTip(index, folderPath);
-    leftTabWidget->setCurrentWidget(treeView);
+    leftTabWidget->setCurrentIndex(index);
 }
 
 void MainWindow::openFile(QModelIndex modelIndex)
 {
-    splitter->setVisible(true);
     QTreeView *treeView = (QTreeView*)sender();
     QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
     QFileInfo fileInfo = fileSystemModel->fileInfo(modelIndex);
@@ -126,7 +135,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
     connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
     int index = rightTabWidget->addTab(webView, fileInfo.fileName());
     rightTabWidget->setTabToolTip(index, filePath);
-    rightTabWidget->setCurrentWidget(webView);
+    rightTabWidget->setCurrentIndex(index);
     if(filePath.endsWith(".rb"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/ruby.png"));
