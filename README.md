@@ -17,9 +17,6 @@ An extensible text editor for the 21st Century.
 20. application icon
 21. application title
 22. tweak language icons
-    1. php
-    2. css3
-    3. html5
     4. flash
     5. js
 23. make it easily extensible
