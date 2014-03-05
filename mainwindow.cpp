@@ -16,6 +16,9 @@ MainWindow::MainWindow(QApplication *app)
     this->setWindowTitle(tr("NeoEditor"));
     this->setWindowIcon(QIcon(":/images/neo.png"));
 
+    //style
+    this->setStyleSheet("QTreeView { border: 0; }");
+
     //tool bar
     QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
     addToolBar(Qt::RightToolBarArea, fileToolBar);

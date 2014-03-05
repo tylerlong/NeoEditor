@@ -13,6 +13,7 @@ An extensible text editor for the 21st Century.
 11. check memory leak, avoid using keyword `new`
 12. handle binary files
 23. make it easily extensible
+    1. setStyleSheet is super powerful! extract styles to a separate file and let user customize it
 24. change name to NotAtom and open source it?
 26. application icon background color (why is it green like Qt?)
     1. It's unity laucher's backlight
