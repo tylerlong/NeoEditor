@@ -10,5 +10,6 @@
         <file>images/flash.png</file>
         <file>images/html.png</file>
         <file>images/php.png</file>
+        <file>images/accessories-text-editor.svg</file>
     </qresource>
 </RCC>

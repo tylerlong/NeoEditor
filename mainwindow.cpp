@@ -141,6 +141,9 @@ void MainWindow::openFile(QModelIndex modelIndex)
     }else if(filePath.endsWith(".html") || filePath.endsWith(".htm"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/html.png"));
+    }else
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/accessories-text-editor.svg"));
     }
 }
 
