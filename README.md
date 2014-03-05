@@ -24,5 +24,4 @@ An extensible text editor for the 21st Century.
     6. https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
 27. show splash screen
     1. not very necessary
-28. decrease splitter handle width
-29. remove treeView border
+31. horizontal scroll bar and vertical scroll bar cross point color

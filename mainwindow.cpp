@@ -52,6 +52,7 @@ MainWindow::MainWindow(QApplication *app)
     //right panel
     rightTabWidget = new QTabWidget(this);
     rightTabWidget->setTabsClosable(true);
+    rightTabWidget->setStyleSheet("border: 0");
     connect(rightTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeRightTab(int)));
 
     //layout
@@ -63,6 +64,7 @@ MainWindow::MainWindow(QApplication *app)
     QList<int> list;
     list << 200 << 1; //right panel takes all the extra space
     splitter->setSizes(list);
+    splitter->setHandleWidth(8);
 }
 
 void MainWindow::openFolder()
