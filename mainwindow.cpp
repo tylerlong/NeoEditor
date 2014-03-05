@@ -12,6 +12,10 @@ MainWindow::MainWindow(QApplication *app)
     int marginTop = (desktop->height() - height) / 2;
     this->move(marginLeft, marginTop);
 
+    //title and icon
+    this->setWindowTitle(tr("NeoEditor"));
+    this->setWindowIcon(QIcon(":/images/neo.png"));
+
     //tool bar
     QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
     addToolBar(Qt::RightToolBarArea, fileToolBar);

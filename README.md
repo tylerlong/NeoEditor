@@ -14,8 +14,7 @@ An extensible text editor for the 21st Century.
 10. ensure new line at the end of file
 11. check memory leak, avoid using keyword `new`
 12. handle binary files
-20. application icon
-21. application title
 23. make it easily extensible
 24. change name to NotAtom and open source it?
-25. 
+25. about dialog
+26.
