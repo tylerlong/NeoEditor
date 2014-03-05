@@ -4,8 +4,8 @@
 MainWindow::MainWindow(QApplication *app)
 {
     //initial window size
-    int width = 800;
-    int height = 450;
+    int width = 1024;
+    int height = 576;
     this->resize(width, height);
     QDesktopWidget *desktop = app->desktop();
     int marginLeft = (desktop->width() - width) / 2;
@@ -62,7 +62,7 @@ MainWindow::MainWindow(QApplication *app)
     this->setCentralWidget(splitter);
     splitter->setStretchFactor(1, 1);
     QList<int> list;
-    list << 200 << 1; //right panel takes all the extra space
+    list << 256 << 1; //right panel takes all the extra space
     splitter->setSizes(list);
     splitter->setHandleWidth(8);
 }

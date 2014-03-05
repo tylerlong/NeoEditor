@@ -26,8 +26,13 @@ An extensible text editor for the 21st Century.
     1. not very necessary
 31. horizontal scroll bar and vertical scroll bar cross point color
 32. show minimap
+    1. QWebView take screenshot of the whole web page.
 33. handle exceptions (file not readable, not writable, binary file...etc).
 34. bug, file tab tooltip color wrong
     1. commenting out `rightTabWidget->setStyleSheet("border: 0");` fixes issue.
+    2. maybe I should set style on its parent widget
+    3. what's qt stylesheet selector rule?
 35. style the whole app according to monokai style
-36.
+    1. then not only the right panel, then whole app can have a consistent look and feel.
+36. treeView don't show folder and file icons
+37.
