@@ -130,6 +130,16 @@ void MainWindow::openFile(QModelIndex modelIndex)
     }
     QString filePath = fileInfo.absoluteFilePath();
 
+    for(int i = 0; i < rightTabWidget->count(); i++)
+    {
+        WebView *webView = (WebView*)rightTabWidget->widget(i);
+        if(filePath == webView->filePath())
+        {
+            rightTabWidget->setCurrentIndex(i);
+            return;
+        }
+    }
+
     WebView *webView = new WebView(this, filePath);
     webView->load(QUrl("qrc:///html/editor.html"));
     connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
