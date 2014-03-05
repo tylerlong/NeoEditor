@@ -28,3 +28,6 @@ An extensible text editor for the 21st Century.
 32. show minimap
 33. handle exceptions (file not readable, not writable, binary file...etc).
 34. bug, file tab tooltip color wrong
+    1. commenting out `rightTabWidget->setStyleSheet("border: 0");` fixes issue.
+35. style the whole app according to monokai style
+36.
