@@ -147,7 +147,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
         rightTabWidget->setTabIcon(index, QIcon(":/images/html5.png"));
     }else
     {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/accessories-text-editor.svg"));
+        rightTabWidget->setTabIcon(index, QIcon(":/images/neo.png"));
     }
 }
 

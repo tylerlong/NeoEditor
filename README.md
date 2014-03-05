@@ -17,4 +17,5 @@ An extensible text editor for the 21st Century.
 23. make it easily extensible
 24. change name to NotAtom and open source it?
 25. about dialog
-26.
+26. application icon background color (why is it green like Qt?)
+27.
