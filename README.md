@@ -16,9 +16,6 @@ An extensible text editor for the 21st Century.
 12. handle binary files
 20. application icon
 21. application title
-22. tweak language icons
-    4. flash
-    5. js
 23. make it easily extensible
 24. change name to NotAtom and open source it?
 25. 

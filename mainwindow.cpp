@@ -137,7 +137,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
         rightTabWidget->setTabIcon(index, QIcon(":/images/css3.png"));
     }else if(filePath.endsWith(".as"))
     {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/flash.png"));
+        rightTabWidget->setTabIcon(index, QIcon(":/images/flash.jpg"));
     }else if(filePath.endsWith(".html") || filePath.endsWith(".htm"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/html5.png"));
