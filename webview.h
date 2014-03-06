@@ -14,8 +14,13 @@ public:
     WebView(QWidget* parent, QString filePath);
     QString filePath();
 
+protected slots:
+    void debug(QString message);
+    void change();
+
 private:
     QString mFilePath;
+    QTabWidget *mTabWidget;
 };
 
 

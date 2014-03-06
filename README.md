@@ -45,4 +45,8 @@ An extensible text editor for the 21st Century.
     1. maybe caused by debug mode
 50. fork ACE and write code there
     1. ensure_newline_at_eof
-51.
+51. bug: after closing a tab, the current tab marked as changed
+52. bug: close the last tab, crash the program
+53. the above two bugs are caused by send js signal to the wrong webView. so how do I get the instance of the correct webView ?
+54. prompt to save before exit if changed
+55.

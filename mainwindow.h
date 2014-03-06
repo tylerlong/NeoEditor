@@ -11,10 +11,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QApplication *app);
 
-protected slots:
-    void debug(QString message);
-    void change();
-
 private slots:
     void openFolder();
     void saveFile();

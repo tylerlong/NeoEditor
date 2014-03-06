@@ -152,7 +152,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
         }
     }
 
-    WebView *webView = new WebView(this, filePath);
+    WebView *webView = new WebView(rightTabWidget, filePath);
     webView->load(QUrl("qrc:///html/editor.html"));
     connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
     int index = rightTabWidget->addTab(webView, fileInfo.fileName());
@@ -203,7 +203,7 @@ void MainWindow::initACE()
     file.close();
     webView->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
     webView->page()->mainFrame()->evaluateJavaScript(tr("editor.focus();null;"));
-    webView->page()->mainFrame()->addToJavaScriptWindowObject("qt", this);
+    webView->page()->mainFrame()->addToJavaScriptWindowObject("qt", webView);
     webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
 }
 
@@ -250,17 +250,4 @@ QString MainWindow::escapeJavascriptString(const QString &input)
     }
     output += input.mid(lastPos);
     return output;
-}
-
-void MainWindow::debug(QString message)
-{
-    qDebug() << message;
-}
-
-void MainWindow::change()
-{
-    int index = rightTabWidget->currentIndex();
-    rightTabWidget->setTabText(index, "* " + rightTabWidget->tabText(index));
-    WebView *webView = (WebView*)rightTabWidget->currentWidget();
-    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().removeListener('change', qt.change);null;"));
 }
