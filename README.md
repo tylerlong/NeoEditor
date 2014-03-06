@@ -7,8 +7,6 @@ An extensible text editor for the 21st Century.
 
 5. remember opened folders and files (and other things, such as window size, panel size...etc)
     1. saveSetting and readSettings
-7. indicate file changed or not
-8. add states to saveFile icon
 9. trim trailing space
 10. ensure new line at the end of file
 11. check memory leak, avoid using keyword `new`
@@ -44,4 +42,5 @@ An extensible text editor for the 21st Century.
     2. if folder opened, show folder path
     3. show "an extensible editor for the 21st Century"
 47. context menu to close, close all, close other.. etc
-48.
+48. platform specific save icon and open folder icon
+49.

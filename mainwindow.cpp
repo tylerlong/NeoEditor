@@ -91,6 +91,13 @@ void MainWindow::saveFile()
     }
     file.write(content.toUtf8());
     file.close();
+    int index = rightTabWidget->currentIndex();
+    QString tabText = rightTabWidget->tabText(index);
+    if(tabText.startsWith("* "))
+    {
+        rightTabWidget->setTabText(index, tabText.mid(2));
+    }
+    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
 }
 
 void MainWindow::showFolderTree(QString folderPath)
@@ -195,7 +202,7 @@ void MainWindow::initACE()
     webView->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
     webView->page()->mainFrame()->evaluateJavaScript(tr("editor.focus();null;"));
     webView->page()->mainFrame()->addToJavaScriptWindowObject("qt", this);
-    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', function(){ qt.debug('changed'); });null;"));
+    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
 }
 
 void MainWindow::closeLeftTab(int index)
@@ -246,4 +253,12 @@ QString MainWindow::escapeJavascriptString(const QString &input)
 void MainWindow::debug(QString message)
 {
     qDebug() << message;
+}
+
+void MainWindow::change()
+{
+    int index = rightTabWidget->currentIndex();
+    rightTabWidget->setTabText(index, "* " + rightTabWidget->tabText(index));
+    WebView *webView = (WebView*)rightTabWidget->currentWidget();
+    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().removeListener('change', qt.change);null;"));
 }
