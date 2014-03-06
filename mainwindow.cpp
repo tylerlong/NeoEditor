@@ -45,7 +45,6 @@ MainWindow::MainWindow(QApplication *app)
 
     //left panel
     leftTabWidget = new QTabWidget(this);
-    leftTabWidget->setTabPosition(QTabWidget::West);
     leftTabWidget->setTabsClosable(true);
     connect(leftTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeLeftTab(int)));
 
