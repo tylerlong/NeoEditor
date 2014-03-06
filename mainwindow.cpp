@@ -89,6 +89,7 @@ void MainWindow::saveFile()
         return;
     }
     webView->page()->mainFrame()->evaluateJavaScript(QString("whitespace.trimTrailingSpace(editor.getSession(), true);null;"));
+    webView->page()->mainFrame()->evaluateJavaScript(QString("ensure_newline_at_eof();null;"));
     QString content = webView->page()->mainFrame()->evaluateJavaScript(QString("editor.getValue();")).toString();
     file.write(content.toUtf8());
     file.close();
