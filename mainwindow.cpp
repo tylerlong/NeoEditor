@@ -21,7 +21,7 @@ MainWindow::MainWindow(QApplication *app)
 
     //tool bar
     QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
-    addToolBar(Qt::RightToolBarArea, fileToolBar);
+    addToolBar(Qt::LeftToolBarArea, fileToolBar);
 
     QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
     openFolderAction->setIcon(QIcon(":/images/folder-open.svg"));

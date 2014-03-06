@@ -6,6 +6,7 @@ An extensible text editor for the 21st Century.
 ## todo list
 
 5. remember opened folders and files (and other things, such as window size, panel size...etc)
+    1. saveSetting and readSettings
 7. indicate file changed or not
 8. add states to saveFile icon
 9. trim trailing space
@@ -24,19 +25,21 @@ An extensible text editor for the 21st Century.
     6. https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
 27. show splash screen
     1. not very necessary
-31. horizontal scroll bar and vertical scroll bar cross point color
+31. right panel horizontal scroll bar and vertical scroll bar cross point color
 32. show minimap
     1. QWebView take screenshot of the whole web page.
 33. handle exceptions (file not readable, not writable, binary file...etc).
-34. bug, file tab tooltip color wrong
-    1. commenting out `rightTabWidget->setStyleSheet("border: 0");` fixes issue.
-    2. maybe I should set style on its parent widget
-    3. what's qt stylesheet selector rule?
 35. style the whole app according to monokai style
     1. then not only the right panel, then whole app can have a consistent look and feel.
 36. treeView don't show folder and file icons
-38. merge toolbar and top tab bar, like chrome
-    1. add label above left panel
 39. What does `tr` mean in `tr("some text")`?
 41. disable splitter round corner
-42.
+42. change "Close Tab" to "Close Folder" and "Close File"
+43. about dialog icon size
+44. add menu (menu and toolbar take the same line)
+45. add status bar
+46. change app title text
+    1. if file opened, show file path
+    2. if folder opened, show folder path
+    3. show "an extensible editor for the 21st Century"
+47.
