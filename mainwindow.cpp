@@ -197,6 +197,19 @@ void MainWindow::closeLeftTab(int index)
 
 void MainWindow::closeRightTab(int index)
 {
+    if(rightTabWidget->tabText(index).startsWith("* "))
+    {
+        int r = QMessageBox::warning(this, tr("NeoEditor"), tr("The file has been modified.\n Do you want to save your changes?"), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+        if(r == QMessageBox::Cancel)
+        {
+            return;
+        }
+        else if(r == QMessageBox::Save)
+        {
+            WebView *webView = (WebView*) rightTabWidget->widget(index);
+            webView->save();
+        }
+    }
     rightTabWidget->removeTab(index);
 }
 

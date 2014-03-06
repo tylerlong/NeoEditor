@@ -48,5 +48,4 @@ An extensible text editor for the 21st Century.
 50. fork ACE and write code there
     1. ensure_newline_at_eof
 54. prompt to save before exit if changed
-55. prompt to save before tab closing
 56.
