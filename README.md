@@ -35,7 +35,7 @@ An extensible text editor for the 21st Century.
 35. style the whole app according to monokai style
     1. then not only the right panel, then whole app can have a consistent look and feel.
 36. treeView don't show folder and file icons
-37. remove left tab tab focus
 38. merge toolbar and top tab bar, like chrome
     1. add label above left panel
-39.
+39. What does `tr` mean in `tr("some text")`?
+40.

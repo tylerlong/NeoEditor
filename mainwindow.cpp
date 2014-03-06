@@ -120,6 +120,7 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
     int index = leftTabWidget->addTab(treeView, QDir(folderPath).dirName());
+    treeView->setFocus();
     leftTabWidget->setTabToolTip(index, folderPath);
     leftTabWidget->setCurrentIndex(index);
 }
@@ -149,6 +150,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
     webView->load(QUrl("qrc:///html/editor.html"));
     connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
     int index = rightTabWidget->addTab(webView, fileInfo.fileName());
+    webView->setFocus();
     rightTabWidget->setTabToolTip(index, filePath);
     rightTabWidget->setCurrentIndex(index);
     if(filePath.endsWith(".rb"))
@@ -194,6 +196,7 @@ void MainWindow::initACE()
     QString content = QString(file.readAll());
     file.close();
     webView->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
+    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.focus();null;"));
 }
 
 void MainWindow::closeLeftTab(int index)
