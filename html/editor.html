@@ -23,10 +23,13 @@
     <div id="editor"></div>
     <script src="../javascript/ace/src-min-noconflict/ace.js" charset="utf-8"></script>
     <script src="../javascript/ace/src-min-noconflict/ext-modelist.js"></script>
+    <script src="../javascript/ace/src-min-noconflict/ext-whitespace.js"></script>
     <script>
       var editor = ace.edit('editor');
       var modelist = ace.require('ace/ext/modelist');
+      var whitespace = ace.require('ace/ext/whitespace');
       editor.setTheme("ace/theme/monokai");
+      editor.setShowInvisibles(true);
     </script>
   </body>
 </html>
