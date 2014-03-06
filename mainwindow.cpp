@@ -82,24 +82,7 @@ void MainWindow::saveFile()
         return;
     }
     WebView *webView = (WebView*)widget;
-    QString filePath = webView->filePath();
-    QFile file(filePath);
-    if(!file.open(QIODevice::WriteOnly))
-    {
-        return;
-    }
-    webView->page()->mainFrame()->evaluateJavaScript(QString("whitespace.trimTrailingSpace(editor.getSession(), true);null;"));
-    webView->page()->mainFrame()->evaluateJavaScript(QString("ensure_newline_at_eof();null;"));
-    QString content = webView->page()->mainFrame()->evaluateJavaScript(QString("editor.getValue();")).toString();
-    file.write(content.toUtf8());
-    file.close();
-    int index = rightTabWidget->currentIndex();
-    QString tabText = rightTabWidget->tabText(index);
-    if(tabText.startsWith("* "))
-    {
-        rightTabWidget->setTabText(index, tabText.mid(2));
-    }
-    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
+    webView->save();
 }
 
 void MainWindow::showFolderTree(QString folderPath)

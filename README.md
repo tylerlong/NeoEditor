@@ -22,6 +22,7 @@ An extensible text editor for the 21st Century.
 27. show splash screen
     1. not very necessary
 31. right panel horizontal scrollbar and vertical scrollbar intersection color
+    1. not easy
 32. show minimap
     1. QWebView take screenshot of the whole web page.
 33. handle exceptions (file not readable, not writable, binary file...etc).
@@ -41,9 +42,11 @@ An extensible text editor for the 21st Century.
     3. show "an extensible editor for the 21st Century"
 47. context menu to close, close all, close other.. etc
 48. platform specific save icon and open folder icon
-49. bug: not share the same clipbord with the system ?
+    1. not necessary
+49. bug: not share the same clipboard with the system ?
     1. maybe caused by debug mode
 50. fork ACE and write code there
     1. ensure_newline_at_eof
 54. prompt to save before exit if changed
-55.
+55. prompt to save before tab closing
+56.

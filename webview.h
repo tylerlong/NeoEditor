@@ -13,6 +13,7 @@ class WebView : public QWebView
 public:
     WebView(QWidget* parent, QString filePath);
     QString filePath();
+    void save();
 
 protected slots:
     void debug(QString message);
