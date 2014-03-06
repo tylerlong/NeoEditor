@@ -21,7 +21,7 @@ An extensible text editor for the 21st Century.
     6. https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
 27. show splash screen
     1. not very necessary
-31. right panel horizontal scroll bar and vertical scroll bar cross point color
+31. right panel horizontal scrollbar and vertical scrollbar intersection color
 32. show minimap
     1. QWebView take screenshot of the whole web page.
 33. handle exceptions (file not readable, not writable, binary file...etc).
@@ -45,8 +45,5 @@ An extensible text editor for the 21st Century.
     1. maybe caused by debug mode
 50. fork ACE and write code there
     1. ensure_newline_at_eof
-51. bug: after closing a tab, the current tab marked as changed
-52. bug: close the last tab, crash the program
-53. the above two bugs are caused by send js signal to the wrong webView. so how do I get the instance of the correct webView ?
 54. prompt to save before exit if changed
 55.
