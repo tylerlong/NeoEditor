@@ -34,6 +34,7 @@ An extensible text editor for the 21st Century.
 36. treeView don't show folder and file icons
 39. What does `tr` mean in `tr("some text")`?
 41. disable splitter round corner
+    1. not easy
 42. change "Close Tab" to "Close Folder" and "Close File"
 43. about dialog icon size
 44. add menu (menu and toolbar take the same line)
@@ -42,4 +43,5 @@ An extensible text editor for the 21st Century.
     1. if file opened, show file path
     2. if folder opened, show folder path
     3. show "an extensible editor for the 21st Century"
-47.
+47. context menu to close, close all, close other.. etc
+48.

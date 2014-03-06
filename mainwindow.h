@@ -12,7 +12,7 @@ public:
     MainWindow(QApplication *app);
 
 protected slots:
-    // javascript callable slots here
+    void debug(QString message);
 
 private slots:
     void openFolder();

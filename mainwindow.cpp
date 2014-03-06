@@ -194,6 +194,8 @@ void MainWindow::initACE()
     file.close();
     webView->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
     webView->page()->mainFrame()->evaluateJavaScript(tr("editor.focus();null;"));
+    webView->page()->mainFrame()->addToJavaScriptWindowObject("qt", this);
+    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', function(){ qt.debug('changed'); });null;"));
 }
 
 void MainWindow::closeLeftTab(int index)
@@ -239,4 +241,9 @@ QString MainWindow::escapeJavascriptString(const QString &input)
     }
     output += input.mid(lastPos);
     return output;
+}
+
+void MainWindow::debug(QString message)
+{
+    qDebug() << message;
 }
