@@ -17,7 +17,7 @@ MainWindow::MainWindow(QApplication *app)
     this->setWindowIcon(QIcon(":/images/neo.png"));
 
     //style
-    this->setStyleSheet("QTreeView { border: 0; }");
+    this->setStyleSheet("QTreeView { border: 0; } QTabWidget { border: 0; }");
 
     //tool bar
     QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
@@ -51,7 +51,6 @@ MainWindow::MainWindow(QApplication *app)
     //right panel
     rightTabWidget = new QTabWidget(this);
     rightTabWidget->setTabsClosable(true);
-    rightTabWidget->setStyleSheet("border: 0");
     connect(rightTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeRightTab(int)));
 
     //layout
@@ -63,7 +62,7 @@ MainWindow::MainWindow(QApplication *app)
     QList<int> list;
     list << 256 << 1; //right panel takes all the extra space
     splitter->setSizes(list);
-    splitter->setHandleWidth(8);
+    splitter->setHandleWidth(1);
 }
 
 void MainWindow::openFolder()
@@ -116,7 +115,6 @@ void MainWindow::showFolderTree(QString folderPath)
     treeView->setColumnHidden(2, true);
     treeView->setColumnHidden(3, true);
     treeView->setHeaderHidden(true);
-    treeView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
     int index = leftTabWidget->addTab(treeView, QDir(folderPath).dirName());
     treeView->setFocus();

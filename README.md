@@ -38,7 +38,5 @@ An extensible text editor for the 21st Century.
 38. merge toolbar and top tab bar, like chrome
     1. add label above left panel
 39. What does `tr` mean in `tr("some text")`?
-40. left treeView show header of current folder name
-    1. or a label above the treeView
-    2. dropdown box instead? then no need of left tab widget
-41.
+41. disable splitter round corner
+42.
