@@ -50,7 +50,7 @@ MainWindow::MainWindow(QApplication *app)
     connect(leftTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeLeftTab(int)));
 
     //right panel
-    rightTabWidget = new RightTabWidget(this);
+    rightTabWidget = new RightTabWidget(this, app);
 
     //layout
     splitter = new QSplitter(Qt::Horizontal);

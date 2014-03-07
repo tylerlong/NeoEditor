@@ -12,6 +12,7 @@ public:
     WebView(QWidget* parent, QString filePath);
     QString filePath();
     void save();
+    QString getSelectedText();
 
 protected slots:
     void debug(QString message);

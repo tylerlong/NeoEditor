@@ -50,3 +50,8 @@ void WebView::save()
     }
     this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
 }
+
+QString WebView::getSelectedText()
+{
+    return this->page()->mainFrame()->evaluateJavaScript(QString("editor.getCopyText();")).toString();
+}

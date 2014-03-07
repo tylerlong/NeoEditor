@@ -9,10 +9,14 @@ class RightTabWidget : public QTabWidget
     Q_OBJECT
 
 public:
-    RightTabWidget(QWidget *parent);
+    RightTabWidget(QWidget *parent, QApplication *app);
 
 private slots:
     void close(int index);
+    void copy();
+
+private:
+    QApplication *app;
 };
 
 

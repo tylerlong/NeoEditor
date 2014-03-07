@@ -1,10 +1,16 @@
 #include "righttabwidget.h"
 #include "webview.h"
 
-RightTabWidget::RightTabWidget(QWidget *parent) : QTabWidget(parent)
+RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(parent)
 {
+    this->app = app;
     this->setTabsClosable(true);
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));
+
+    QAction *copyAction = new QAction(tr("&Copy"), this);
+    copyAction->setShortcut(QKeySequence::Copy);
+    connect(copyAction, SIGNAL(triggered()), this, SLOT(copy()));
+    this->addAction(copyAction);
 }
 
 void RightTabWidget::close(int index)
@@ -23,4 +29,20 @@ void RightTabWidget::close(int index)
         }
     }
     this->removeTab(index);
+}
+
+void RightTabWidget::copy()
+{
+    QWidget *widget = this->currentWidget();
+    if(widget == 0)
+    {
+        return;
+    }
+    WebView *webView = (WebView*)widget;
+    QString selectedText = webView->getSelectedText();
+    if(selectedText.isEmpty())
+    {
+        return;
+    }
+    this->app->clipboard()->setText(selectedText);
 }
