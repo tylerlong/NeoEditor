@@ -17,7 +17,6 @@ private slots:
     void openFile(QModelIndex modelIndex);
     void initACE();
     void closeLeftTab(int index);
-    void closeRightTab(int index);
     void about();
 
 private:

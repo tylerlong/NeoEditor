@@ -10,6 +10,9 @@ class RightTabWidget : public QTabWidget
 
 public:
     RightTabWidget(QWidget *parent);
+
+private slots:
+    void close(int index);
 };
 
 
