@@ -5,11 +5,13 @@ QT += \
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    webview.cpp
+    webview.cpp \
+    righttabwidget.cpp
 
 HEADERS += \
     mainwindow.h \
-    webview.h
+    webview.h \
+    righttabwidget.h
 
 RESOURCES += \
     html.qrc \

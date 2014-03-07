@@ -4,8 +4,6 @@
 
 #include <QtWebKitWidgets>
 
-class QWebView;
-
 class WebView : public QWebView
 {
     Q_OBJECT

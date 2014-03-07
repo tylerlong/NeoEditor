@@ -48,5 +48,6 @@ An extensible text editor for the 21st Century.
 50. fork ACE and write code there
     1. ensure_newline_at_eof
 54. prompt to save before exit if changed
-56. subclass rightTabWidget and extract code to a separate file (righttabwidget.cpp).
-57.
+56. subclass rightTabWidget
+57. extract rightTabWidget code to a separate file (righttabwidget.cpp).
+58.

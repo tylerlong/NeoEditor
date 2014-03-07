@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "righttabwidget.h"
 #include "webview.h"
 
 MainWindow::MainWindow(QApplication *app)
@@ -49,7 +50,7 @@ MainWindow::MainWindow(QApplication *app)
     connect(leftTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeLeftTab(int)));
 
     //right panel
-    rightTabWidget = new QTabWidget(this);
+    rightTabWidget = new RightTabWidget(this);
     rightTabWidget->setTabsClosable(true);
     connect(rightTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeRightTab(int)));
 
