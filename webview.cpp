@@ -114,3 +114,8 @@ QString WebView::escapeJavascriptString(const QString &input)
     output += input.mid(lastPos);
     return output;
 }
+
+void WebView::contextMenuEvent(QContextMenuEvent *ev)
+{
+
+}

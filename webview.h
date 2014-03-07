@@ -19,6 +19,9 @@ public:
 public slots:
     void init();
 
+protected:
+    void contextMenuEvent(QContextMenuEvent *ev);
+
 protected slots:
     void debug(QString message);
     void change();
