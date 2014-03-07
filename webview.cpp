@@ -4,6 +4,8 @@ WebView::WebView(QWidget* parent, QString filePath) : QWebView(parent)
 {
     this->mTabWidget = (QTabWidget*)parent;
     this->mFilePath = filePath;
+    this->load(QUrl("qrc:///html/editor.html"));
+    connect(this, SIGNAL(loadFinished(bool)), this, SLOT(init()));
 }
 
 QString WebView::filePath()

@@ -16,15 +16,15 @@ public:
     void paste(QString text);
     QString cut();
 
-public slots:
-    void init();
-
 protected:
     void contextMenuEvent(QContextMenuEvent *ev);
 
 protected slots:
     void debug(QString message);
     void change();
+
+private slots:
+    void init();
 
 private:
     QString escapeJavascriptString(const QString &input);

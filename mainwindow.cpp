@@ -136,8 +136,6 @@ void MainWindow::openFile(QModelIndex modelIndex)
     }
 
     WebView *webView = new WebView(rightTabWidget, filePath);
-    webView->load(QUrl("qrc:///html/editor.html"));
-    connect(webView, SIGNAL(loadFinished(bool)), webView, SLOT(init()));
     int index = rightTabWidget->addTab(webView, fileInfo.fileName());
     webView->setFocus();
     rightTabWidget->setTabToolTip(index, filePath);

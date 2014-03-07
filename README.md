@@ -38,8 +38,9 @@ An extensible text editor for the 21st Century.
 47. context menu to close, close all, close other.. etc
 50. fork ACE and write code there
     1. ensure_newline_at_eof
+    2. Or I can create a repo and write extension for ACE
+        1. a faster way to add new features to ACE
 54. prompt to save before exit if changed
-58. Move webView code to its constructor
 59. change all the cross class method calls to use signal/slot ?
 60. detect file change and reload file
 61. integrate terminal
@@ -48,4 +49,8 @@ An extensible text editor for the 21st Century.
     1. alipay receive money link
     2. add screenshot to readme file
 65. double click selection behaviour not the same as other editors.
-71. tbd
+71. more language icons
+72. switch tabs, change file highlight in left file tree.
+73. drag & drop to reorder tabs
+74. tweak toolbar icon orders
+75.
