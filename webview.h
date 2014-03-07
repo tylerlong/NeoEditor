@@ -12,8 +12,9 @@ public:
     WebView(QWidget* parent, QString filePath);
     QString filePath();
     void save();
-    QString getSelectedText();
-    void insert(QString text);
+    QString copy();
+    void paste(QString text);
+    QString cut();
 
 public slots:
     void init();

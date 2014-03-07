@@ -59,4 +59,6 @@ An extensible text editor for the 21st Century.
 63. add screenshot to readme file
 64. make it open source
 65. double click selection behaviour not the same as other editors.
-66.
+66. move copy/cut/paste code to WebView only
+67. remove editor context menu
+68. tbc

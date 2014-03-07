@@ -15,6 +15,7 @@ private slots:
     void close(int index);
     void copy();
     void paste();
+    void cut();
 
 private:
     QApplication *app;

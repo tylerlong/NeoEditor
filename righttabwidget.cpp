@@ -16,6 +16,11 @@ RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(
     pasteAction->setShortcut(QKeySequence::Paste);
     connect(pasteAction, SIGNAL(triggered()), this, SLOT(paste()));
     this->addAction(pasteAction);
+
+    QAction *cutAction = new QAction(tr("C&ut"), this);
+    cutAction->setShortcut(QKeySequence::Cut);
+    connect(cutAction, SIGNAL(triggered()), this, SLOT(cut()));
+    this->addAction(cutAction);
 }
 
 void RightTabWidget::close(int index)
@@ -44,12 +49,12 @@ void RightTabWidget::copy()
         return;
     }
     WebView *webView = (WebView*)widget;
-    QString selectedText = webView->getSelectedText();
-    if(selectedText.isEmpty())
+    QString text = webView->copy();
+    if(text.isEmpty())
     {
         return;
     }
-    this->app->clipboard()->setText(selectedText);
+    this->app->clipboard()->setText(text);
 }
 
 void RightTabWidget::paste()
@@ -60,5 +65,21 @@ void RightTabWidget::paste()
         return;
     }
     WebView *webView = (WebView*)widget;
-    webView->insert(this->app->clipboard()->text());
+    webView->paste(this->app->clipboard()->text());
+}
+
+void RightTabWidget::cut()
+{
+    QWidget *widget = this->currentWidget();
+    if(widget == 0)
+    {
+        return;
+    }
+    WebView *webView = (WebView*)widget;
+    QString text = webView->cut();
+    if(text.isEmpty())
+    {
+        return;
+    }
+    this->app->clipboard()->setText(text);
 }
