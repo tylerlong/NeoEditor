@@ -11,7 +11,6 @@ An extensible text editor for the 21st Century.
 12. handle binary files
 23. make it easily extensible
     1. setStyleSheet is super powerful! extract styles to a separate file and let user customize it
-24. change name to NotAtom and open source it?
 26. application icon background color (why is it green like Qt?)
     1. It's unity laucher's backlight
     2. there is specific functionality already in Ubuntu that enables apps to select any tile colour they like.
@@ -44,7 +43,9 @@ An extensible text editor for the 21st Century.
 48. platform specific save icon and open folder icon
     1. not necessary
 49. bug: not share the same clipboard with the system ?
-    1. maybe caused by debug mode
+    1. maybe caused by debug mode -- nope
+    2. http://www.qtcentre.org/threads/41997-Qwebview-Copy-Text-And-Save-Image
+    3. maybe caused by me reimplementing the QWebView class?
 50. fork ACE and write code there
     1. ensure_newline_at_eof
 54. prompt to save before exit if changed
@@ -54,4 +55,8 @@ An extensible text editor for the 21st Century.
 60. detect file change and reload file
 61. integrate terminal
     1. this is great while it's very hard
-62.
+62. alipay receive money link
+63. add screenshot to readme file
+64. make it open source
+65. double click selection behaviour not the same as other editors.
+66.
