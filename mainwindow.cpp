@@ -22,6 +22,7 @@ MainWindow::MainWindow(QApplication *app)
 
     //tool bar
     QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
+    this->setContextMenuPolicy(Qt::NoContextMenu);
     addToolBar(Qt::LeftToolBarArea, fileToolBar);
 
     QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
