@@ -11,5 +11,8 @@
         <file>images/html5.png</file>
         <file>images/flash.jpg</file>
         <file>images/neo.png</file>
+        <file>images/edit-copy.svg</file>
+        <file>images/edit-cut.svg</file>
+        <file>images/edit-paste.svg</file>
     </qresource>
 </RCC>

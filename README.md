@@ -48,7 +48,4 @@ An extensible text editor for the 21st Century.
     1. alipay receive money link
     2. add screenshot to readme file
 65. double click selection behaviour not the same as other editors.
-66. move copy/cut/paste code to WebView class only
-69. remove compile warning
-70. add copy/cut/paste to toolbar
 71. tbd

@@ -7,20 +7,31 @@ RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(
     this->setTabsClosable(true);
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));
 
+    QToolBar *editToolBar = new QToolBar(tr("&Edit"), this);
+
+    QAction *cutAction = new QAction(tr("Cu&t"), this);
+    cutAction->setIcon(QIcon(":/images/edit-cut.svg"));
+    cutAction->setShortcut(QKeySequence::Cut);
+    cutAction->setStatusTip(tr("Cut"));
+    connect(cutAction, SIGNAL(triggered()), this, SLOT(cut()));
+    editToolBar->addAction(cutAction);
+
     QAction *copyAction = new QAction(tr("&Copy"), this);
+    copyAction->setIcon(QIcon(":/images/edit-copy.svg"));
     copyAction->setShortcut(QKeySequence::Copy);
+    copyAction->setStatusTip(tr("Copy"));
     connect(copyAction, SIGNAL(triggered()), this, SLOT(copy()));
-    this->addAction(copyAction);
+    editToolBar->addAction(copyAction);
 
     QAction *pasteAction = new QAction(tr("&Paste"), this);
+    pasteAction->setIcon(QIcon(":/images/edit-paste.svg"));
     pasteAction->setShortcut(QKeySequence::Paste);
+    pasteAction->setStatusTip(tr("Paste"));
     connect(pasteAction, SIGNAL(triggered()), this, SLOT(paste()));
-    this->addAction(pasteAction);
+    editToolBar->addAction(pasteAction);
 
-    QAction *cutAction = new QAction(tr("C&ut"), this);
-    cutAction->setShortcut(QKeySequence::Cut);
-    connect(cutAction, SIGNAL(triggered()), this, SLOT(cut()));
-    this->addAction(cutAction);
+    QMainWindow *mainWindow = (QMainWindow*) parent;
+    mainWindow->addToolBar(Qt::LeftToolBarArea, editToolBar);
 }
 
 void RightTabWidget::close(int index)
