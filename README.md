@@ -51,4 +51,7 @@ An extensible text editor for the 21st Century.
 57. extract rightTabWidget code to a separate file (righttabwidget.cpp).
 58. Move webView code to its constructor
 59. change all the cross class method calls to use signal/slot ?
-60.
+60. detect file change and reload file
+61. integrate terminal
+    1. this is great while it's very hard
+62.
