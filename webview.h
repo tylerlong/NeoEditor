@@ -13,12 +13,17 @@ public:
     QString filePath();
     void save();
     QString getSelectedText();
+    void insert(QString text);
+
+public slots:
+    void init();
 
 protected slots:
     void debug(QString message);
     void change();
 
 private:
+    QString escapeJavascriptString(const QString &input);
     QString mFilePath;
     QTabWidget *mTabWidget;
 };

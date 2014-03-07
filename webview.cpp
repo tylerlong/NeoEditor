@@ -55,3 +55,55 @@ QString WebView::getSelectedText()
 {
     return this->page()->mainFrame()->evaluateJavaScript(QString("editor.getCopyText();")).toString();
 }
+
+void WebView::insert(QString text)
+{
+    this->page()->mainFrame()->evaluateJavaScript(QString("editor.insert('%1');null;").arg(escapeJavascriptString(text)));
+}
+
+void WebView::init()
+{
+    QString filePath = this->mFilePath;
+    this->page()->mainFrame()->evaluateJavaScript(QString("editor.getSession().setMode(modelist.getModeForPath('%1').mode);null;").arg(escapeJavascriptString(filePath)));
+    QFile file(filePath);
+    if(!file.open(QIODevice::ReadOnly))
+    {
+        return;
+    }
+    QString content = QString(file.readAll());
+    file.close();
+    this->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
+    this->page()->mainFrame()->evaluateJavaScript(tr("editor.focus();null;"));
+    this->page()->mainFrame()->addToJavaScriptWindowObject("qt", this);
+    this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
+}
+
+QString WebView::escapeJavascriptString(const QString &input)
+{
+    QString output;
+    QRegExp regExp("(\\r|\\n|\\\\|\')");
+    int pos = 0, lastPos = 0;
+    while ((pos = regExp.indexIn(input, pos)) != -1)
+    {
+        output += input.mid(lastPos, pos - lastPos);
+        switch (regExp.cap(1).at(0).unicode())
+        {
+        case '\r':
+            output += "\\r";
+            break;
+        case '\n':
+            output += "\\n";
+            break;
+        case '\'':
+            output += "\\\'";
+            break;
+        case '\\':
+            output += "\\\\";
+            break;
+        }
+        pos += 1;
+        lastPos = pos;
+    }
+    output += input.mid(lastPos);
+    return output;
+}

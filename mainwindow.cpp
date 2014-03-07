@@ -136,7 +136,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
 
     WebView *webView = new WebView(rightTabWidget, filePath);
     webView->load(QUrl("qrc:///html/editor.html"));
-    connect(webView, SIGNAL(loadFinished(bool)), this, SLOT(initACE()));
+    connect(webView, SIGNAL(loadFinished(bool)), webView, SLOT(init()));
     int index = rightTabWidget->addTab(webView, fileInfo.fileName());
     webView->setFocus();
     rightTabWidget->setTabToolTip(index, filePath);
@@ -171,24 +171,6 @@ void MainWindow::openFile(QModelIndex modelIndex)
     }
 }
 
-void MainWindow::initACE()
-{
-    WebView *webView = (WebView*)sender();
-    QString filePath = webView->filePath();
-    webView->page()->mainFrame()->evaluateJavaScript(QString("editor.getSession().setMode(modelist.getModeForPath('%1').mode);null;").arg(escapeJavascriptString(filePath)));
-    QFile file(filePath);
-    if(!file.open(QIODevice::ReadOnly))
-    {
-        return;
-    }
-    QString content = QString(file.readAll());
-    file.close();
-    webView->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
-    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.focus();null;"));
-    webView->page()->mainFrame()->addToJavaScriptWindowObject("qt", webView);
-    webView->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
-}
-
 void MainWindow::closeLeftTab(int index)
 {
     leftTabWidget->removeTab(index);
@@ -197,34 +179,4 @@ void MainWindow::closeLeftTab(int index)
 void MainWindow::about()
 {
     QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.1.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/tylerlong\">Tyler Long</a> (tyler4long@gmail.com). All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
-}
-
-QString MainWindow::escapeJavascriptString(const QString &input)
-{
-    QString output;
-    QRegExp regExp("(\\r|\\n|\\\\|\')");
-    int pos = 0, lastPos = 0;
-    while ((pos = regExp.indexIn(input, pos)) != -1)
-    {
-        output += input.mid(lastPos, pos - lastPos);
-        switch (regExp.cap(1).at(0).unicode())
-        {
-        case '\r':
-            output += "\\r";
-            break;
-        case '\n':
-            output += "\\n";
-            break;
-        case '\'':
-            output += "\\\'";
-            break;
-        case '\\':
-            output += "\\\\";
-            break;
-        }
-        pos += 1;
-        lastPos = pos;
-    }
-    output += input.mid(lastPos);
-    return output;
 }

@@ -15,13 +15,11 @@ private slots:
     void openFolder();
     void saveFile();
     void openFile(QModelIndex modelIndex);
-    void initACE();
     void closeLeftTab(int index);
     void about();
 
 private:
     void showFolderTree(QString folderPath);
-    QString escapeJavascriptString(const QString &input);
     QSplitter *splitter;
     QTabWidget *leftTabWidget;
     QTabWidget *rightTabWidget;

@@ -11,6 +11,11 @@ RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(
     copyAction->setShortcut(QKeySequence::Copy);
     connect(copyAction, SIGNAL(triggered()), this, SLOT(copy()));
     this->addAction(copyAction);
+
+    QAction *pasteAction = new QAction(tr("&Paste"), this);
+    pasteAction->setShortcut(QKeySequence::Paste);
+    connect(pasteAction, SIGNAL(triggered()), this, SLOT(paste()));
+    this->addAction(pasteAction);
 }
 
 void RightTabWidget::close(int index)
@@ -45,4 +50,15 @@ void RightTabWidget::copy()
         return;
     }
     this->app->clipboard()->setText(selectedText);
+}
+
+void RightTabWidget::paste()
+{
+    QWidget *widget = this->currentWidget();
+    if(widget == 0)
+    {
+        return;
+    }
+    WebView *webView = (WebView*)widget;
+    webView->insert(this->app->clipboard()->text());
 }
