@@ -45,9 +45,9 @@ MainWindow::MainWindow(QApplication *app)
     QToolBar *helpTooBar = new QToolBar(tr("&Help"), this);
     this->addToolBar(Qt::LeftToolBarArea, helpTooBar);
 
-    QAction *keyboardShortcutsAction = new QAction(tr("&Keyboard shortcuts"), this);
+    QAction *keyboardShortcutsAction = new QAction(tr("&Keyboard Shortcuts"), this);
     keyboardShortcutsAction->setIcon(QIcon(":/images/preferences-desktop-keyboard-shortcuts.svg"));
-    keyboardShortcutsAction->setStatusTip("Keyboard shortcuts");
+    keyboardShortcutsAction->setStatusTip("Keyboard Shortcuts");
     connect(keyboardShortcutsAction, SIGNAL(triggered()), this, SLOT(keyboardShortcuts()));
     helpTooBar->addAction(keyboardShortcutsAction);
 

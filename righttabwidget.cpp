@@ -46,11 +46,21 @@ void RightTabWidget::showContextMenu(const QPoint &point)
     {
         return;
     }
-    QAction closeAction(tr("&Close"), this->widget(index));
-    connect(&closeAction, SIGNAL(triggered()), this, SLOT(close()));
+    QWidget *selectedWidget = this->widget(index);
 
     QMenu menu(this);
+
+    QAction closeAction(tr("&Close"), selectedWidget);
+    connect(&closeAction, SIGNAL(triggered()), this, SLOT(close()));
     menu.addAction(&closeAction);
+
+    QAction closeOthersAction(tr("Close &Others"), selectedWidget);
+    connect(&closeOthersAction, SIGNAL(triggered()), this, SLOT(closeOthers()));
+    if(this->count() > 1)
+    {
+        menu.addAction(&closeOthersAction);
+    }
+
     menu.exec(tabBar->mapToGlobal(point));
 }
 
@@ -60,6 +70,21 @@ void RightTabWidget::close()
     QObject *parent = object->parent(); //webview
     int index = this->indexOf((QWidget*)parent);
     this->close(index);
+}
+
+void RightTabWidget::closeOthers()
+{
+    QObject *object = sender(); //action
+    QObject *parent = object->parent(); //webview
+    int index = this->indexOf((QWidget*)parent);
+    for(int i = this->count() - 1; i >= 0; i--)
+    {
+        if(i == index)
+        {
+            continue;
+        }
+        this->close(i);
+    }
 }
 
 void RightTabWidget::close(int index)

@@ -14,6 +14,7 @@ public:
 private slots:
     void close();
     void close(int index);
+    void closeOthers();
     void copy();
     void paste();
     void cut();
