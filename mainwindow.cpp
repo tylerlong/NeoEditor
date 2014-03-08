@@ -185,6 +185,10 @@ void MainWindow::openFile(QModelIndex modelIndex)
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/xml.png"));
     }
+    else if(filePath.endsWith(".ts"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/typescript.ico"));
+    }
     else
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/text-x-generic.svg"));

@@ -17,5 +17,6 @@
         <file>images/preferences-desktop-keyboard-shortcuts.svg</file>
         <file>images/text-x-generic.svg</file>
         <file>images/xml.png</file>
+        <file>images/typescript.ico</file>
     </qresource>
 </RCC>
