@@ -2,7 +2,7 @@
 
 An extensible text editor for the 21st Century.
 
-![NeoEditor](https://2.gravatar.com/avatar/4ef64cee069318ccce191f598d4bc294?s=256)
+![NeoEditor](https://2.gravatar.com/avatar/4ef64cee069318ccce191f598d4bc294?s=128)
 
 
 ## screenshots
