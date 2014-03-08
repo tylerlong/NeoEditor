@@ -117,7 +117,7 @@ QString WebView::escapeJavascriptString(const QString &input)
     return output;
 }
 
-void WebView::contextMenuEvent(QContextMenuEvent *ev)
+void WebView::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
 {
-    ev->accept();
+    contextMenuEvent->accept();
 }

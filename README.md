@@ -70,6 +70,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     2. if folder opened, show folder path
     3. show "an extensible editor for the 21st Century"
 47. context menu to close, close all, close other.. etc
+    1. I want menu on tabs only
 50. fork ACE and write code there
     1. ensure_newline_at_eof
     2. Or I can create a repo and write extension for ACE
