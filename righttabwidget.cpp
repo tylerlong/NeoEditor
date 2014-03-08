@@ -40,18 +40,17 @@ RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(
 
 void RightTabWidget::showContextMenu(const QPoint &point)
 {
-    if(point.isNull())
+    QTabBar *tabBar = this->tabBar();
+    int index = tabBar->tabAt(point);
+    if(index == -1)
     {
         return;
     }
-
-    QTabBar *tabBar = this->tabBar();
-    int index = tabBar->tabAt(point);
-    QAction *closeAction = new QAction(tr("&Close"), this->widget(index));
-    connect(closeAction, SIGNAL(triggered()), this, SLOT(close()));
+    QAction closeAction(tr("&Close"), this->widget(index));
+    connect(&closeAction, SIGNAL(triggered()), this, SLOT(close()));
 
     QMenu menu(this);
-    menu.addAction(closeAction);
+    menu.addAction(&closeAction);
     menu.exec(tabBar->mapToGlobal(point));
 }
 
