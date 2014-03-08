@@ -32,6 +32,20 @@ RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(
 
     QMainWindow *mainWindow = (QMainWindow*) parent;
     mainWindow->addToolBar(Qt::LeftToolBarArea, editToolBar);
+
+    QTabBar *tabBar = this->tabBar();
+    QAction *closeAction = new QAction(tr("&Close"), tabBar);
+    connect(closeAction, SIGNAL(triggered()), this, SLOT(close()));
+    tabBar->addAction(closeAction);
+    tabBar->setContextMenuPolicy(Qt::ActionsContextMenu);
+}
+
+void RightTabWidget::close()
+{
+    QObject *object = sender();
+    QObject *parent = object->parent();
+    qDebug() << object;
+    qDebug() << parent;
 }
 
 void RightTabWidget::close(int index)

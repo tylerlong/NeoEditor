@@ -12,6 +12,7 @@ public:
     RightTabWidget(QWidget *parent, QApplication *app);
 
 private slots:
+    void close();
     void close(int index);
     void copy();
     void paste();
