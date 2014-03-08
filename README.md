@@ -5,20 +5,11 @@ An extensible text editor for the 21st Century.
 ![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot.png)
 
 
-
 ## Installation
 
 Currently there is no binary distribution packages available.
 
 You'd have to install [Qt](http://qt-project.org/downloads) and compile the source code yourself.
-
-
-## Donate
-
-Buy me a cup of coffee:
-
-https://me.alipay.com/tylerlong
-
 
 
 ## todo list
@@ -80,5 +71,4 @@ https://me.alipay.com/tylerlong
 85. drag & drop tp move folder
 86. i18n
     1. not urgent
-87. add paypal(or any other good one) donation link
 88. tbc
