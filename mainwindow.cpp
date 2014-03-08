@@ -152,28 +152,40 @@ void MainWindow::openFile(QModelIndex modelIndex)
     if(filePath.endsWith(".rb"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/ruby.png"));
-    }else if(filePath.endsWith(".py"))
+    }
+    else if(filePath.endsWith(".py"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/python.ico"));
-    }else if(filePath.endsWith(".java"))
+    }
+    else if(filePath.endsWith(".java"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/java.png"));
-    }else if(filePath.endsWith(".js"))
+    }
+    else if(filePath.endsWith(".js"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/javascript.png"));
-    }else if(filePath.endsWith(".php"))
+    }
+    else if(filePath.endsWith(".php"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/php.png"));
-    }else if(filePath.endsWith(".css"))
+    }
+    else if(filePath.endsWith(".css"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/css3.png"));
-    }else if(filePath.endsWith(".as"))
+    }
+    else if(filePath.endsWith(".as"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/flash.jpg"));
-    }else if(filePath.endsWith(".html") || filePath.endsWith(".htm"))
+    }
+    else if(filePath.endsWith(".html") || filePath.endsWith(".htm"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/html5.png"));
-    }else
+    }
+    else if(filePath.endsWith(".xml"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/xml.png"));
+    }
+    else
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/text-x-generic.svg"));
     }

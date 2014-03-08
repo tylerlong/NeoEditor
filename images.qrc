@@ -16,5 +16,6 @@
         <file>images/edit-paste.svg</file>
         <file>images/preferences-desktop-keyboard-shortcuts.svg</file>
         <file>images/text-x-generic.svg</file>
+        <file>images/xml.png</file>
     </qresource>
 </RCC>
