@@ -17,5 +17,4 @@ RESOURCES += \
     html.qrc \
     javascript.qrc \
     images.qrc \
-    other.qrc \
     fonts.qrc
