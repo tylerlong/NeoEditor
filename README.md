@@ -5,6 +5,22 @@ An extensible text editor for the 21st Century.
 ![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot.png)
 
 
+
+## Installation
+
+Currently there is no binary distribution packages available.
+
+You'd have to install [Qt](http://qt-project.org/downloads) and compile the source code yourself.
+
+
+## Donate
+
+Buy me a cup of coffee:
+
+https://me.alipay.com/tylerlong
+
+
+
 ## todo list
 
 5. remember opened folders and files (and other things, such as window size, panel size...etc)
@@ -47,9 +63,6 @@ An extensible text editor for the 21st Century.
 60. detect file change and reload file
 61. integrate terminal
     1. this is great while it's very hard
-64. make it open source
-    1. alipay receive money link
-    2. add screenshot to readme file
 65. double click selection behaviour not the same as other editors.
 71. more language icons
 72. switch tabs, change file highlight in left file tree.
@@ -67,4 +80,5 @@ An extensible text editor for the 21st Century.
 85. drag & drop tp move folder
 86. i18n
     1. not urgent
-87.
+87. add paypal(or any other good one) donation link
+88. tbc
