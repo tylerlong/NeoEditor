@@ -2,6 +2,8 @@
 
 An extensible text editor for the 21st Century.
 
+![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot.png)
+
 
 ## todo list
 
