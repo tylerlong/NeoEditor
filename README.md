@@ -99,4 +99,5 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 85. drag & drop to move folder
 86. i18n
     1. not urgent
-88. tbc
+88. use command line + NeoEditor to write NeoEditor, get rid of qtcreator
+89. tbc
