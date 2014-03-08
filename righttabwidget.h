@@ -17,6 +17,7 @@ private slots:
     void copy();
     void paste();
     void cut();
+    void showContextMenu(const QPoint &point);
 
 private:
     QApplication *app;

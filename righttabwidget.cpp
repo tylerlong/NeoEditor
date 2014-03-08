@@ -34,22 +34,41 @@ RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(
     mainWindow->addToolBar(Qt::LeftToolBarArea, editToolBar);
 
     QTabBar *tabBar = this->tabBar();
-    QAction *closeAction = new QAction(tr("&Close"), tabBar);
+    tabBar->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(tabBar, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(showContextMenu(const QPoint &)));
+}
+
+void RightTabWidget::showContextMenu(const QPoint &point)
+{
+    if(point.isNull())
+    {
+        return;
+    }
+
+    QTabBar *tabBar = this->tabBar();
+    int index = tabBar->tabAt(point);
+    QAction *closeAction = new QAction(tr("&Close"), this->widget(index));
     connect(closeAction, SIGNAL(triggered()), this, SLOT(close()));
-    tabBar->addAction(closeAction);
-    tabBar->setContextMenuPolicy(Qt::ActionsContextMenu);
+
+    QMenu menu(this);
+    menu.addAction(closeAction);
+    menu.exec(tabBar->mapToGlobal(point));
 }
 
 void RightTabWidget::close()
 {
-    QObject *object = sender();
-    QObject *parent = object->parent();
-    qDebug() << object;
-    qDebug() << parent;
+    QObject *object = sender(); //action
+    QObject *parent = object->parent(); //webview
+    int index = this->indexOf((QWidget*)parent);
+    this->close(index);
 }
 
 void RightTabWidget::close(int index)
 {
+    if(this->widget(index) == 0)
+    {
+        return;
+    }
     if(this->tabText(index).startsWith("* "))
     {
         int r = QMessageBox::warning(this, tr("NeoEditor"), tr("The file has been modified.\n Do you want to save your changes?"), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
