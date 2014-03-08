@@ -5,19 +5,41 @@ An extensible text editor for the 21st Century.
 ![NeoEditor](https://2.gravatar.com/avatar/4ef64cee069318ccce191f598d4bc294?s=128)
 
 
-## screenshots
+## Screenshots
 
 ![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot.png)
+![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot2.png)
+
+
+## Features
+
+- desktop application based on web technologies, same as [Atom](https://atom.io/).
+- simple and clean source code. (LOC <= 600).
+- based on experience. The author of NewEditor is also the author of [slim text] (http://slimtext.org/).
+- built with extensibility in mind. In the long run, users will be able to extend the editor via [DSL](http://en.wikipedia.org/wiki/Domain-specific_language)
 
 
 ## Installation
 
-Currently there is no binary distribution packages available.
+Currently there is no binary distribution package available.
 
 You'd have to install [Qt](http://qt-project.org/downloads) and compile the source code yourself.
 
 
-## todo list
+## Built with
+
+- [Qt](http://qt-project.org/) 5.2.1
+- [Ace](http://ace.c9.io/) [package 02.28.2014](https://github.com/ajaxorg/ace-builds/commit/88f0661bc2b7118e2697d42e36f0985e5edfa5a1)
+- [Ubuntu Mono font](http://font.ubuntu.com/)
+- [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library)
+
+
+## Software license
+
+[GPL](http://www.gnu.org/licenses/gpl.html)
+
+
+## Todo list
 
 5. remember opened folders and files (and other things, such as window size, panel size...etc)
     1. saveSetting and readSettings
@@ -70,10 +92,10 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 79. rename file
 80. rename folder
 81. delete file
-82. delte folder
+82. delete folder
 83. quick open file (ctrl + p)
 84. drag & drop to move file
-85. drag & drop tp move folder
+85. drag & drop to move folder
 86. i18n
     1. not urgent
 88. tbc
