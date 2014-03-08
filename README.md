@@ -4,6 +4,9 @@ An extensible text editor for the 21st Century.
 
 ![NeoEditor](https://2.gravatar.com/avatar/4ef64cee069318ccce191f598d4bc294?s=256)
 
+
+## screenshots
+
 ![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot.png)
 
 
