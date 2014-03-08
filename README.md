@@ -26,11 +26,9 @@ An extensible text editor for the 21st Century.
 35. style the whole app according to monokai style
     1. then not only the right panel, then whole app can have a consistent look and feel.
 36. treeView don't show folder and file icons
-39. What does `tr` mean in `tr("some text")`?
 41. disable splitter round corner
     1. not easy
 42. change "Close Tab" to "Close Folder" and "Close File"
-43. about dialog icon size
 46. change app title text -- necessary, user don't need to check tooltip for whole file path
     1. if file opened, show file path
     2. if folder opened, show folder path
@@ -40,6 +38,8 @@ An extensible text editor for the 21st Century.
     1. ensure_newline_at_eof
     2. Or I can create a repo and write extension for ACE
         1. a faster way to add new features to ACE
+        2. there are examples about how to write ACE extensions
+        3. maybe this is the key that how can I make the editor extensible
 54. prompt to save before exit if changed
 59. change all the cross class method calls to use signal/slot ?
 60. detect file change and reload file
@@ -52,6 +52,17 @@ An extensible text editor for the 21st Century.
 71. more language icons
 72. switch tabs, change file highlight in left file tree.
 73. drag & drop to reorder tabs
-74. tweak toolbar icon orders
-75. add help toolbar, show keyboard shortcuts link and about action
-76.
+76. alt + tab icon size too small
+    1. different os different behavior
+77. create file
+78. create folder
+79. rename file
+80. rename folder
+81. delete file
+82. delte folder
+83. quick open file (ctrl + p)
+84. drag & drop to move file
+85. drag & drop tp move folder
+86. i18n
+    1. not urgent
+87.
