@@ -53,4 +53,5 @@ An extensible text editor for the 21st Century.
 72. switch tabs, change file highlight in left file tree.
 73. drag & drop to reorder tabs
 74. tweak toolbar icon orders
-75.
+75. add help toolbar, show keyboard shortcuts link and about action
+76.

@@ -19,10 +19,10 @@ MainWindow::MainWindow(QApplication *app)
 
     //style
     this->setStyleSheet("QTreeView { border: 0; } QTabWidget { border: 0; }");
+    this->setContextMenuPolicy(Qt::NoContextMenu);
 
     //tool bar
     QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
-    this->setContextMenuPolicy(Qt::NoContextMenu);
     this->addToolBar(Qt::LeftToolBarArea, fileToolBar);
 
     QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
@@ -39,19 +39,28 @@ MainWindow::MainWindow(QApplication *app)
     connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
     fileToolBar->addAction(saveFileAction);
 
+    //right panel
+    rightTabWidget = new RightTabWidget(this, app);
+
+    QToolBar *helpTooBar = new QToolBar(tr("&Help"), this);
+    this->addToolBar(Qt::LeftToolBarArea, helpTooBar);
+
+    QAction *keyboardShortcutsAction = new QAction(tr("&Keyboard shortcuts"), this);
+    keyboardShortcutsAction->setIcon(QIcon(":/images/preferences-desktop-keyboard-shortcuts.svg"));
+    keyboardShortcutsAction->setStatusTip("Keyboard shortcuts");
+    connect(keyboardShortcutsAction, SIGNAL(triggered()), this, SLOT(keyboardShortcuts()));
+    helpTooBar->addAction(keyboardShortcutsAction);
+
     QAction *aboutAction = new QAction(tr("&About NeoEditor"), this);
     aboutAction->setIcon(QIcon(":/images/neo.png"));
     aboutAction->setStatusTip("About NeoEditor");
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(about()));
-    fileToolBar->addAction(aboutAction);
+    helpTooBar->addAction(aboutAction);
 
     //left panel
     leftTabWidget = new QTabWidget(this);
     leftTabWidget->setTabsClosable(true);
     connect(leftTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeLeftTab(int)));
-
-    //right panel
-    rightTabWidget = new RightTabWidget(this, app);
 
     //layout
     splitter = new QSplitter(Qt::Horizontal);
@@ -166,7 +175,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
         rightTabWidget->setTabIcon(index, QIcon(":/images/html5.png"));
     }else
     {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/neo.png"));
+        rightTabWidget->setTabIcon(index, QIcon(":/images/text-x-generic.svg"));
     }
 }
 
@@ -178,4 +187,9 @@ void MainWindow::closeLeftTab(int index)
 void MainWindow::about()
 {
     QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.1.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/tylerlong\">Tyler Long</a> (tyler4long@gmail.com). All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
+}
+
+void MainWindow::keyboardShortcuts()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts"));
 }

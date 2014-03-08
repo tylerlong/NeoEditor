@@ -17,6 +17,7 @@ private slots:
     void openFile(QModelIndex modelIndex);
     void closeLeftTab(int index);
     void about();
+    void keyboardShortcuts();
 
 private:
     void showFolderTree(QString folderPath);
