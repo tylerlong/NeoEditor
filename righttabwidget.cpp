@@ -61,6 +61,13 @@ void RightTabWidget::showContextMenu(const QPoint &point)
         menu.addAction(&closeOthersAction);
     }
 
+    QAction closeTabsToTheRightAction(tr("Close Tabs to the &Right"), selectedWidget);
+    connect(&closeTabsToTheRightAction, SIGNAL(triggered()), this, SLOT(closeTabsToTheRight()));
+    if(this->count() > index + 1)
+    {
+        menu.addAction(&closeTabsToTheRightAction);
+    }
+
     menu.exec(tabBar->mapToGlobal(point));
 }
 
@@ -83,6 +90,17 @@ void RightTabWidget::closeOthers()
         {
             continue;
         }
+        this->close(i);
+    }
+}
+
+void RightTabWidget::closeTabsToTheRight()
+{
+    QObject *object = sender(); //action
+    QObject *parent = object->parent(); //webview
+    int index = this->indexOf((QWidget*)parent);
+    for(int i = this->count() - 1; i > index; i--)
+    {
         this->close(i);
     }
 }

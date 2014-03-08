@@ -15,6 +15,7 @@ private slots:
     void close();
     void close(int index);
     void closeOthers();
+    void closeTabsToTheRight();
     void copy();
     void paste();
     void cut();
