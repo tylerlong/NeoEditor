@@ -18,5 +18,6 @@
         <file>images/text-x-generic.svg</file>
         <file>images/xml.png</file>
         <file>images/typescript.ico</file>
+        <file>images/markdown.png</file>
     </qresource>
 </RCC>

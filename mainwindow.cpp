@@ -42,6 +42,7 @@ MainWindow::MainWindow(QApplication *app)
 
     //right panel
     rightTabWidget = new RightTabWidget(this, app);
+    rightTabWidget->tabBar()->setIconSize(QSize(20, 20));
 
     QToolBar *helpToolBar = new QToolBar(tr("&Help"), this);
     helpToolBar->setObjectName("helpToolBar");
@@ -197,6 +198,10 @@ void MainWindow::openFile(QString filePath)
     else if(filePath.endsWith(".ts"))
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/typescript.ico"));
+    }
+    else if(filePath.endsWith(".md"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/markdown.png"));
     }
     else
     {
