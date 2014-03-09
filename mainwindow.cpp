@@ -107,9 +107,7 @@ void MainWindow::showFolderTree(QString folderPath)
     }
     for(int i = 0; i < leftTabWidget->count(); i++)
     {
-        QTreeView *treeView = (QTreeView*)leftTabWidget->widget(i);
-        QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
-        if(folderPath == fileSystemModel->rootPath())
+        if(folderPath == leftTabWidget->tabToolTip(i))
         {
             leftTabWidget->setCurrentIndex(i);
             return;
@@ -148,8 +146,7 @@ void MainWindow::openFile(QString filePath)
     }
     for(int i = 0; i < rightTabWidget->count(); i++)
     {
-        WebView *webView = (WebView*)rightTabWidget->widget(i);
-        if(filePath == webView->filePath())
+        if(filePath == rightTabWidget->tabToolTip(i))
         {
             rightTabWidget->setCurrentIndex(i);
             return;
