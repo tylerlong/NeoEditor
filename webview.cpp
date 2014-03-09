@@ -73,7 +73,7 @@ QString WebView::cut()
 void WebView::init()
 {
     QString filePath = this->mFilePath;
-    this->page()->mainFrame()->evaluateJavaScript(QString("editor.getSession().setMode(modelist.getModeForPath('%1').mode);null;").arg(escapeJavascriptString(filePath)));
+    this->page()->mainFrame()->evaluateJavaScript(QString("setTimeout(function(){editor.getSession().setMode(modelist.getModeForPath('%1').mode);}, 50);null;").arg(escapeJavascriptString(filePath)));
     QFile file(filePath);
     if(!file.open(QIODevice::ReadOnly))
     {
@@ -81,10 +81,10 @@ void WebView::init()
     }
     QString content = QString(file.readAll());
     file.close();
-    this->page()->mainFrame()->evaluateJavaScript(QString("editor.setValue('%1', -1);null;").arg(escapeJavascriptString(content)));
+    this->page()->mainFrame()->evaluateJavaScript(QString("setTimeout(function(){editor.setValue('%1', -1);}, 50);null;").arg(escapeJavascriptString(content)));
     this->page()->mainFrame()->evaluateJavaScript(tr("editor.focus();null;"));
     this->page()->mainFrame()->addToJavaScriptWindowObject("qt", this);
-    this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
+    this->page()->mainFrame()->evaluateJavaScript(tr("setTimeout(function(){editor.getSession().on('change', qt.change);}, 100);null;"));
 }
 
 QString WebView::escapeJavascriptString(const QString &input)
