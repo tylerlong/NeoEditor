@@ -24,6 +24,8 @@ private slots:
 
 private:
     void showFolderTree(QString folderPath);
+    void writeSettings();
+    void readSettings();
     QSplitter *splitter;
     QTabWidget *leftTabWidget;
     QTabWidget *rightTabWidget;

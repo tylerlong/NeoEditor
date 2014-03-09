@@ -72,6 +72,8 @@ MainWindow::MainWindow(QApplication *app)
     list << 256 << 1; //right panel takes all the extra space
     splitter->setSizes(list);
     splitter->setHandleWidth(1);
+
+    readSettings();
 }
 
 void MainWindow::openFolder()
@@ -218,10 +220,21 @@ void MainWindow::closeEvent(QCloseEvent *closeEvent)
     }
     if(rightTabWidget->count() == 0)
     {
+        writeSettings();
         closeEvent->accept();
     }
     else
     {
         closeEvent->ignore();
     }
+}
+
+void MainWindow::writeSettings()
+{
+    qDebug() << "write settings";
+}
+
+void MainWindow::readSettings()
+{
+    qDebug() << "read settings";
 }

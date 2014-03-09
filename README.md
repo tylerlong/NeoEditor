@@ -15,7 +15,8 @@ An extensible text editor for the 21st Century.
 - desktop application based on web technologies, same as [Atom](https://atom.io/).
 - simple and clean source code. (LOC <= 800).
 - based on experience. The author of NewEditor is also the author of [slim text] (http://slimtext.org/).
-- built with extensibility in mind. In the long run, users will be able to extend the editor via [DSL](http://en.wikipedia.org/wiki/Domain-specific_language)
+- built with extensibility in mind. In the long run, users will be able to extend the editor via [DSL](http://en.wikipedia.org/wiki/Domain-specific_language).
+- cross-platform: Windows, Linux/X11, Mac OS X.
 
 
 ## Installation
