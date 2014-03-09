@@ -41,8 +41,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 
 ## Todo list
 
-5. remember opened folders and files (and other things, such as window size, panel size...etc)
-    1. saveSetting and readSettings
 11. check memory leak, avoid using keyword `new`
 12. handle binary files
 26. create installer for ubuntu
