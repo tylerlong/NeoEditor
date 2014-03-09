@@ -11,6 +11,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QApplication *app);
 
+protected:
+    void closeEvent(QCloseEvent *closeEvent);
+
 private slots:
     void openFolder();
     void saveFile();

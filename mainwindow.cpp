@@ -209,3 +209,19 @@ void MainWindow::keyboardShortcuts()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts"));
 }
+
+void MainWindow::closeEvent(QCloseEvent *closeEvent)
+{
+    for(int i = rightTabWidget->count() - 1; i >= 0 ; i--)
+    {
+        emit rightTabWidget->tabCloseRequested(i);
+    }
+    if(rightTabWidget->count() == 0)
+    {
+        closeEvent->accept();
+    }
+    else
+    {
+        closeEvent->ignore();
+    }
+}
