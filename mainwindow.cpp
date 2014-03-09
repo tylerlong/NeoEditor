@@ -23,6 +23,7 @@ MainWindow::MainWindow(QApplication *app)
 
     //tool bar
     QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
+    fileToolBar->setObjectName("fileToolBar");
     this->addToolBar(Qt::LeftToolBarArea, fileToolBar);
 
     QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
@@ -42,20 +43,21 @@ MainWindow::MainWindow(QApplication *app)
     //right panel
     rightTabWidget = new RightTabWidget(this, app);
 
-    QToolBar *helpTooBar = new QToolBar(tr("&Help"), this);
-    this->addToolBar(Qt::LeftToolBarArea, helpTooBar);
+    QToolBar *helpToolBar = new QToolBar(tr("&Help"), this);
+    helpToolBar->setObjectName("helpToolBar");
+    this->addToolBar(Qt::LeftToolBarArea, helpToolBar);
 
     QAction *keyboardShortcutsAction = new QAction(tr("&Keyboard Shortcuts"), this);
     keyboardShortcutsAction->setIcon(QIcon(":/images/preferences-desktop-keyboard-shortcuts.svg"));
     keyboardShortcutsAction->setStatusTip("Keyboard Shortcuts");
     connect(keyboardShortcutsAction, SIGNAL(triggered()), this, SLOT(keyboardShortcuts()));
-    helpTooBar->addAction(keyboardShortcutsAction);
+    helpToolBar->addAction(keyboardShortcutsAction);
 
     QAction *aboutAction = new QAction(tr("&About NeoEditor"), this);
     aboutAction->setIcon(QIcon(":/images/neo.png"));
     aboutAction->setStatusTip("About NeoEditor");
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(about()));
-    helpTooBar->addAction(aboutAction);
+    helpToolBar->addAction(aboutAction);
 
     //left panel
     leftTabWidget = new QTabWidget(this);
@@ -233,6 +235,7 @@ void MainWindow::writeSettings()
 {
     QSettings settings("https://github.com/orgs/NeoEditor", "NeoEditor");
     settings.setValue("geometry", saveGeometry());
+    settings.setValue("mainWindowState", this->saveState());
     settings.setValue("splitterState", splitter->saveState());
 }
 
@@ -240,5 +243,6 @@ void MainWindow::readSettings()
 {
     QSettings settings("https://github.com/orgs/NeoEditor", "NeoEditor");
     restoreGeometry(settings.value("geometry").toByteArray());
+    this->restoreState(settings.value("mainWindowState").toByteArray());
     splitter->restoreState(settings.value("splitterState").toByteArray());
 }

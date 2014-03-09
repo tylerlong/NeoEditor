@@ -8,6 +8,7 @@ RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));
 
     QToolBar *editToolBar = new QToolBar(tr("&Edit"), this);
+    editToolBar->setObjectName("editToolBar");
 
     QAction *cutAction = new QAction(tr("Cu&t"), this);
     cutAction->setIcon(QIcon(":/images/edit-cut.svg"));
