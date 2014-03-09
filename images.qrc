@@ -19,5 +19,6 @@
         <file>images/xml.png</file>
         <file>images/typescript.ico</file>
         <file>images/markdown.png</file>
+        <file>images/svg.svg</file>
     </qresource>
 </RCC>

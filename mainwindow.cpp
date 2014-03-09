@@ -203,6 +203,10 @@ void MainWindow::openFile(QString filePath)
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/markdown.png"));
     }
+    else if(filePath.endsWith(".svg"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/svg.svg"));
+    }
     else
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/text-x-generic.svg"));
