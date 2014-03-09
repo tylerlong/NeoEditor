@@ -113,7 +113,9 @@ void RightTabWidget::close(int index)
     }
     if(this->tabText(index).startsWith("* "))
     {
-        int r = QMessageBox::warning(this, tr("NeoEditor"), tr("The file has been modified.\n Do you want to save your changes?"), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+        int r = QMessageBox::warning(this, tr("NeoEditor"),
+                                     QString("%1 has been modified.\n Do you want to save your changes?").arg(((WebView*)this->widget(index))->filePath()),
+                                     QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
         if(r == QMessageBox::Cancel)
         {
             return;

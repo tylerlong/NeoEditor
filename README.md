@@ -65,7 +65,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
         2. there are examples about how to write ACE extensions
         3. maybe this is the key that how can I make the editor extensible
         4. yes, write ext in org NeoEditor on Github
-54. prompt to save before exit if changed
 59. change all the cross class method calls to use signal/slot ?
 60. detect file change and reload file
 61. integrate terminal
