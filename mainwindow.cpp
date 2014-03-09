@@ -233,10 +233,12 @@ void MainWindow::writeSettings()
 {
     QSettings settings("https://github.com/orgs/NeoEditor", "NeoEditor");
     settings.setValue("geometry", saveGeometry());
+    settings.setValue("splitterState", splitter->saveState());
 }
 
 void MainWindow::readSettings()
 {
     QSettings settings("https://github.com/orgs/NeoEditor", "NeoEditor");
     restoreGeometry(settings.value("geometry").toByteArray());
+    splitter->restoreState(settings.value("splitterState").toByteArray());
 }
