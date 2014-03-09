@@ -216,13 +216,13 @@ void MainWindow::keyboardShortcuts()
 
 void MainWindow::closeEvent(QCloseEvent *closeEvent)
 {
+    writeSettings();
     for(int i = rightTabWidget->count() - 1; i >= 0 ; i--)
     {
         emit rightTabWidget->tabCloseRequested(i);
     }
     if(rightTabWidget->count() == 0)
     {
-        writeSettings();
         closeEvent->accept();
     }
     else
@@ -237,6 +237,13 @@ void MainWindow::writeSettings()
     settings.setValue("geometry", saveGeometry());
     settings.setValue("mainWindowState", this->saveState());
     settings.setValue("splitterState", splitter->saveState());
+
+    QStringList openedFiles;
+    for(int i = 0; i < leftTabWidget->count(); i++)
+    {
+        openedFiles << leftTabWidget->tabToolTip(i);
+    }
+    settings.setValue("openedFolders", openedFiles);
 }
 
 void MainWindow::readSettings()
@@ -245,4 +252,9 @@ void MainWindow::readSettings()
     restoreGeometry(settings.value("geometry").toByteArray());
     this->restoreState(settings.value("mainWindowState").toByteArray());
     splitter->restoreState(settings.value("splitterState").toByteArray());
+    QStringList openedFolders = settings.value("openedFolders").toStringList();
+    for(int i = 0; i < openedFolders.count(); i++)
+    {
+        showFolderTree(openedFolders[i]);
+    }
 }
