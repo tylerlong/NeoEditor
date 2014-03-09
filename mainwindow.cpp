@@ -248,6 +248,8 @@ void MainWindow::writeSettings()
         openedFiles << leftTabWidget->tabToolTip(i);
     }
     settings.setValue("openedFolders", openedFiles);
+
+    settings.setValue("currentFolder", leftTabWidget->tabToolTip(leftTabWidget->currentIndex()));
 }
 
 void MainWindow::readSettings()
@@ -260,5 +262,14 @@ void MainWindow::readSettings()
     for(int i = 0; i < openedFolders.count(); i++)
     {
         showFolderTree(openedFolders[i]);
+    }
+
+    QString currentFolder = settings.value("currentFolder").toString();
+    for(int i = 0; i < leftTabWidget->count(); i++)
+    {
+        if(currentFolder == leftTabWidget->tabToolTip(i))
+        {
+            leftTabWidget->setCurrentIndex(i);
+        }
     }
 }
