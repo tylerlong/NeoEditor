@@ -100,7 +100,8 @@ void MainWindow::saveFile()
 
 void MainWindow::showFolderTree(QString folderPath)
 {
-    if(!QDir(folderPath).exists())
+    QDir dir(folderPath);
+    if(!dir.exists() || !dir.isAbsolute() || !dir.isReadable())
     {
         return;
     }
@@ -135,13 +136,16 @@ void MainWindow::openFile(QModelIndex modelIndex)
 {
     QTreeView *treeView = (QTreeView*)sender();
     QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
-    QFileInfo fileInfo = fileSystemModel->fileInfo(modelIndex);
-    if(!fileInfo.isFile() || !fileInfo.isReadable())
+    openFile(fileSystemModel->filePath(modelIndex));
+}
+
+void MainWindow::openFile(QString filePath)
+{
+    QFileInfo fileInfo(filePath);
+    if(!fileInfo.exists() || !fileInfo.isAbsolute() || !fileInfo.isFile() || !fileInfo.isReadable())
     {
         return;
     }
-    QString filePath = fileInfo.absoluteFilePath();
-
     for(int i = 0; i < rightTabWidget->count(); i++)
     {
         WebView *webView = (WebView*)rightTabWidget->widget(i);
