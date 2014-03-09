@@ -249,13 +249,22 @@ void MainWindow::writeSettings()
     settings.setValue("splitterState", splitter->saveState());
 
     //left panel
-    QStringList openedFiles;
+    QStringList openedFolders;
     for(int i = 0; i < leftTabWidget->count(); i++)
     {
-        openedFiles << leftTabWidget->tabToolTip(i);
+        openedFolders << leftTabWidget->tabToolTip(i);
     }
-    settings.setValue("openedFolders", openedFiles);
+    settings.setValue("openedFolders", openedFolders);
     settings.setValue("currentFolder", leftTabWidget->tabToolTip(leftTabWidget->currentIndex()));
+
+    //rightPanel
+    QStringList openedFiles;
+    for(int i = 0; i < rightTabWidget->count(); i++)
+    {
+        openedFiles << rightTabWidget->tabToolTip(i);
+    }
+    settings.setValue("openedFiles", openedFiles);
+    settings.setValue("currentFile", rightTabWidget->tabToolTip(rightTabWidget->currentIndex()));
 }
 
 void MainWindow::readSettings()
@@ -279,6 +288,23 @@ void MainWindow::readSettings()
         if(currentFolder == leftTabWidget->tabToolTip(i))
         {
             leftTabWidget->setCurrentIndex(i);
+            break;
+        }
+    }
+
+    //right panel
+    QStringList openedFiles = settings.value("openedFiles").toStringList();
+    for(int i = 0; i < openedFiles.count(); i++)
+    {
+        openFile(openedFiles[i]);
+    }
+    QString currentFile = settings.value("currentFile").toString();
+    for(int i = 0; i< rightTabWidget->count(); i++)
+    {
+        if(currentFile == rightTabWidget->tabToolTip(i))
+        {
+            rightTabWidget->setCurrentIndex(i);
+            break;
         }
     }
 }
