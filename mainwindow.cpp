@@ -238,32 +238,37 @@ void MainWindow::closeEvent(QCloseEvent *closeEvent)
 void MainWindow::writeSettings()
 {
     QSettings settings("https://github.com/orgs/NeoEditor", "NeoEditor");
+
+    //layout
     settings.setValue("geometry", saveGeometry());
     settings.setValue("mainWindowState", this->saveState());
     settings.setValue("splitterState", splitter->saveState());
 
+    //left panel
     QStringList openedFiles;
     for(int i = 0; i < leftTabWidget->count(); i++)
     {
         openedFiles << leftTabWidget->tabToolTip(i);
     }
     settings.setValue("openedFolders", openedFiles);
-
     settings.setValue("currentFolder", leftTabWidget->tabToolTip(leftTabWidget->currentIndex()));
 }
 
 void MainWindow::readSettings()
 {
     QSettings settings("https://github.com/orgs/NeoEditor", "NeoEditor");
+
+    //layout
     restoreGeometry(settings.value("geometry").toByteArray());
     this->restoreState(settings.value("mainWindowState").toByteArray());
     splitter->restoreState(settings.value("splitterState").toByteArray());
+
+    //left panel
     QStringList openedFolders = settings.value("openedFolders").toStringList();
     for(int i = 0; i < openedFolders.count(); i++)
     {
         showFolderTree(openedFolders[i]);
     }
-
     QString currentFolder = settings.value("currentFolder").toString();
     for(int i = 0; i < leftTabWidget->count(); i++)
     {
