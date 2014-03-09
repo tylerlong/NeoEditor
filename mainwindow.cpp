@@ -231,10 +231,12 @@ void MainWindow::closeEvent(QCloseEvent *closeEvent)
 
 void MainWindow::writeSettings()
 {
-    qDebug() << "write settings";
+    QSettings settings("NeoEditor", "NeoEditor");
+    settings.setValue("geometry", saveGeometry());
 }
 
 void MainWindow::readSettings()
 {
-    qDebug() << "read settings";
+    QSettings settings("NeoEditor", "NeoEditor");
+    restoreGeometry(settings.value("geometry").toByteArray());
 }
