@@ -207,6 +207,10 @@ void MainWindow::openFile(QString filePath)
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/svg.svg"));
     }
+    else if(filePath.endsWith(".cpp") || filePath.endsWith(".h"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/cplusplus.png"));
+    }
     else
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/text-x-generic.svg"));
