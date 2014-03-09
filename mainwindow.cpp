@@ -100,6 +100,10 @@ void MainWindow::saveFile()
 
 void MainWindow::showFolderTree(QString folderPath)
 {
+    if(!QDir(folderPath).exists())
+    {
+        return;
+    }
     for(int i = 0; i < leftTabWidget->count(); i++)
     {
         QTreeView *treeView = (QTreeView*)leftTabWidget->widget(i);
