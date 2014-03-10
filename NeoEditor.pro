@@ -6,12 +6,14 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     webview.cpp \
-    righttabwidget.cpp
+    righttabwidget.cpp \
+    treeview.cpp
 
 HEADERS += \
     mainwindow.h \
     webview.h \
-    righttabwidget.h
+    righttabwidget.h \
+    treeview.h
 
 RESOURCES += \
     html.qrc \

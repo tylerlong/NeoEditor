@@ -82,4 +82,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 84. drag & drop to move file
 85. drag & drop to move folder
 88. use command line + NeoEditor to write NeoEditor, get rid of qtcreator
-89. tbc
+89. add "vim mode", a toolbar button on the left with states
+90. left and right two toolbars, editing toolbar on the right, others on the left
+91. tbc

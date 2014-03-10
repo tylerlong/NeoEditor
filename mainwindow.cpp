@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "righttabwidget.h"
 #include "webview.h"
+#include "treeview.h"
 
 MainWindow::MainWindow(QApplication *app)
 {
@@ -115,7 +116,7 @@ void MainWindow::showFolderTree(QString folderPath)
         }
     }
 
-    QTreeView *treeView = new QTreeView(this);
+    TreeView *treeView = new TreeView(this);
     QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
     fileSystemModel->setRootPath(folderPath);
     treeView->setModel(fileSystemModel);
@@ -133,7 +134,7 @@ void MainWindow::showFolderTree(QString folderPath)
 
 void MainWindow::openFile(QModelIndex modelIndex)
 {
-    QTreeView *treeView = (QTreeView*)sender();
+    TreeView *treeView = (TreeView*)sender();
     QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
     openFile(fileSystemModel->filePath(modelIndex));
 }
