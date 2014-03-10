@@ -12,9 +12,6 @@ public:
     WebView(QWidget* parent, QString filePath);
     QString filePath();
     void save();
-    QString copy();
-    void paste(QString text);
-    QString cut();
 
 protected:
     void contextMenuEvent(QContextMenuEvent *contextMenuEvent);

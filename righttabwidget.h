@@ -16,9 +16,6 @@ private slots:
     void close(int index);
     void closeOthers();
     void closeTabsToTheRight();
-    void copy();
-    void paste();
-    void cut();
     void showContextMenu(const QPoint &point);
 
 private:

@@ -53,23 +53,6 @@ void WebView::save()
     this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
 }
 
-QString WebView::copy()
-{
-    return this->page()->mainFrame()->evaluateJavaScript(QString("editor.getCopyText();")).toString();
-}
-
-void WebView::paste(QString text)
-{
-    this->page()->mainFrame()->evaluateJavaScript(QString("editor.insert('%1');null;").arg(escapeJavascriptString(text)));
-}
-
-QString WebView::cut()
-{
-    QString text = this->page()->mainFrame()->evaluateJavaScript(QString("editor.getCopyText();")).toString();
-    this->page()->mainFrame()->evaluateJavaScript(QString("editor.insert('');null;"));
-    return text;
-}
-
 void WebView::init()
 {
     QString filePath = this->mFilePath;
