@@ -69,6 +69,8 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 61. integrate terminal
     1. this is great while it's very hard
 65. double click selection behaviour not the same as other editors.
+    1. might caused by userAgent identified as touch screen device.
+    2. this issue might be the same issue I met before about clipboard.
 71. more language icons
 72. switch tabs, change file highlight in left file tree.
 73. drag & drop to reorder tabs
@@ -88,7 +90,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     1. maybe I have to rewrite the copy/paste/cut part. editor has event listener for copy/paste
     2. listen to copy event of editor, and send text to system clipboard and it's done!
 92. show invisible files, otherwise cannot edit .gitignore .bashrc...etc
-93. upgrade ACE to latest version
 94. bug: presessing ESC inserts new character
 95. hide all binary files ? the editor cannot handle binary files anyway.
 96. tbc
