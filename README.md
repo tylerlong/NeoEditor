@@ -87,4 +87,8 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 91. copy and paste doesn't work for search / replace
     1. maybe I have to rewrite the copy/paste/cut part. editor has event listener for copy/paste
     2. listen to copy event of editor, and send text to system clipboard and it's done!
-92. tbc
+92. show invisible files, otherwise cannot edit .gitignore .bashrc...etc
+93. upgrade ACE to latest version
+94. bug: presessing ESC inserts new character
+95. hide all binary files ? the editor cannot handle binary files anyway.
+96. tbc
