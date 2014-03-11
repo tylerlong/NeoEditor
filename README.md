@@ -29,7 +29,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 ## Built with
 
 - [Qt](http://qt-project.org/) 5.2.1
-- [Ace](http://ace.c9.io/) [package 02.28.2014](https://github.com/ajaxorg/ace-builds/commit/88f0661bc2b7118e2697d42e36f0985e5edfa5a1)
+- [Ace](http://ace.c9.io/) [package 03.08.2014](https://github.com/ajaxorg/ace-builds/commit/fc9d2cae9fe8e6e95e74c86a31d21caadd8f9f39)
 - [Ubuntu Mono font](http://font.ubuntu.com/)
 - [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library)
 
