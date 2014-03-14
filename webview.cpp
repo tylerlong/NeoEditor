@@ -72,9 +72,12 @@ void WebView::init()
 
 void WebView::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
 {
-    QMenu *menu = this->page()->createStandardContextMenu();
-    menu->removeAction(this->pageAction(QWebPage::Reload));
-    menu->exec(mapToGlobal(contextMenuEvent->pos()));
+    QMenu menu;
+    menu.addAction(this->pageAction(QWebPage::Copy));
+    menu.addAction(this->pageAction(QWebPage::Cut));
+    menu.addAction(this->pageAction(QWebPage::Paste));
+    menu.addAction(this->pageAction(QWebPage::SelectAll));
+    menu.exec(mapToGlobal(contextMenuEvent->pos()));
 }
 
 QString WebView::escapeJavascriptString(const QString &input)

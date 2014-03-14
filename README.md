@@ -93,5 +93,4 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     1. if no selection, copy & cut don't make sense
     2. `direction` doesn't make sense
     3. if selected, select all doesn't make sense
-    4. right click before line numbers, context menu shown with "Reload" action
 101. tbc
