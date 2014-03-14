@@ -212,6 +212,18 @@ void MainWindow::openFile(QString filePath)
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/cplusplus.png"));
     }
+    else if(filePath.endsWith(".sql"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/sql.png"));
+    }
+    else if(filePath.endsWith(".ini"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/ini.png"));
+    }
+    else if(filePath.endsWith(".txt"))
+    {
+        rightTabWidget->setTabIcon(index, QIcon(":/images/txt.png"));
+    }
     else
     {
         rightTabWidget->setTabIcon(index, QIcon(":/images/text-x-generic.svg"));

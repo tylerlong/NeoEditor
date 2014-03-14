@@ -86,7 +86,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 92. show invisible files, otherwise cannot edit .gitignore .bashrc...etc
 94. bug: presessing ESC inserts new character
 95. hide all binary files ? the editor cannot handle binary files anyway.
-96. remove `direction` from WebView context menu
 97. bug: open file, rename file's folder, save file. cannot save
 98. auto complete, according to text in the same file. better than none. tab key to trigger?
 101. tbc

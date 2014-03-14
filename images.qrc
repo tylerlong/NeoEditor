@@ -21,5 +21,8 @@
         <file>images/markdown.png</file>
         <file>images/svg.svg</file>
         <file>images/cplusplus.png</file>
+        <file>images/sql.png</file>
+        <file>images/ini.png</file>
+        <file>images/txt.png</file>
     </qresource>
 </RCC>
