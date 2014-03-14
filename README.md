@@ -68,8 +68,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 60. detect file change and reload file
 61. integrate terminal
     1. this is great while it's very hard
-65. double click selection behaviour not the same as other editors.
-    1. I am sure that it's Ace's bug
 71. more language icons
 72. switch tabs, change file highlight in left file tree.
 73. drag & drop to reorder tabs
@@ -91,5 +89,9 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 96. remove `direction` from WebView context menu
 97. bug: open file, rename file's folder, save file. cannot save
 98. auto complete, according to text in the same file. better than none. tab key to trigger?
-99. right click before line numbers, context menu shown with "Reload" action
-100. tbc
+100. context menu issue
+    1. if no selection, copy & cut don't make sense
+    2. `direction` doesn't make sense
+    3. if selected, select all doesn't make sense
+    4. right click before line numbers, context menu shown with "Reload" action
+101. tbc

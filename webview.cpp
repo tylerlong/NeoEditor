@@ -70,6 +70,16 @@ void WebView::init()
     this->page()->mainFrame()->evaluateJavaScript(tr("setTimeout(function(){editor.getSession().on('change', qt.change);}, 100);null;"));
 }
 
+void WebView::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
+{
+    QWebView::contextMenuEvent(contextMenuEvent);
+//    QMenu *menu = this->page()->createStandardContextMenu();
+//    menu->removeAction(this->pageAction(QWebPage::Reload));
+//    menu->removeAction(this->pageAction(QWebPage::Reload));
+//    menu->exec(mapToGlobal(contextMenuEvent->pos()));
+////    contextMenuEvent->accept();
+}
+
 QString WebView::escapeJavascriptString(const QString &input)
 {
     QString output;

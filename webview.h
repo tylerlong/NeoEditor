@@ -13,6 +13,9 @@ public:
     QString filePath();
     void save();
 
+protected:
+    void contextMenuEvent(QContextMenuEvent *contextMenuEvent);
+
 protected slots:
     void debug(QString message);
     void change();
