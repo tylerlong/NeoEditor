@@ -89,4 +89,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 94. bug: presessing ESC inserts new character
 95. hide all binary files ? the editor cannot handle binary files anyway.
 96. remove `direction` from WebView context menu
-97. tbc
+97. bug: open file, rename file's folder, save file. cannot save
+98. auto complete, according to text in the same file. better than none. tab key to trigger?
+99. right click before line numbers, context menu shown with "Reload" action
+100. tbc
