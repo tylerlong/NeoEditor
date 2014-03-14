@@ -72,6 +72,12 @@ void WebView::init()
 
 void WebView::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
 {
+    double gutterWidth = this->page()->mainFrame()->evaluateJavaScript(tr("editor.renderer.$gutterLayer.gutterWidth;")).toDouble();
+    if(contextMenuEvent->pos().x() <= gutterWidth)
+    {
+        return;
+    }
+
     QMenu menu;
     QString selected = this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSelectedText();")).toString();
     if(selected.isEmpty())

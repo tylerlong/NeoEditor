@@ -88,4 +88,5 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 95. hide all binary files ? the editor cannot handle binary files anyway.
 97. bug: open file, rename file's folder, save file. cannot save
 98. auto complete, according to text in the same file. better than none. tab key to trigger?
-101. tbc
+101. don't show context menu if mouse over gutter
+102. tbc
