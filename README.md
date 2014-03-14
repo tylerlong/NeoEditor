@@ -41,8 +41,9 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 
 ## Todo list
 
-11. check memory leak, avoid using keyword `new`
-12. handle binary files
+11. Refactor C++ code
+    1. check memory leak, avoid using keyword `new`
+    2. change all the cross class method calls to use signal/slot ?
 26. create installer for ubuntu
     1. application icon background color (why is it green like Qt?) It's unity laucher's backlight
     2. there is specific functionality already in Ubuntu that enables apps to select any tile colour they like.
@@ -53,6 +54,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 32. show minimap
     1. QWebView take screenshot of the whole web page.
 33. handle exceptions (file not readable, not writable, binary file...etc).
+    1. bug: open file, rename file's folder, save file. cannot save
 46. change app title text -- necessary, user don't need to check tooltip for whole file path
     1. if file opened, show file path
     2. if folder opened, show folder path
@@ -64,7 +66,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
         2. there are examples about how to write ACE extensions
         3. maybe this is the key that how can I make the editor extensible
         4. yes, write ext in org NeoEditor on Github
-59. change all the cross class method calls to use signal/slot ?
 60. detect file change and reload file
 61. integrate terminal
     1. this is great while it's very hard
@@ -82,11 +83,13 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 85. drag & drop to move folder
 88. use command line + NeoEditor to write NeoEditor, get rid of qtcreator
 89. add "vim mode", a toolbar button on the left with states
-90. left and right two toolbars, editing toolbar on the right, others on the left
 92. show invisible files, otherwise cannot edit .gitignore .bashrc...etc
 94. bug: presessing ESC inserts new character
-95. hide all binary files ? the editor cannot handle binary files anyway.
-97. bug: open file, rename file's folder, save file. cannot save
-98. auto complete, according to text in the same file. better than none. tab key to trigger?
-101. don't show context menu if mouse over gutter
-102. tbc
+96. handle binary files
+    1. hide all binary files ? the editor cannot handle binary files anyway.
+    2. hexadecimal editor?
+98. auto complete, according to text in the same file. better than none.
+    1. tab key to trigger? not a good idea, because there are conflicts
+102. test Chinese characters
+103. update screenshot in readme
+104. tbc
