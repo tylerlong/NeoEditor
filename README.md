@@ -89,7 +89,4 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 96. remove `direction` from WebView context menu
 97. bug: open file, rename file's folder, save file. cannot save
 98. auto complete, according to text in the same file. better than none. tab key to trigger?
-100. context menu issue
-    1. if no selection, copy & cut don't make sense
-    3. if selected, select all doesn't make sense
 101. tbc

@@ -76,14 +76,15 @@ void WebView::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
     QString selected = this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSelectedText();")).toString();
     if(selected.isEmpty())
     {
+        menu.addAction(this->pageAction(QWebPage::Paste));
         menu.addAction(this->pageAction(QWebPage::SelectAll));
     }
     else
     {
         menu.addAction(this->pageAction(QWebPage::Copy));
         menu.addAction(this->pageAction(QWebPage::Cut));
+        menu.addAction(this->pageAction(QWebPage::Paste));
     }
-    menu.addAction(this->pageAction(QWebPage::Paste));
     menu.exec(mapToGlobal(contextMenuEvent->pos()));
 }
 
