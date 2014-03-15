@@ -41,9 +41,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 
 ## Todo list
 
-11. refactor C++ code
-    1. check memory leak, avoid using keyword `new`
-    2. change all the cross class method calls to use signal/slot ?
 26. create installer for ubuntu
     1. application icon background color (why is it green like Qt?) It's unity laucher's backlight
     2. there is specific functionality already in Ubuntu that enables apps to select any tile colour they like.
