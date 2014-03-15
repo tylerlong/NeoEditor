@@ -41,7 +41,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 
 ## Todo list
 
-11. Refactor C++ code
+11. refactor C++ code
     1. check memory leak, avoid using keyword `new`
     2. change all the cross class method calls to use signal/slot ?
 26. create installer for ubuntu
@@ -82,6 +82,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 84. drag & drop to move file
 85. drag & drop to move folder
 88. use command line + NeoEditor to write NeoEditor, get rid of qtcreator
+    1. not viable, because qtcreator has good acp feature for qt
 89. add "vim mode", a toolbar button on the left with states
 92. show invisible files, otherwise cannot edit .gitignore .bashrc...etc
 94. bug: presessing ESC inserts new character
@@ -92,4 +93,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     1. tab key to trigger? not a good idea, because there are conflicts
 102. test Chinese characters
 103. update screenshot in readme
-104. tbc
+104. toolbar icon for word wrap
+105. add "open with NeoEditor" context menu to os
+106. tbc
