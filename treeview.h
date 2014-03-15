@@ -10,6 +10,10 @@ class TreeView : public QTreeView
 
 public:
     TreeView(QWidget* parent);
+
+private slots:
+    void showContextMenu(const QPoint &point);
+    void deleteFile();
 };
 
 
