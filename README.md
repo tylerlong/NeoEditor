@@ -7,7 +7,7 @@ An extensible text editor for the 21st Century.
 
 ## Screenshot
 
-![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot4.png)
+![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot5.png)
 
 
 ## Features
@@ -89,7 +89,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 98. auto complete, according to text in the same file. better than none.
     1. tab key to trigger? not a good idea, because there are conflicts
 102. test Chinese characters
-103. update screenshot in readme
 104. toolbar icon for word wrap
 105. add "open with NeoEditor" context menu to os
 106. tbc
