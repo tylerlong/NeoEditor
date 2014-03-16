@@ -38,6 +38,13 @@ void TreeView::showContextMenu(const QPoint &point)
         QAction *newFolderAction = new QAction(tr("&New Folder"), &menu);
         connect(newFolderAction, SIGNAL(triggered()), this, SLOT(newFolder()));
         menu.addAction(newFolderAction);
+
+        if(currentIndex != this->rootIndex())
+        {
+            QAction *deleteFolderAction = new QAction(tr("&Delete Folder"), &menu);
+            connect(deleteFolderAction, SIGNAL(triggered()), this, SLOT(deleteFolder()));
+            menu.addAction(deleteFolderAction);
+        }
     }
     menu.exec(this->mapToGlobal(point));
 }
@@ -51,7 +58,7 @@ void TreeView::deleteFile()
         return;
     }
     QString filePath = fileInfo.absoluteFilePath();
-    int r = QMessageBox::warning(this, tr("Delete File -- NewEditor"), QString("Are you sure to delete %1 ?").arg(filePath),
+    int r = QMessageBox::warning(this, tr("Delete File -- NewEditor"), QString("Are you sure to delete file %1 ?").arg(filePath),
                                  QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok);
     if(QMessageBox::Cancel == r)
     {
@@ -106,4 +113,21 @@ void TreeView::newFolder()
         return;
     }
     QDir(folderPath).mkdir(folderName);
+}
+
+void TreeView::deleteFolder()
+{
+    QFileSystemModel *fileSystemModel = (QFileSystemModel*)this->model();
+    QFileInfo fileInfo = fileSystemModel->fileInfo(this->currentIndex());
+    if(!fileInfo.isDir())
+    {
+        return;
+    }
+    int r = QMessageBox::warning(this, tr("Delete Folder -- NewEditor"), QString("Are you sure to delete folder %1 ?").arg(fileInfo.absoluteFilePath()),
+                                 QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok);
+    if(QMessageBox::Cancel == r)
+    {
+        return;
+    }
+    fileSystemModel->rmdir(this->currentIndex());
 }

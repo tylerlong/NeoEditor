@@ -16,6 +16,7 @@ private slots:
     void deleteFile();
     void newFile();
     void newFolder();
+    void deleteFolder();
 };
 
 
