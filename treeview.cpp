@@ -47,7 +47,15 @@ void TreeView::deleteFile()
     {
         return;
     }
-    qDebug() << "delete file";
+    QString filePath = fileInfo.absoluteFilePath();
+    int r = QMessageBox::warning(this, tr("Delete File -- NewEditor"), QString("Are you sure to delete %1 ?").arg(filePath),
+                                 QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    if(QMessageBox::No == r)
+    {
+        return;
+    }
+    QFile file(filePath);
+    file.remove();
 }
 
 void TreeView::newFile()
@@ -58,5 +66,14 @@ void TreeView::newFile()
     {
         return;
     }
-    qDebug() << "new file";
+    QString folderPath = fileInfo.absoluteFilePath();
+    QString fileName = QInputDialog::getText(this, tr("New File - NeoEditor"), QString("%1/").arg(folderPath));
+    if(fileName.isEmpty())
+    {
+        return;
+    }
+    QString filePath = QDir(folderPath).absoluteFilePath(fileName);
+    QFile file(filePath);
+    file.open(QIODevice::WriteOnly);
+    file.close();
 }
