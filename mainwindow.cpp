@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "lefttabwidget.h"
 #include "righttabwidget.h"
 #include "webview.h"
 #include "treeview.h"
@@ -62,9 +63,7 @@ MainWindow::MainWindow(QApplication *app)
     helpToolBar->addAction(aboutAction);
 
     //left panel
-    leftTabWidget = new QTabWidget(this);
-    leftTabWidget->setTabsClosable(true);
-    connect(leftTabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(closeLeftTab(int)));
+    leftTabWidget = new LeftTabWidget(this);
 
     //layout
     splitter = new QSplitter(Qt::Horizontal);
