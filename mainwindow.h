@@ -4,6 +4,7 @@
 
 #include <QtWidgets>
 #include "lefttabwidget.h"
+#include "righttabwidget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -23,12 +24,11 @@ private slots:
     void keyboardShortcuts();
 
 private:
-    void openFile(QString filePath);
     void writeSettings();
     void readSettings();
     QSplitter *splitter;
     LeftTabWidget *leftTabWidget;
-    QTabWidget *rightTabWidget;
+    RightTabWidget *rightTabWidget;
 };
 
 

@@ -10,6 +10,7 @@ class RightTabWidget : public QTabWidget
 
 public:
     RightTabWidget(QWidget *parent);
+    void open(QString filePath);
 
 private slots:
     void close();

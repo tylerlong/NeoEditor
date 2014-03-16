@@ -99,98 +99,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
 {
     TreeView *treeView = (TreeView*)sender();
     QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
-    openFile(fileSystemModel->filePath(modelIndex));
-}
-
-void MainWindow::openFile(QString filePath)
-{
-    QFileInfo fileInfo(filePath);
-    if(!fileInfo.exists() || !fileInfo.isAbsolute() || !fileInfo.isFile() || !fileInfo.isReadable())
-    {
-        return;
-    }
-    for(int i = 0; i < rightTabWidget->count(); i++)
-    {
-        if(filePath == rightTabWidget->tabToolTip(i))
-        {
-            rightTabWidget->setCurrentIndex(i);
-            return;
-        }
-    }
-
-    WebView *webView = new WebView(rightTabWidget, filePath);
-    int index = rightTabWidget->addTab(webView, fileInfo.fileName());
-    webView->setFocus();
-    rightTabWidget->setTabToolTip(index, filePath);
-    rightTabWidget->setCurrentIndex(index);
-    if(filePath.endsWith(".rb"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/ruby.png"));
-    }
-    else if(filePath.endsWith(".py"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/python.ico"));
-    }
-    else if(filePath.endsWith(".java"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/java.png"));
-    }
-    else if(filePath.endsWith(".js"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/javascript.png"));
-    }
-    else if(filePath.endsWith(".php"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/php.png"));
-    }
-    else if(filePath.endsWith(".css"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/css3.png"));
-    }
-    else if(filePath.endsWith(".as"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/flash.jpg"));
-    }
-    else if(filePath.endsWith(".html") || filePath.endsWith(".htm"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/html5.png"));
-    }
-    else if(filePath.endsWith(".xml"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/xml.png"));
-    }
-    else if(filePath.endsWith(".ts"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/typescript.ico"));
-    }
-    else if(filePath.endsWith(".md"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/markdown.png"));
-    }
-    else if(filePath.endsWith(".svg"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/svg.svg"));
-    }
-    else if(filePath.endsWith(".cpp") || filePath.endsWith(".h"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/cplusplus.png"));
-    }
-    else if(filePath.endsWith(".sql"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/sql.png"));
-    }
-    else if(filePath.endsWith(".ini"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/ini.png"));
-    }
-    else if(filePath.endsWith(".txt"))
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/txt.png"));
-    }
-    else
-    {
-        rightTabWidget->setTabIcon(index, QIcon(":/images/text-x-generic.svg"));
-    }
+    rightTabWidget->open(fileSystemModel->filePath(modelIndex));
 }
 
 void MainWindow::about()
@@ -277,7 +186,7 @@ void MainWindow::readSettings()
     QStringList openedFiles = settings.value("openedFiles").toStringList();
     for(int i = 0; i < openedFiles.count(); i++)
     {
-        openFile(openedFiles[i]);
+        rightTabWidget->open(openedFiles[i]);
     }
     QString currentFile = settings.value("currentFile").toString();
     for(int i = 0; i< rightTabWidget->count(); i++)
