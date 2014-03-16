@@ -92,4 +92,5 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 104. toolbar icon for word wrap
 105. add "open with NeoEditor" context menu to os
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
-107. tbc
+107. make `parent` as small as possible
+108. tbc

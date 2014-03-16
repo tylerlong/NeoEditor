@@ -21,22 +21,20 @@ void TreeView::showContextMenu(const QPoint &point)
         return;
     }
 
+    QMenu menu(this);
     if(fileInfo.isFile())
     {
-        QMenu menu(this);
-        QAction deleteFileAction(tr("&Delete File"), this);
-        connect(&deleteFileAction, SIGNAL(triggered()), this, SLOT(deleteFile()));
-        menu.addAction(&deleteFileAction);
-        menu.exec(this->mapToGlobal(point));
+        QAction *deleteFileAction = new QAction(tr("&Delete File"), &menu);
+        connect(deleteFileAction, SIGNAL(triggered()), this, SLOT(deleteFile()));
+        menu.addAction(deleteFileAction);
     }
     else if(fileInfo.isDir())
     {
-        QMenu menu(this);
-        QAction newFileAction(tr("&New File"), this);
-        connect(&newFileAction, SIGNAL(triggered()), this, SLOT(newFile()));
-        menu.addAction(&newFileAction);
-        menu.exec(this->mapToGlobal(point));
+        QAction *newFileAction = new QAction(tr("&New File"), &menu);
+        connect(newFileAction, SIGNAL(triggered()), this, SLOT(newFile()));
+        menu.addAction(newFileAction);
     }
+    menu.exec(this->mapToGlobal(point));
 }
 
 void TreeView::deleteFile()
@@ -49,8 +47,8 @@ void TreeView::deleteFile()
     }
     QString filePath = fileInfo.absoluteFilePath();
     int r = QMessageBox::warning(this, tr("Delete File -- NewEditor"), QString("Are you sure to delete %1 ?").arg(filePath),
-                                 QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
-    if(QMessageBox::No == r)
+                                 QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok);
+    if(QMessageBox::Cancel == r)
     {
         return;
     }
