@@ -3,6 +3,7 @@
 
 
 #include <QtWidgets>
+#include "lefttabwidget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -22,12 +23,11 @@ private slots:
     void keyboardShortcuts();
 
 private:
-    void showFolderTree(QString folderPath);
     void openFile(QString filePath);
     void writeSettings();
     void readSettings();
     QSplitter *splitter;
-    QTabWidget *leftTabWidget;
+    LeftTabWidget *leftTabWidget;
     QTabWidget *rightTabWidget;
 };
 

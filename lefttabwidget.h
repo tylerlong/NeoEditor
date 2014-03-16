@@ -10,9 +10,13 @@ class LeftTabWidget : public QTabWidget
 
 public:
     LeftTabWidget(QWidget *parent);
+    void showFolderTree(QString folderPath);
 
 private slots:
     void close(int index);
+
+private:
+    QMainWindow *mainWindow;
 };
 
 

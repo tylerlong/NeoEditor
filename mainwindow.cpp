@@ -80,7 +80,7 @@ void MainWindow::openFolder()
     QString folderPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     if(folderPath != NULL)
     {
-        showFolderTree(folderPath);
+        leftTabWidget->showFolderTree(folderPath);
     }
 }
 
@@ -93,38 +93,6 @@ void MainWindow::saveFile()
     }
     WebView *webView = (WebView*)widget;
     webView->save();
-}
-
-void MainWindow::showFolderTree(QString folderPath)
-{
-    QDir dir(folderPath);
-    if(!dir.exists() || !dir.isAbsolute() || !dir.isReadable())
-    {
-        return;
-    }
-    for(int i = 0; i < leftTabWidget->count(); i++)
-    {
-        if(folderPath == leftTabWidget->tabToolTip(i))
-        {
-            leftTabWidget->setCurrentIndex(i);
-            return;
-        }
-    }
-
-    TreeView *treeView = new TreeView(this);
-    QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
-    fileSystemModel->setRootPath(folderPath);
-    treeView->setModel(fileSystemModel);
-    treeView->setRootIndex(fileSystemModel->index(folderPath));
-    treeView->setColumnHidden(1, true);
-    treeView->setColumnHidden(2, true);
-    treeView->setColumnHidden(3, true);
-    treeView->setHeaderHidden(true);
-    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
-    int index = leftTabWidget->addTab(treeView, QDir(folderPath).dirName());
-    treeView->setFocus();
-    leftTabWidget->setTabToolTip(index, folderPath);
-    leftTabWidget->setCurrentIndex(index);
 }
 
 void MainWindow::openFile(QModelIndex modelIndex)
@@ -293,7 +261,7 @@ void MainWindow::readSettings()
     QStringList openedFolders = settings.value("openedFolders").toStringList();
     for(int i = 0; i < openedFolders.count(); i++)
     {
-        showFolderTree(openedFolders[i]);
+        leftTabWidget->showFolderTree(openedFolders[i]);
     }
     QString currentFolder = settings.value("currentFolder").toString();
     for(int i = 0; i < leftTabWidget->count(); i++)
