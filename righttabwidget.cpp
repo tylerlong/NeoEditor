@@ -1,9 +1,8 @@
 #include "righttabwidget.h"
 #include "webview.h"
 
-RightTabWidget::RightTabWidget(QWidget *parent, QApplication *app) : QTabWidget(parent)
+RightTabWidget::RightTabWidget(QWidget *parent) : QTabWidget(parent)
 {
-    this->app = app;
     this->setTabsClosable(true);
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));
 

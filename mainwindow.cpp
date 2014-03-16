@@ -43,7 +43,7 @@ MainWindow::MainWindow(QApplication *app)
     fileToolBar->addAction(saveFileAction);
 
     //right panel
-    rightTabWidget = new RightTabWidget(this, app);
+    rightTabWidget = new RightTabWidget(this);
     rightTabWidget->tabBar()->setIconSize(QSize(20, 20));
 
     QToolBar *helpToolBar = new QToolBar(tr("&Help"), this);

@@ -9,7 +9,7 @@ class RightTabWidget : public QTabWidget
     Q_OBJECT
 
 public:
-    RightTabWidget(QWidget *parent, QApplication *app);
+    RightTabWidget(QWidget *parent);
 
 private slots:
     void close();
@@ -17,9 +17,6 @@ private slots:
     void closeOthers();
     void closeTabsToTheRight();
     void showContextMenu(const QPoint &point);
-
-private:
-    QApplication *app;
 };
 
 
