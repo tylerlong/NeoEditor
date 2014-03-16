@@ -10,6 +10,10 @@ MainWindow::MainWindow()
     int width = 1024;
     int height = 576;
     this->resize(width, height);
+    QDesktopWidget *desktop = QApplication::desktop();
+    int marginLeft = (desktop->width() - width) / 2;
+    int marginTop = (desktop->height() - height) / 2;
+    this->move(marginLeft, marginTop);
 
     //title and icon
     this->setWindowTitle(tr("NeoEditor"));
