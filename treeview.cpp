@@ -34,6 +34,10 @@ void TreeView::showContextMenu(const QPoint &point)
         QAction *newFileAction = new QAction(tr("&New File"), &menu);
         connect(newFileAction, SIGNAL(triggered()), this, SLOT(newFile()));
         menu.addAction(newFileAction);
+
+        QAction *newFolderAction = new QAction(tr("&New Folder"), &menu);
+        connect(newFolderAction, SIGNAL(triggered()), this, SLOT(newFolder()));
+        menu.addAction(newFolderAction);
     }
     menu.exec(this->mapToGlobal(point));
 }
@@ -85,4 +89,21 @@ void TreeView::newFile()
 
     MainWindow *mainWindow = (MainWindow*)QApplication::topLevelWidgets()[0];
     emit mainWindow->openFileRequested(filePath);
+}
+
+void TreeView::newFolder()
+{
+    QFileSystemModel *fileSystemModel = (QFileSystemModel*)this->model();
+    QFileInfo fileInfo = fileSystemModel->fileInfo(this->currentIndex());
+    if(!fileInfo.isDir())
+    {
+        return;
+    }
+    QString folderPath = fileInfo.absoluteFilePath();
+    QString folderName = QInputDialog::getText(this, tr("New Folder - NeoEditor"), QString("%1/").arg(folderPath));
+    if(folderName.isEmpty())
+    {
+        return;
+    }
+    QDir(folderPath).mkdir(folderName);
 }

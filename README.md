@@ -91,6 +91,4 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 105. add "open with NeoEditor" context menu to os
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
 107. make `parent` as small as possible
-108. delete file show also remove opened file tab
-109. create file show also open file
 110. tbc
