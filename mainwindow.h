@@ -10,6 +10,9 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+signals:
+    void openFileRequested(QString filePath);
+
 public:
     MainWindow();
 

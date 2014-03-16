@@ -41,6 +41,7 @@ MainWindow::MainWindow()
     //right panel
     rightTabWidget = new RightTabWidget(this);
     rightTabWidget->tabBar()->setIconSize(QSize(20, 20));
+    connect(this, SIGNAL(openFileRequested(QString)), rightTabWidget, SLOT(open(QString)));
 
     QToolBar *helpToolBar = new QToolBar(tr("&Help"), this);
     helpToolBar->setObjectName("helpToolBar");
@@ -99,7 +100,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
 {
     TreeView *treeView = (TreeView*)sender();
     QFileSystemModel *fileSystemModel = (QFileSystemModel*)treeView->model();
-    rightTabWidget->open(fileSystemModel->filePath(modelIndex));
+    emit openFileRequested(fileSystemModel->filePath(modelIndex));
 }
 
 void MainWindow::about()
@@ -186,7 +187,7 @@ void MainWindow::readSettings()
     QStringList openedFiles = settings.value("openedFiles").toStringList();
     for(int i = 0; i < openedFiles.count(); i++)
     {
-        rightTabWidget->open(openedFiles[i]);
+        emit openFileRequested(openedFiles[i]);
     }
     QString currentFile = settings.value("currentFile").toString();
     for(int i = 0; i< rightTabWidget->count(); i++)
