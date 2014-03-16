@@ -11,9 +11,9 @@ void TreeView::showContextMenu(const QPoint &point)
     QModelIndex currentIndex = this->indexAt(point);
     if(!currentIndex.isValid())
     {
-        return;
+        currentIndex = this->rootIndex();
+        this->setCurrentIndex(this->rootIndex());
     }
-
     QFileSystemModel *fileSystemModel = (QFileSystemModel*)this->model();
     QFileInfo fileInfo = fileSystemModel->fileInfo(currentIndex);
     if(!(fileInfo.isFile()||fileInfo.isDir()))
@@ -72,6 +72,10 @@ void TreeView::newFile()
     }
     QString filePath = QDir(folderPath).absoluteFilePath(fileName);
     QFile file(filePath);
+    if(file.exists())
+    {
+        return;
+    }
     file.open(QIODevice::WriteOnly);
     file.close();
 }
