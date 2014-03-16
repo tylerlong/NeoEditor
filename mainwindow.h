@@ -12,6 +12,7 @@ class MainWindow : public QMainWindow
 
 signals:
     void openFileRequested(QString filePath);
+    void deleteFileRequested(QString filePath);
 
 public:
     MainWindow();

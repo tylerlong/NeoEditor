@@ -13,6 +13,7 @@ public:
 
 public slots:
     void open(QString filePath);
+    void remove(QString filePath);
 
 private slots:
     void close();

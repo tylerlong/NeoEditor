@@ -46,6 +46,7 @@ MainWindow::MainWindow()
     rightTabWidget = new RightTabWidget(this);
     rightTabWidget->tabBar()->setIconSize(QSize(20, 20));
     connect(this, SIGNAL(openFileRequested(QString)), rightTabWidget, SLOT(open(QString)));
+    connect(this, SIGNAL(deleteFileRequested(QString)), rightTabWidget, SLOT(remove(QString)));
 
     QToolBar *helpToolBar = new QToolBar(tr("&Help"), this);
     helpToolBar->setObjectName("helpToolBar");

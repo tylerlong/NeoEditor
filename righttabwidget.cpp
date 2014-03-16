@@ -102,6 +102,18 @@ void RightTabWidget::close(int index)
     this->removeTab(index);
 }
 
+void RightTabWidget::remove(QString filePath)
+{
+    for(int i = this->count() - 1; i >= 0; i--)
+    {
+        if(this->tabToolTip(i) == filePath)
+        {
+            this->removeTab(i);
+            break;
+        }
+    }
+}
+
 void RightTabWidget::open(QString filePath)
 {
     QFileInfo fileInfo(filePath);

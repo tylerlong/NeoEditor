@@ -55,6 +55,9 @@ void TreeView::deleteFile()
     }
     QFile file(filePath);
     file.remove();
+
+    MainWindow *mainWindow = (MainWindow*)QApplication::topLevelWidgets()[0];
+    emit mainWindow->deleteFileRequested(filePath);
 }
 
 void TreeView::newFile()
