@@ -69,11 +69,9 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 71. more language icons
 72. switch tabs, change file highlight in left file tree.
 73. drag & drop to reorder tabs
-77. create file
 78. create folder
 79. rename file
 80. rename folder
-81. delete file
 82. delete folder
 83. quick open file (ctrl + p)
 84. drag & drop to move file
@@ -93,4 +91,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 105. add "open with NeoEditor" context menu to os
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
 107. make `parent` as small as possible
-108. tbc
+108. delete file show also remove opened file tab
+109. create file show also open file
+110. tbc
