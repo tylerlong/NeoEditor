@@ -1,3 +1,4 @@
+#include "mainwindow.h"
 #include "treeview.h"
 
 TreeView::TreeView(QWidget* parent) : QTreeView(parent)
@@ -78,4 +79,7 @@ void TreeView::newFile()
     }
     file.open(QIODevice::WriteOnly);
     file.close();
+
+    MainWindow *mainWindow = (MainWindow*)QApplication::topLevelWidgets()[0];
+    emit mainWindow->openFileRequested(filePath);
 }
