@@ -225,11 +225,6 @@ void MainWindow::openFile(QString filePath)
     }
 }
 
-void MainWindow::closeLeftTab(int index)
-{
-    leftTabWidget->removeTab(index);
-}
-
 void MainWindow::about()
 {
     QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.2.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/orgs/NeoEditor\">https://github.com/orgs/NeoEditor</a>. All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));

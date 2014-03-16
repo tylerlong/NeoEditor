@@ -10,6 +10,9 @@ class LeftTabWidget : public QTabWidget
 
 public:
     LeftTabWidget(QWidget *parent);
+
+private slots:
+    void close(int index);
 };
 
 

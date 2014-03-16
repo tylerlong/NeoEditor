@@ -18,7 +18,6 @@ private slots:
     void openFolder();
     void saveFile();
     void openFile(QModelIndex modelIndex);
-    void closeLeftTab(int index);
     void about();
     void keyboardShortcuts();
 
