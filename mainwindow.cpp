@@ -4,16 +4,12 @@
 #include "webview.h"
 #include "treeview.h"
 
-MainWindow::MainWindow(QApplication *app)
+MainWindow::MainWindow()
 {
     //initial window size
     int width = 1024;
     int height = 576;
     this->resize(width, height);
-    QDesktopWidget *desktop = app->desktop();
-    int marginLeft = (desktop->width() - width) / 2;
-    int marginTop = (desktop->height() - height) / 2;
-    this->move(marginLeft, marginTop);
 
     //title and icon
     this->setWindowTitle(tr("NeoEditor"));
@@ -236,7 +232,7 @@ void MainWindow::closeLeftTab(int index)
 
 void MainWindow::about()
 {
-    QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.1.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/orgs/NeoEditor\">https://github.com/orgs/NeoEditor</a>. All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
+    QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.2.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/orgs/NeoEditor\">https://github.com/orgs/NeoEditor</a>. All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
 }
 
 void MainWindow::keyboardShortcuts()

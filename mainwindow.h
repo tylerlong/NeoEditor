@@ -9,7 +9,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QApplication *app);
+    MainWindow();
 
 protected:
     void closeEvent(QCloseEvent *closeEvent);
