@@ -14,6 +14,7 @@ public:
 public slots:
     void open(QString filePath);
     void remove(QString filePath);
+    void removeFolder(QString folderPath);
 
 private slots:
     void close();

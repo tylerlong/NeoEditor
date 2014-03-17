@@ -66,8 +66,7 @@ void TreeView::deleteFile()
     }
     fileSystemModel->remove(this->currentIndex());
 
-    MainWindow *mainWindow = (MainWindow*)QApplication::topLevelWidgets()[0];
-    emit mainWindow->deleteFileRequested(filePath);
+    emit MainWindow::GetInstance()->deleteFileRequested(filePath);
 }
 
 void TreeView::newFile()
@@ -93,9 +92,7 @@ void TreeView::newFile()
     file.open(QIODevice::WriteOnly);
     file.close();
 
-    MainWindow *mainWindow = (MainWindow*)QApplication::topLevelWidgets()[0];
-    QThread::msleep(100);
-    emit mainWindow->openFileRequested(filePath);
+    emit MainWindow::GetInstance()->openFileRequested(filePath);
 }
 
 void TreeView::newFolder()
@@ -131,4 +128,6 @@ void TreeView::deleteFolder()
         return;
     }
     fileSystemModel->remove(this->currentIndex());
+
+    emit MainWindow::GetInstance()->deleteFolderRequested(folderPath);
 }
