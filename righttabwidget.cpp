@@ -120,8 +120,8 @@ void RightTabWidget::rename(QString oldFilePath, QString newFilePath)
     {
         if(this->tabToolTip(i) == oldFilePath)
         {
-            this->removeTab(i);
-            open(newFilePath);
+            this->setTabToolTip(i, newFilePath);
+            this->setTabText(i, QFileInfo(newFilePath).fileName());
             break;
         }
     }
