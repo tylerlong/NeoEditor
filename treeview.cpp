@@ -66,15 +66,17 @@ void TreeView::deleteFile()
         return;
     }
     QString filePath = fileInfo.absoluteFilePath();
-    int r = QMessageBox::warning(this, tr("Delete File"), QString("Are you sure to delete file %1 ?").arg(filePath),
+    int i = QMessageBox::warning(this, tr("Delete File"), QString("Are you sure to delete file %1 ?").arg(filePath),
                                  QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok);
-    if(QMessageBox::Cancel == r)
+    if(QMessageBox::Cancel == i)
     {
         return;
     }
-    fileSystemModel->remove(this->currentIndex());
-
-    emit MainWindow::GetInstance()->deleteFileRequested(filePath);
+    bool r = fileSystemModel->remove(this->currentIndex());
+    if(r)
+    {
+        emit MainWindow::GetInstance()->deleteFileRequested(filePath);
+    }
 }
 
 void TreeView::renameFile()
@@ -121,10 +123,12 @@ void TreeView::newFile()
     {
         return;
     }
-    file.open(QIODevice::WriteOnly);
+    bool r = file.open(QIODevice::WriteOnly);
     file.close();
-
-    emit MainWindow::GetInstance()->openFileRequested(filePath);
+    if(r)
+    {
+        emit MainWindow::GetInstance()->openFileRequested(filePath);
+    }
 }
 
 void TreeView::newFolder()
@@ -153,15 +157,17 @@ void TreeView::deleteFolder()
         return;
     }
     QString folderPath = fileInfo.absoluteFilePath();
-    int r = QMessageBox::warning(this, tr("Delete Folder"), QString("Are you sure to delete folder %1 ?").arg(folderPath),
+    int i = QMessageBox::warning(this, tr("Delete Folder"), QString("Are you sure to delete folder %1 ?").arg(folderPath),
                                  QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok);
-    if(QMessageBox::Cancel == r)
+    if(QMessageBox::Cancel == i)
     {
         return;
     }
-    fileSystemModel->remove(this->currentIndex());
-
-    emit MainWindow::GetInstance()->deleteFolderRequested(folderPath);
+    bool r = fileSystemModel->remove(this->currentIndex());
+    if(r)
+    {
+        emit MainWindow::GetInstance()->deleteFolderRequested(folderPath);
+    }
 }
 
 void TreeView::renameFolder()
@@ -180,5 +186,9 @@ void TreeView::renameFolder()
     }
     QString newFolderPath = fileInfo.absoluteDir().absoluteFilePath(folderName);
     QDir dir;
-    dir.rename(folderPath, newFolderPath);
+    bool r = dir.rename(folderPath, newFolderPath);
+    if(r)
+    {
+
+    }
 }

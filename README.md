@@ -89,4 +89,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 105. add "open with NeoEditor" context menu to os
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
 107. make `parent` as small as possible
-112. tbc
+112. refresh treeView after adding new folder or file
+    1. because not sorted
+113. tbc
