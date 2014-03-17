@@ -48,6 +48,10 @@ void TreeView::showContextMenu(const QPoint &point)
             QAction *deleteFolderAction = new QAction(tr("&Delete Folder"), &menu);
             connect(deleteFolderAction, SIGNAL(triggered()), this, SLOT(deleteFolder()));
             menu.addAction(deleteFolderAction);
+
+            QAction *renameFolderAction = new QAction(tr("&Rename Folder"), &menu);
+            connect(renameFolderAction, SIGNAL(triggered()), this, SLOT(renameFolder()));
+            menu.addAction(renameFolderAction);
         }
     }
     menu.exec(this->mapToGlobal(point));
@@ -158,4 +162,23 @@ void TreeView::deleteFolder()
     fileSystemModel->remove(this->currentIndex());
 
     emit MainWindow::GetInstance()->deleteFolderRequested(folderPath);
+}
+
+void TreeView::renameFolder()
+{
+    QFileSystemModel *fileSystemModel = (QFileSystemModel*)this->model();
+    QFileInfo fileInfo = fileSystemModel->fileInfo(this->currentIndex());
+    if(!fileInfo.isDir())
+    {
+        return;
+    }
+    QString folderPath = fileInfo.absoluteFilePath();
+    QString folderName = QInputDialog::getText(this, tr("Rename Folder"), folderPath, QLineEdit::Normal, fileInfo.fileName());
+    if(folderName.isEmpty() || folderName == fileInfo.fileName())
+    {
+        return;
+    }
+    QString newFolderPath = fileInfo.absoluteDir().absoluteFilePath(folderName);
+    QDir dir;
+    dir.rename(folderPath, newFolderPath);
 }

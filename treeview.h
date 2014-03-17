@@ -18,6 +18,7 @@ private slots:
     void newFile();
     void newFolder();
     void deleteFolder();
+    void renameFolder();
 };
 
 

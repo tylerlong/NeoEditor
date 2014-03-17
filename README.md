@@ -70,7 +70,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 72. switch tabs, change file highlight in left file tree.
     1. auto select newly created file / folder
 73. drag & drop to reorder tabs
-79. rename file
 80. rename folder
 83. quick open file (ctrl + p)
 84. drag & drop to move file
