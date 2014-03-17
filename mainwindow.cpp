@@ -21,7 +21,7 @@ MainWindow::MainWindow()
     this->setWindowIcon(QIcon(":/images/neo.png"));
 
     //style
-    this->setStyleSheet("QTreeView { border: 0; } QTabWidget { border: 0; }");
+    this->setStyleSheet("QTreeView { border: 0; background-color: #cce8cf; } QTabWidget { border: 0; }");
     this->setContextMenuPolicy(Qt::NoContextMenu);
 
     //tool bar
