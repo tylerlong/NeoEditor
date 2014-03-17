@@ -13,9 +13,11 @@ class MainWindow : public QMainWindow
 signals:
     void openFileRequested(QString filePath);
     void deleteFileRequested(QString filePath);
+    void deleteFolderRequested(QString folderPath);
 
 public:
     MainWindow();
+    static MainWindow* GetInstance();
 
 protected:
     void closeEvent(QCloseEvent *closeEvent);

@@ -1,3 +1,4 @@
+#include <typeinfo>
 #include "mainwindow.h"
 #include "lefttabwidget.h"
 #include "righttabwidget.h"
@@ -47,6 +48,7 @@ MainWindow::MainWindow()
     rightTabWidget->tabBar()->setIconSize(QSize(20, 20));
     connect(this, SIGNAL(openFileRequested(QString)), rightTabWidget, SLOT(open(QString)));
     connect(this, SIGNAL(deleteFileRequested(QString)), rightTabWidget, SLOT(remove(QString)));
+    connect(this, SIGNAL(deleteFolderRequested(QString)), rightTabWidget, SLOT(removeFolder(QString)));
 
     QToolBar *helpToolBar = new QToolBar(tr("&Help"), this);
     helpToolBar->setObjectName("helpToolBar");
@@ -203,4 +205,16 @@ void MainWindow::readSettings()
             break;
         }
     }
+}
+
+MainWindow* MainWindow::GetInstance()
+{
+    foreach(QWidget *widget, QApplication::topLevelWidgets())
+    {
+        if(typeid(*widget) == typeid(MainWindow))
+        {
+            return (MainWindow*)widget;
+        }
+    }
+    return NULL;
 }
