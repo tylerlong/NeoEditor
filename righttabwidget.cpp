@@ -121,7 +121,12 @@ void RightTabWidget::rename(QString oldFilePath, QString newFilePath)
         if(this->tabToolTip(i) == oldFilePath)
         {
             this->setTabToolTip(i, newFilePath);
-            this->setTabText(i, QFileInfo(newFilePath).fileName());
+            QString tabText = QFileInfo(newFilePath).fileName();
+            if(this->tabText(i).startsWith("* "))
+            {
+                tabText = "* " + tabText;
+            }
+            this->setTabText(i, tabText);
             break;
         }
     }
@@ -140,8 +145,13 @@ void RightTabWidget::removeFolder(QString folderPath)
 
 void RightTabWidget::renameFolder(QString oldFolderPath, QString newFolderPath)
 {
-    qDebug() << oldFolderPath;
-    qDebug() << newFolderPath;
+    for(int i = this->count() - 1; i >= 0; i--)
+    {
+        if(this->tabToolTip(i).startsWith(oldFolderPath))
+        {
+            this->setTabToolTip(i, newFolderPath + this->tabToolTip(i).mid(oldFolderPath.length()));
+        }
+    }
 }
 
 void RightTabWidget::open(QString filePath)
