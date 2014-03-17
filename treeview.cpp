@@ -98,8 +98,7 @@ void TreeView::renameFile()
     bool r = file.rename(newFilePath);
     if(r)
     {
-        emit MainWindow::GetInstance()->deleteFileRequested(filePath);
-        emit MainWindow::GetInstance()->openFileRequested(newFilePath);
+        emit MainWindow::GetInstance()->renameFileRequested(filePath, newFilePath);
     }
 }
 

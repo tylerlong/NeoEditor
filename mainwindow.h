@@ -14,6 +14,7 @@ signals:
     void openFileRequested(QString filePath);
     void deleteFileRequested(QString filePath);
     void deleteFolderRequested(QString folderPath);
+    void renameFileRequested(QString oldFilePath, QString newFilePath);
 
 public:
     MainWindow();

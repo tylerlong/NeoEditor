@@ -114,6 +114,19 @@ void RightTabWidget::remove(QString filePath)
     }
 }
 
+void RightTabWidget::rename(QString oldFilePath, QString newFilePath)
+{
+    for(int i = this->count() - 1; i >= 0; i--)
+    {
+        if(this->tabToolTip(i) == oldFilePath)
+        {
+            this->removeTab(i);
+            open(newFilePath);
+            break;
+        }
+    }
+}
+
 void RightTabWidget::removeFolder(QString folderPath)
 {
     for(int i = this->count() - 1; i >= 0; i--)

@@ -49,6 +49,7 @@ MainWindow::MainWindow()
     connect(this, SIGNAL(openFileRequested(QString)), rightTabWidget, SLOT(open(QString)));
     connect(this, SIGNAL(deleteFileRequested(QString)), rightTabWidget, SLOT(remove(QString)));
     connect(this, SIGNAL(deleteFolderRequested(QString)), rightTabWidget, SLOT(removeFolder(QString)));
+    connect(this, SIGNAL(renameFileRequested(QString,QString)), rightTabWidget, SLOT(rename(QString, QString)));
 
     QToolBar *helpToolBar = new QToolBar(tr("&Help"), this);
     helpToolBar->setObjectName("helpToolBar");
