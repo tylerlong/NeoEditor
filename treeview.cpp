@@ -89,7 +89,12 @@ void TreeView::renameFile()
     }
     QFile file(filePath);
     QString newFilePath = QDir(fileInfo.absolutePath()).absoluteFilePath(fileName);
-    file.rename(newFilePath);
+    bool r = file.rename(newFilePath);
+    if(r)
+    {
+        emit MainWindow::GetInstance()->deleteFileRequested(filePath);
+        emit MainWindow::GetInstance()->openFileRequested(newFilePath);
+    }
 }
 
 void TreeView::newFile()
