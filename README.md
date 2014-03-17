@@ -91,4 +91,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 112. refresh treeView after adding new folder or file
     1. because not sorted
 113. update screenshot in readme
-114. tbc
+114. ctrl + Z clears all content
+    1. should clear history after loading file content
+115. tbc
