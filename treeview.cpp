@@ -94,6 +94,7 @@ void TreeView::newFile()
     file.close();
 
     MainWindow *mainWindow = (MainWindow*)QApplication::topLevelWidgets()[0];
+    QThread::msleep(100);
     emit mainWindow->openFileRequested(filePath);
 }
 
