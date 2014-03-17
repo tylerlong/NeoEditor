@@ -87,7 +87,7 @@ void RightTabWidget::close(int index)
     if(this->tabText(index).startsWith("* "))
     {
         int r = QMessageBox::warning(this, tr("NeoEditor"),
-                                     QString("%1 has been modified.\n Do you want to save your changes?").arg(((WebView*)this->widget(index))->filePath()),
+                                     QString("%1 has been modified.\n Do you want to save your changes?").arg(this->tabToolTip(index)),
                                      QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
         if(r == QMessageBox::Cancel)
         {
@@ -138,6 +138,12 @@ void RightTabWidget::removeFolder(QString folderPath)
     }
 }
 
+void RightTabWidget::renameFolder(QString oldFolderPath, QString newFolderPath)
+{
+    qDebug() << oldFolderPath;
+    qDebug() << newFolderPath;
+}
+
 void RightTabWidget::open(QString filePath)
 {
     QFileInfo fileInfo(filePath);
@@ -154,7 +160,7 @@ void RightTabWidget::open(QString filePath)
         }
     }
 
-    WebView *webView = new WebView(this, filePath);
+    WebView *webView = new WebView(this);
     int index = this->addTab(webView, fileInfo.fileName());
     webView->setFocus();
     this->setTabToolTip(index, filePath);

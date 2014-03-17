@@ -1,16 +1,10 @@
 #include "webview.h"
 
-WebView::WebView(QWidget* parent, QString filePath) : QWebView(parent)
+WebView::WebView(QWidget* parent) : QWebView(parent)
 {
     this->mTabWidget = (QTabWidget*)parent;
-    this->mFilePath = filePath;
     this->load(QUrl("qrc:///html/editor.html"));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(init()));
-}
-
-QString WebView::filePath()
-{
-    return this->mFilePath;
 }
 
 void WebView::debug(QString message)
@@ -32,8 +26,8 @@ void WebView::change()
 
 void WebView::save()
 {
-    QString filePath = this->mFilePath;
-    QTabWidget *tabWidget = this->mTabWidget;
+    int index = this->mTabWidget->indexOf(this);
+    QString filePath = this->mTabWidget->tabToolTip(index);
     QFile file(filePath);
     if(!file.open(QIODevice::WriteOnly))
     {
@@ -44,18 +38,18 @@ void WebView::save()
     QString content = this->page()->mainFrame()->evaluateJavaScript(QString("editor.getValue();")).toString();
     file.write(content.toUtf8());
     file.close();
-    int index = tabWidget->indexOf(this);
-    QString tabText = tabWidget->tabText(index);
+    QString tabText = this->mTabWidget->tabText(index);
     if(tabText.startsWith("* "))
     {
-        tabWidget->setTabText(index, tabText.mid(2));
+        this->mTabWidget->setTabText(index, tabText.mid(2));
     }
     this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
 }
 
 void WebView::init()
 {
-    QString filePath = this->mFilePath;
+    int index = this->mTabWidget->indexOf(this);
+    QString filePath = this->mTabWidget->tabToolTip(index);
     this->page()->mainFrame()->evaluateJavaScript(QString("setTimeout(function(){editor.getSession().setMode(modelist.getModeForPath('%1').mode);}, 50);null;").arg(escapeJavascriptString(filePath)));
     QFile file(filePath);
     if(!file.open(QIODevice::ReadOnly))

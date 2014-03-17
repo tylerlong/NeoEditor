@@ -188,6 +188,6 @@ void TreeView::renameFolder()
     bool r = dir.rename(folderPath, newFolderPath);
     if(r)
     {
-
+        emit MainWindow::GetInstance()->renameFolderRequested(folderPath, newFolderPath);
     }
 }

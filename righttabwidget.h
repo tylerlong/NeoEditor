@@ -16,6 +16,7 @@ public slots:
     void remove(QString filePath);
     void removeFolder(QString folderPath);
     void rename(QString oldFilePath, QString newFilePath);
+    void renameFolder(QString oldFolderPath, QString newFolderPath);
 
 private slots:
     void close();

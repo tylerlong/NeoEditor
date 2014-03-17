@@ -9,8 +9,7 @@ class WebView : public QWebView
     Q_OBJECT
 
 public:
-    WebView(QWidget* parent, QString filePath);
-    QString filePath();
+    WebView(QWidget* parent);
     void save();
 
 protected:
@@ -25,7 +24,6 @@ private slots:
 
 private:
     QString escapeJavascriptString(const QString &input);
-    QString mFilePath;
     QTabWidget *mTabWidget;
 };
 
