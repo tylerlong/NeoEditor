@@ -28,6 +28,10 @@ void TreeView::showContextMenu(const QPoint &point)
         QAction *deleteFileAction = new QAction(tr("&Delete File"), &menu);
         connect(deleteFileAction, SIGNAL(triggered()), this, SLOT(deleteFile()));
         menu.addAction(deleteFileAction);
+
+        QAction *renameFileAction = new QAction(tr("&Rename File"), &menu);
+        connect(renameFileAction, SIGNAL(triggered()), this, SLOT(renameFile()));
+        menu.addAction(renameFileAction);
     }
     else if(fileInfo.isDir())
     {
@@ -67,6 +71,25 @@ void TreeView::deleteFile()
     fileSystemModel->remove(this->currentIndex());
 
     emit MainWindow::GetInstance()->deleteFileRequested(filePath);
+}
+
+void TreeView::renameFile()
+{
+    QFileSystemModel *fileSystemModel = (QFileSystemModel*)this->model();
+    QFileInfo fileInfo = fileSystemModel->fileInfo(this->currentIndex());
+    if(!fileInfo.isFile())
+    {
+        return;
+    }
+    QString filePath = fileInfo.absoluteFilePath();
+    QString fileName = QInputDialog::getText(this, tr("Rename File"), filePath);
+    if(fileName.isEmpty())
+    {
+        return;
+    }
+    QFile file(filePath);
+    QString newFilePath = QDir(fileInfo.absolutePath()).absoluteFilePath(fileName);
+    file.rename(newFilePath);
 }
 
 void TreeView::newFile()

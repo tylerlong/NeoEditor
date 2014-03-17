@@ -14,6 +14,7 @@ public:
 private slots:
     void showContextMenu(const QPoint &point);
     void deleteFile();
+    void renameFile();
     void newFile();
     void newFolder();
     void deleteFolder();
