@@ -82,8 +82,8 @@ void TreeView::renameFile()
         return;
     }
     QString filePath = fileInfo.absoluteFilePath();
-    QString fileName = QInputDialog::getText(this, tr("Rename File"), filePath);
-    if(fileName.isEmpty())
+    QString fileName = QInputDialog::getText(this, tr("Rename File"), filePath, QLineEdit::Normal, fileInfo.fileName());
+    if(fileName.isEmpty() || fileName == fileInfo.fileName())
     {
         return;
     }
