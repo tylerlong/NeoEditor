@@ -66,14 +66,13 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 60. detect file change and reload file
 61. integrate terminal
     1. this is great while it's very hard
-71. more language icons
 72. switch tabs, change file highlight in left file tree.
     1. auto select newly created file / folder
-73. drag & drop to reorder tabs
-80. rename folder
+73. drag & drop
+    1. to reorder tabs
+    2. to move file
+    3. to move folder
 83. quick open file (ctrl + p)
-84. drag & drop to move file
-85. drag & drop to move folder
 88. use command line + NeoEditor to write NeoEditor, get rid of qtcreator
     1. not viable, because qtcreator has good acp feature for qt
 89. add "vim mode", a toolbar button on the left with states
@@ -91,4 +90,5 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 107. make `parent` as small as possible
 112. refresh treeView after adding new folder or file
     1. because not sorted
-113. tbc
+113. update screenshot in readme
+114. tbc
