@@ -92,4 +92,5 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
 107. make `parent` as small as possible
 110. auto select newly created file / folder
-111. tbc
+111. change background color to light green for the good of eyes
+112. tbc

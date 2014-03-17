@@ -58,14 +58,13 @@ void TreeView::deleteFile()
         return;
     }
     QString filePath = fileInfo.absoluteFilePath();
-    int r = QMessageBox::warning(this, tr("Delete File -- NewEditor"), QString("Are you sure to delete file %1 ?").arg(filePath),
+    int r = QMessageBox::warning(this, tr("Delete File"), QString("Are you sure to delete file %1 ?").arg(filePath),
                                  QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok);
     if(QMessageBox::Cancel == r)
     {
         return;
     }
-    QFile file(filePath);
-    file.remove();
+    fileSystemModel->remove(this->currentIndex());
 
     MainWindow *mainWindow = (MainWindow*)QApplication::topLevelWidgets()[0];
     emit mainWindow->deleteFileRequested(filePath);
@@ -80,7 +79,7 @@ void TreeView::newFile()
         return;
     }
     QString folderPath = fileInfo.absoluteFilePath();
-    QString fileName = QInputDialog::getText(this, tr("New File - NeoEditor"), QString("%1/").arg(folderPath));
+    QString fileName = QInputDialog::getText(this, tr("New File"), folderPath);
     if(fileName.isEmpty())
     {
         return;
@@ -107,12 +106,12 @@ void TreeView::newFolder()
         return;
     }
     QString folderPath = fileInfo.absoluteFilePath();
-    QString folderName = QInputDialog::getText(this, tr("New Folder - NeoEditor"), QString("%1/").arg(folderPath));
+    QString folderName = QInputDialog::getText(this, QString("New Folder"), folderPath);
     if(folderName.isEmpty())
     {
         return;
     }
-    QDir(folderPath).mkdir(folderName);
+    fileSystemModel->mkdir(this->currentIndex(), folderName);
 }
 
 void TreeView::deleteFolder()
@@ -123,11 +122,12 @@ void TreeView::deleteFolder()
     {
         return;
     }
-    int r = QMessageBox::warning(this, tr("Delete Folder -- NewEditor"), QString("Are you sure to delete folder %1 ?").arg(fileInfo.absoluteFilePath()),
+    QString folderPath = fileInfo.absoluteFilePath();
+    int r = QMessageBox::warning(this, tr("Delete Folder"), QString("Are you sure to delete folder %1 ?").arg(folderPath),
                                  QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok);
     if(QMessageBox::Cancel == r)
     {
         return;
     }
-    fileSystemModel->rmdir(this->currentIndex());
+    fileSystemModel->remove(this->currentIndex());
 }
