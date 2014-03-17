@@ -21,7 +21,7 @@ void WebView::change()
         return;
     }
     tabWidget->setTabText(index, "* " + tabWidget->tabText(index));
-    this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().removeListener('change', qt.change);null;"));
+    this->page()->mainFrame()->evaluateJavaScript(QString("editor.getSession().removeListener('change', qt.change);null;"));
 }
 
 void WebView::save()
@@ -43,7 +43,7 @@ void WebView::save()
     {
         this->mTabWidget->setTabText(index, tabText.mid(2));
     }
-    this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSession().on('change', qt.change);null;"));
+    this->page()->mainFrame()->evaluateJavaScript(QString("editor.getSession().on('change', qt.change);null;"));
 }
 
 void WebView::init()
@@ -59,21 +59,22 @@ void WebView::init()
     QString content = QString(file.readAll());
     file.close();
     this->page()->mainFrame()->evaluateJavaScript(QString("setTimeout(function(){editor.setValue('%1', -1);}, 50);null;").arg(escapeJavascriptString(content)));
-    this->page()->mainFrame()->evaluateJavaScript(tr("editor.focus();null;"));
+    this->page()->mainFrame()->evaluateJavaScript(QString("setTimeout(function(){editor.session.getUndoManager().reset();}, 100);null;"));
+    this->page()->mainFrame()->evaluateJavaScript(QString("editor.focus();null;"));
     this->page()->mainFrame()->addToJavaScriptWindowObject("qt", this);
-    this->page()->mainFrame()->evaluateJavaScript(tr("setTimeout(function(){editor.getSession().on('change', qt.change);}, 100);null;"));
+    this->page()->mainFrame()->evaluateJavaScript(QString("setTimeout(function(){editor.getSession().on('change', qt.change);}, 100);null;"));
 }
 
 void WebView::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
 {
-    double gutterWidth = this->page()->mainFrame()->evaluateJavaScript(tr("editor.renderer.$gutterLayer.gutterWidth;")).toDouble();
+    double gutterWidth = this->page()->mainFrame()->evaluateJavaScript(QString("editor.renderer.$gutterLayer.gutterWidth;")).toDouble();
     if(contextMenuEvent->pos().x() <= gutterWidth)
     {
         return;
     }
 
     QMenu menu;
-    QString selected = this->page()->mainFrame()->evaluateJavaScript(tr("editor.getSelectedText();")).toString();
+    QString selected = this->page()->mainFrame()->evaluateJavaScript(QString("editor.getSelectedText();")).toString();
     if(selected.isEmpty())
     {
         menu.addAction(this->pageAction(QWebPage::Paste));
