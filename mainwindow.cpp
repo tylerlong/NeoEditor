@@ -21,7 +21,13 @@ MainWindow::MainWindow()
     this->setWindowIcon(QIcon(":/images/neo.png"));
 
     //style
-    this->setStyleSheet("QTreeView{border: 0;} QTabWidget {border: 0;}");
+    QFile file(":/css/monokai.css");
+    if(file.open(QIODevice::ReadOnly))
+    {
+        QString content = QString(file.readAll());
+        file.close();
+        this->setStyleSheet(content);
+    }
     this->setContextMenuPolicy(Qt::NoContextMenu);
 
     //tool bar

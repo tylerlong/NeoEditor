@@ -21,4 +21,5 @@ RESOURCES += \
     html.qrc \
     javascript.qrc \
     images.qrc \
-    fonts.qrc
+    fonts.qrc \
+    css.qrc
