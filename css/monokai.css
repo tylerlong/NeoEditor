@@ -57,9 +57,8 @@ QTabBar{
 }
 QTabBar::tab:selected{
     background-color: #272822;
-    font: bold;
 }
 QTabBar::tab:!selected{
-    background-color: #202020;
+    background-color: #2F3129;
     color: #8F908A;
 }

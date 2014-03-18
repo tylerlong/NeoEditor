@@ -66,6 +66,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 60. detect file change and reload file
 61. integrate terminal
     1. this is great while it's very hard
+    2. https://github.com/skavanagh/KeyBox
 72. switch tabs, change file highlight in left file tree.
     1. auto select newly created file / folder
 73. drag & drop
