@@ -96,4 +96,9 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     1. https://gist.github.com/Zren/2779042
     2. http://habrahabr.ru/post/152367/  -- contains detailed steps
     3. http://qt-project.org/doc/qt-5/stylesheet-reference.html - reference guide
+    4. scroll bar
+    5. remove window header
+    6. tool bar
+    7. when there are too many tabs
+    8. treeView
 116. tbc
