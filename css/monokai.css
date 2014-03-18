@@ -1,33 +1,65 @@
-QAbstractItemView{
-    background-color: #272822;
-    color: #f8f8f2;
-}
-
-QAbstractItemView::item:selected{
-    background-color: #202020;
+@font-face{
+    font-family: 'Ubuntu Mono';
+    src: url('../fonts/UbuntuMono-R.ttf') format('truetype');
 }
 
 QTreeView, QTabWidget{
     border: 0;
 }
 
+QMainWindow{
+    font-size: 15px;
+    font-family: Ubuntu Mono;
+    line-height: 120%;
+    background-color: #2F3129;
+    color: #f8f8f2;
+}
+
+QAbstractItemView{
+    background-color: #272822;
+    color: #f8f8f2;
+    font-size: 15px;
+    font-family: Ubuntu Mono;
+    line-height: 120%;
+}
+
+QAbstractItemView::item:selected{
+    background-color: #202020;
+}
+
+QAbstractItemView::item:!selected{
+    color: #8F908A;
+}
+
+QAbstractItemView::item:selected:!active{
+    color: #8F908A;
+}
 
 QTreeView::branch{
     background-color: #272822;
-    color: #f8f8f2;
 }
 
 QTreeView::branch:selected{
     background-color: #202020;
 }
 
-QSplitter{
-    background-color: #2F3129;
-}
 QSplitter::handle{
     background-color: #2F3129;
 }
 
-QMainWindow{
+
+QTabBar{
+    font-size: 16px;
+    font-family: Ubuntu Mono;
+    line-height: 120%;
     background-color: #2F3129;
+    color: #f8f8f2;
+}
+QTabBar::tab:selected{
+    background-color: #272822;
+    font: bold;
+}
+QTabBar::tab:!selected{
+    background-color: #202020;
+    color: #8F908A;
 }

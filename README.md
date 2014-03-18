@@ -94,4 +94,5 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 115. theme the whole app
     1. https://gist.github.com/Zren/2779042
     2. http://habrahabr.ru/post/152367/  -- contains detailed steps
+    3. http://qt-project.org/doc/qt-5/stylesheet-reference.html - reference guide
 116. tbc
