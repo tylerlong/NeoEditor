@@ -100,5 +100,5 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     5. remove window header
     6. tool bar
     7. when there are too many tabs
-    8. treeView
+    9. close icon of tab
 116. tbc
