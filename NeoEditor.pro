@@ -8,14 +8,16 @@ SOURCES += \
     webview.cpp \
     righttabwidget.cpp \
     treeview.cpp \
-    lefttabwidget.cpp
+    lefttabwidget.cpp \
+    fileiconprovider.cpp
 
 HEADERS += \
     mainwindow.h \
     webview.h \
     righttabwidget.h \
     treeview.h \
-    lefttabwidget.h
+    lefttabwidget.h \
+    fileiconprovider.h
 
 RESOURCES += \
     html.qrc \

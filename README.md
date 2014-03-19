@@ -101,4 +101,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     6. tool bar
     7. when there are too many tabs
     9. close icon of tab
-116. tbc
+    10. treeview folder/file icons
+116. use Atom's theme and icons
+117. tbc
