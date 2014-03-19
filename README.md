@@ -99,10 +99,12 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     4. scroll bar
     5. remove window header
     6. tool bar
+        1. maybe we can remove it? right click to open file?
     7. when there are too many tabs
     9. close icon of tab
-    10. treeview folder/file icons
     11. background color when there is no tabs at all.
 116. use Atom's theme and icons
-117. close folder tab, auto focus remaining tab, disable this
-118. tbc
+117. close folder tab, auto focus remaining tab, disable this behavior
+118. remember current line of active editor before exit
+119. treeView hover change icon color
+120. tbc
