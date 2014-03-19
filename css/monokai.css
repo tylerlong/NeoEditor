@@ -24,8 +24,9 @@ QAbstractItemView{
     line-height: 120%;
 }
 
-QAbstractItemView::item:selected, QAbstractItemView::item:hover{
+QAbstractItemView::item:selected{
     background-color: #202020;
+    color: #f8f8f2;
 }
 
 QAbstractItemView::item:!selected{
@@ -34,6 +35,10 @@ QAbstractItemView::item:!selected{
 
 QAbstractItemView::item:selected:!active{
     color: #8F908A;
+}
+QAbstractItemView::item:hover{
+    background-color: #202020;
+    color: #f8f8f2;
 }
 
 
