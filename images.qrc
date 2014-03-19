@@ -29,5 +29,7 @@
         <file>images/treeview/vline.png</file>
         <file>images/treeview/branch-closed.svg</file>
         <file>images/treeview/branch-open.svg</file>
+        <file>images/treeview/folder.svg</file>
+        <file>images/treeview/file.svg</file>
     </qresource>
 </RCC>

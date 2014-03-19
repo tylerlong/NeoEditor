@@ -37,6 +37,7 @@ void LeftTabWidget::showFolderTree(QString folderPath)
     fileSystemModel->setIconProvider(fileIconProvider);
     treeView->setModel(fileSystemModel);
     treeView->setRootIndex(fileSystemModel->index(folderPath));
+    treeView->setIconSize(QSize(14, 14));
     treeView->setColumnHidden(1, true);
     treeView->setColumnHidden(2, true);
     treeView->setColumnHidden(3, true);

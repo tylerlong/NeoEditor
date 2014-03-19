@@ -2,6 +2,8 @@
 
 FileIconProvider::FileIconProvider()
 {
+    fileIcon = QIcon(":/images/treeview/file.svg");
+    folderIcon = QIcon(":/images/treeview/folder.svg");
 }
 
 FileIconProvider::~FileIconProvider()
@@ -10,15 +12,35 @@ FileIconProvider::~FileIconProvider()
 
 QIcon FileIconProvider::icon(IconType type) const
 {
-    return QFileIconProvider::icon(type);
+    switch(type)
+    {
+        case QFileIconProvider::File:
+            return fileIcon;
+        case QFileIconProvider::Folder:
+            return folderIcon;
+        default:
+            return QFileIconProvider::icon(type);
+    }
 }
 
 QIcon FileIconProvider::icon(const QFileInfo &info) const
 {
-    return QFileIconProvider::icon(info);
+    if(info.isFile())
+    {
+        return fileIcon;
+    }
+    else if(info.isDir())
+    {
+        return folderIcon;
+    }
+    else
+    {
+        return QFileIconProvider::icon(info);
+    }
 }
 
 QString FileIconProvider::type(const QFileInfo &info) const
 {
-    return QFileIconProvider::type(info);
+    QString type = QFileIconProvider::type(info);
+    return type;
 }
