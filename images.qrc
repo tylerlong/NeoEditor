@@ -24,5 +24,10 @@
         <file>images/sql.png</file>
         <file>images/ini.png</file>
         <file>images/txt.png</file>
+        <file>images/treeview/branch-closed.png</file>
+        <file>images/treeview/branch-end.png</file>
+        <file>images/treeview/branch-more.png</file>
+        <file>images/treeview/branch-open.png</file>
+        <file>images/treeview/vline.png</file>
     </qresource>
 </RCC>

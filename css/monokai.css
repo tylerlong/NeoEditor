@@ -1,7 +1,8 @@
-@font-face{
-    font-family: 'Ubuntu Mono';
-    src: url('../fonts/UbuntuMono-R.ttf') format('truetype');
+@font-face {
+    font-family: Ubuntu Mono;
+    src: url(:/fonts/UbuntuMono-R.ttf) format(truetype);
 }
+
 
 QTreeView, QTabWidget{
     border: 0;
@@ -35,13 +36,33 @@ QAbstractItemView::item:selected:!active{
     color: #8F908A;
 }
 
+
 QTreeView::branch{
     background-color: #272822;
 }
-
 QTreeView::branch:selected{
     background-color: #202020;
 }
+QTreeView::branch:has-siblings:!adjoins-item {
+    border-image: url(:/images/treeview/vline.png) 0;
+}
+QTreeView::branch:has-siblings:adjoins-item {
+    border-image: url(:/images/treeview/branch-more.png) 0;
+}
+QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+    border-image: url(:/images/treeview/branch-end.png) 0;
+}
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+        border-image: none;
+        image: url(:/images/treeview/branch-closed.png);
+}
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings  {
+        border-image: none;
+        image: url(:/images/treeview/branch-open.png);
+}
+
 
 QSplitter::handle{
     background-color: #2F3129;
