@@ -55,12 +55,12 @@ QTreeView::branch:!has-children:!has-siblings:adjoins-item {
 QTreeView::branch:has-children:!has-siblings:closed,
 QTreeView::branch:closed:has-children:has-siblings {
         border-image: none;
-        image: url(:/images/treeview/branch-closed.png);
+        image: url(:/images/treeview/branch-closed.svg);
 }
 QTreeView::branch:open:has-children:!has-siblings,
 QTreeView::branch:open:has-children:has-siblings  {
         border-image: none;
-        image: url(:/images/treeview/branch-open.png);
+        image: url(:/images/treeview/branch-open.svg);
 }
 
 
