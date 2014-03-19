@@ -24,7 +24,7 @@ QAbstractItemView{
     line-height: 120%;
 }
 
-QAbstractItemView::item:selected{
+QAbstractItemView::item:selected, QAbstractItemView::item:hover{
     background-color: #202020;
 }
 
@@ -40,7 +40,7 @@ QAbstractItemView::item:selected:!active{
 QTreeView::branch{
     background-color: #272822;
 }
-QTreeView::branch:selected{
+QTreeView::branch:selected, QTreeView::branch:hover{
     background-color: #202020;
 }
 QTreeView::branch:has-siblings:!adjoins-item {
