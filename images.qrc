@@ -31,5 +31,7 @@
         <file>images/treeview/branch-open.svg</file>
         <file>images/treeview/folder.svg</file>
         <file>images/treeview/file.svg</file>
+        <file>images/close.svg</file>
+        <file>images/close-hover.svg</file>
     </qresource>
 </RCC>

@@ -88,3 +88,9 @@ QTabBar::tab:!selected{
     background-color: #2F3129;
     color: #8F908A;
 }
+QTabBar::close-button{
+    image: url(:/images/close.svg)
+}
+QTabBar::close-button:hover{
+    image: url(:/images/close-hover.svg)
+}
