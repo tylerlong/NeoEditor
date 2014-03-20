@@ -91,7 +91,6 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 107. make `parent` as small as possible
 112. refresh treeView after adding new folder or file
     1. because not sorted
-113. update screenshot in readme
 115. theme the whole app
     1. https://gist.github.com/Zren/2779042
     2. http://habrahabr.ru/post/152367/  -- contains detailed steps
@@ -101,10 +100,10 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     6. tool bar
         1. maybe we can remove it? right click to open file?
     7. when there are too many tabs
-    9. close icon of tab
-    11. background color when there is no tabs at all.
 116. use Atom's theme and icons
 117. close folder tab, auto focus remaining tab, disable this behavior
 118. remember current line of active editor before exit
 119. treeView hover change icon color
-120. tbc
+120. tabbar::tab:first{padding: {gutter_width}px;}
+    1. gutter width is dynamic, so this needs to be dynamtic too
+121. tbc
