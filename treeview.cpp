@@ -1,8 +1,20 @@
 #include "mainwindow.h"
 #include "treeview.h"
+#include "fileiconprovider.h"
 
-TreeView::TreeView(QWidget* parent) : QTreeView(parent)
+TreeView::TreeView(QWidget* parent, QString folderPath) : QTreeView(parent)
 {
+    QFileSystemModel *fileSystemModel = new QFileSystemModel(this);
+    fileSystemModel->setRootPath(folderPath);
+    FileIconProvider *fileIconProvider = new  FileIconProvider();
+    fileSystemModel->setIconProvider(fileIconProvider);
+    this->setModel(fileSystemModel);
+    this->setRootIndex(fileSystemModel->index(folderPath));
+    this->setIconSize(QSize(14, 14));
+    this->setColumnHidden(1, true);
+    this->setColumnHidden(2, true);
+    this->setColumnHidden(3, true);
+    this->setHeaderHidden(true);
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(showContextMenu(const QPoint &)));
 }

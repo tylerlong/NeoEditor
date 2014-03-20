@@ -9,7 +9,7 @@ class TreeView : public QTreeView
     Q_OBJECT
 
 public:
-    TreeView(QWidget* parent);
+    TreeView(QWidget* parent, QString folderPath);
 
 private slots:
     void showContextMenu(const QPoint &point);
