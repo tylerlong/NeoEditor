@@ -3,6 +3,9 @@
     src: url(:/fonts/UbuntuMono-R.ttf) format(truetype);
 }
 
+QWidget{
+    background-color: #2F3129;
+}
 
 QTreeView, QTabWidget{
     border: 0;
@@ -70,7 +73,7 @@ QTreeView::branch:open:has-children:has-siblings  {
 
 
 QSplitter::handle{
-    background-color: #2F3129;
+    background-color: #272822;
 }
 
 
