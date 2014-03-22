@@ -118,3 +118,6 @@ QToolBar::handle{
     width: 0;
     height: 0;
 }
+QToolBar QToolButton:hover{
+    background-color: #666666;
+}
