@@ -34,6 +34,15 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 - [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library)
 
 
+## Linux IBus IME issue (中文输入问题)
+
+edit /etc/environment, add:
+
+    export GTK_IM_MODULE=ibus
+    export XMODIFIERS=@im=ibus
+    export QT_IM_MODULE=ibus
+
+
 ## Software license
 
 [GPL](http://www.gnu.org/licenses/gpl.html)
@@ -74,6 +83,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     2. to move file
     3. to move folder
 83. quick open file (ctrl + p)
+    1. use context menu to show file list
 88. use command line + NeoEditor to write NeoEditor, get rid of qtcreator
     1. not viable, because qtcreator has good acp feature for qt
 89. add "vim mode", a toolbar button on the left with states
@@ -84,7 +94,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     2. hexadecimal editor?
 98. auto complete, according to text in the same file. better than none.
     1. tab key to trigger? not a good idea, because there are conflicts
-102. test Chinese characters
+    2. use context menu to show candidates
 104. toolbar icon for word wrap
 105. add "open with NeoEditor" context menu to os
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
@@ -99,7 +109,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
     5. remove window header
     6. tool bar
         1. maybe we can remove it? right click to open file?
-    7. when there are too many tabs
+        2. auto hide it
 116. use Atom's theme and icons
 117. close folder tab, auto focus remaining tab, disable this behavior
 118. remember current line of active editor before exit
