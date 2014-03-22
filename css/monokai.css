@@ -113,3 +113,8 @@ QTabBar QToolButton::left-arrow:disabled{
 QTabBar QToolButton::right-arrow:disabled{
     image: url(:images/null.svg);
 }
+
+QToolBar::handle{
+    width: 0;
+    height: 0;
+}

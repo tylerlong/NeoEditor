@@ -31,23 +31,23 @@ MainWindow::MainWindow()
     this->setContextMenuPolicy(Qt::NoContextMenu);
 
     //tool bar
-    QToolBar *fileToolBar = new QToolBar(tr("&File"), this);
-    fileToolBar->setObjectName("fileToolBar");
-    this->addToolBar(Qt::LeftToolBarArea, fileToolBar);
+    QToolBar *toolBar = new QToolBar(tr("&File"), this);
+    toolBar->setObjectName("fileToolBar");
+    this->addToolBar(Qt::LeftToolBarArea, toolBar);
 
     QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
     openFolderAction->setIcon(QIcon(":/images/folder-open.svg"));
     openFolderAction->setShortcut(QKeySequence::Open);
     openFolderAction->setStatusTip(tr("Open Folder"));
     connect(openFolderAction, SIGNAL(triggered()), this, SLOT(openFolder()));
-    fileToolBar->addAction(openFolderAction);
+    toolBar->addAction(openFolderAction);
 
     QAction *saveFileAction = new QAction(tr("&Save File"), this);
     saveFileAction->setIcon(QIcon(":/images/document-save.svg"));
     saveFileAction->setShortcut(QKeySequence::Save);
     saveFileAction->setStatusTip("Save File");
     connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
-    fileToolBar->addAction(saveFileAction);
+    toolBar->addAction(saveFileAction);
 
     //right panel
     rightTabWidget = new RightTabWidget(this);
@@ -57,21 +57,17 @@ MainWindow::MainWindow()
     connect(this, SIGNAL(renameFileRequested(QString,QString)), rightTabWidget, SLOT(rename(QString, QString)));
     connect(this, SIGNAL(renameFolderRequested(QString,QString)), rightTabWidget, SLOT(renameFolder(QString, QString)));
 
-    QToolBar *helpToolBar = new QToolBar(tr("&Help"), this);
-    helpToolBar->setObjectName("helpToolBar");
-    this->addToolBar(Qt::LeftToolBarArea, helpToolBar);
-
     QAction *keyboardShortcutsAction = new QAction(tr("&Keyboard Shortcuts"), this);
     keyboardShortcutsAction->setIcon(QIcon(":/images/preferences-desktop-keyboard-shortcuts.svg"));
     keyboardShortcutsAction->setStatusTip("Keyboard Shortcuts");
     connect(keyboardShortcutsAction, SIGNAL(triggered()), this, SLOT(keyboardShortcuts()));
-    helpToolBar->addAction(keyboardShortcutsAction);
+    toolBar->addAction(keyboardShortcutsAction);
 
     QAction *aboutAction = new QAction(tr("&About NeoEditor"), this);
     aboutAction->setIcon(QIcon(":/images/neo.png"));
     aboutAction->setStatusTip("About NeoEditor");
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(about()));
-    helpToolBar->addAction(aboutAction);
+    toolBar->addAction(aboutAction);
 
     //left panel
     leftTabWidget = new LeftTabWidget(this);
