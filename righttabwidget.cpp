@@ -177,70 +177,70 @@ void RightTabWidget::open(QString filePath)
     this->setCurrentIndex(index);
     if(filePath.endsWith(".rb"))
     {
-        this->setTabIcon(index, QIcon(":/images/ruby.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/ruby.png"));
     }
     else if(filePath.endsWith(".py"))
     {
-        this->setTabIcon(index, QIcon(":/images/python.ico"));
+        this->setTabIcon(index, QIcon(":/images/languages/python.ico"));
     }
     else if(filePath.endsWith(".java"))
     {
-        this->setTabIcon(index, QIcon(":/images/java.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/java.png"));
     }
     else if(filePath.endsWith(".js"))
     {
-        this->setTabIcon(index, QIcon(":/images/javascript.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/javascript.png"));
     }
     else if(filePath.endsWith(".php"))
     {
-        this->setTabIcon(index, QIcon(":/images/php.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/php.png"));
     }
     else if(filePath.endsWith(".css"))
     {
-        this->setTabIcon(index, QIcon(":/images/css3.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/css3.png"));
     }
     else if(filePath.endsWith(".as"))
     {
-        this->setTabIcon(index, QIcon(":/images/flash.jpg"));
+        this->setTabIcon(index, QIcon(":/images/languages/flash.jpg"));
     }
     else if(filePath.endsWith(".html") || filePath.endsWith(".htm"))
     {
-        this->setTabIcon(index, QIcon(":/images/html5.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/html5.png"));
     }
     else if(filePath.endsWith(".xml"))
     {
-        this->setTabIcon(index, QIcon(":/images/xml.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/xml.png"));
     }
     else if(filePath.endsWith(".ts"))
     {
-        this->setTabIcon(index, QIcon(":/images/typescript.ico"));
+        this->setTabIcon(index, QIcon(":/images/languages/typescript.ico"));
     }
     else if(filePath.endsWith(".md"))
     {
-        this->setTabIcon(index, QIcon(":/images/markdown.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/markdown.png"));
     }
     else if(filePath.endsWith(".svg"))
     {
-        this->setTabIcon(index, QIcon(":/images/svg.svg"));
+        this->setTabIcon(index, QIcon(":/images/languages/svg.svg"));
     }
     else if(filePath.endsWith(".cpp") || filePath.endsWith(".h"))
     {
-        this->setTabIcon(index, QIcon(":/images/cplusplus.svg"));
+        this->setTabIcon(index, QIcon(":/images/languages/cplusplus.svg"));
     }
     else if(filePath.endsWith(".sql"))
     {
-        this->setTabIcon(index, QIcon(":/images/sql.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/sql.png"));
     }
     else if(filePath.endsWith(".ini"))
     {
-        this->setTabIcon(index, QIcon(":/images/ini.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/ini.png"));
     }
     else if(filePath.endsWith(".txt"))
     {
-        this->setTabIcon(index, QIcon(":/images/txt.png"));
+        this->setTabIcon(index, QIcon(":/images/languages/txt.png"));
     }
     else
     {
-        this->setTabIcon(index, QIcon(":/images/text-x-generic.svg"));
+        this->setTabIcon(index, QIcon(":/images/languages/generic.svg"));
     }
 }

@@ -36,18 +36,16 @@ MainWindow::MainWindow()
     this->addToolBar(Qt::LeftToolBarArea, toolBar);
 
     QAction *openFolderAction = new QAction(tr("&Open Folder"), this);
-    openFolderAction->setIcon(QIcon(":/images/folder-open.svg"));
+    openFolderAction->setIcon(QIcon(":/images/toolbar/folder-open.svg"));
     openFolderAction->setShortcut(QKeySequence::Open);
     openFolderAction->setStatusTip(tr("Open Folder"));
     connect(openFolderAction, SIGNAL(triggered()), this, SLOT(openFolder()));
     toolBar->addAction(openFolderAction);
 
     QAction *saveFileAction = new QAction(tr("&Save File"), this);
-    saveFileAction->setIcon(QIcon(":/images/document-save.svg"));
     saveFileAction->setShortcut(QKeySequence::Save);
     saveFileAction->setStatusTip("Save File");
     connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
-    toolBar->addAction(saveFileAction);
 
     //right panel
     rightTabWidget = new RightTabWidget(this);
@@ -58,7 +56,7 @@ MainWindow::MainWindow()
     connect(this, SIGNAL(renameFolderRequested(QString,QString)), rightTabWidget, SLOT(renameFolder(QString, QString)));
 
     QAction *keyboardShortcutsAction = new QAction(tr("&Keyboard Shortcuts"), this);
-    keyboardShortcutsAction->setIcon(QIcon(":/images/preferences-desktop-keyboard-shortcuts.svg"));
+    keyboardShortcutsAction->setIcon(QIcon(":/images/toolbar/preferences-desktop-keyboard-shortcuts.svg"));
     keyboardShortcutsAction->setStatusTip("Keyboard Shortcuts");
     connect(keyboardShortcutsAction, SIGNAL(triggered()), this, SLOT(keyboardShortcuts()));
     toolBar->addAction(keyboardShortcutsAction);
@@ -115,7 +113,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
 
 void MainWindow::about()
 {
-    QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.2.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/orgs/NeoEditor\">https://github.com/orgs/NeoEditor</a>. All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
+    QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.3.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/orgs/NeoEditor\">https://github.com/orgs/NeoEditor</a>. All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
 }
 
 void MainWindow::keyboardShortcuts()

@@ -42,6 +42,8 @@ edit `/etc/environment`, add:
     export XMODIFIERS=@im=ibus
     export QT_IM_MODULE=ibus
 
+Relogin or restart.
+
 
 ## Software license
 

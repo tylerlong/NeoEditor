@@ -91,10 +91,10 @@ QTabBar::tab:!selected{
     color: #8F908A;
 }
 QTabBar::close-button{
-    image: url(:/images/close.svg)
+    image: url(:/images/tabwidget/close.svg)
 }
 QTabBar::close-button:hover{
-    image: url(:/images/close-hover.svg)
+    image: url(:/images/tabwidget/close-hover.svg)
 }
 
 
@@ -102,10 +102,10 @@ QTabBar QToolButton{
     background-color: #272822;
 }
 QTabBar QToolButton::left-arrow{
-    image: url(:images/left.svg);
+    image: url(:images/tabwidget/left.svg);
 }
 QTabBar QToolButton::right-arrow{
-    image: url(:images/right.svg);
+    image: url(:images/tabwidget/right.svg);
 }
 QTabBar QToolButton::left-arrow:disabled{
     image: url(:images/null.svg);

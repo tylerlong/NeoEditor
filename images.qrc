@@ -1,28 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/folder-open.svg</file>
-        <file>images/document-save.svg</file>
-        <file>images/ruby.png</file>
-        <file>images/python.ico</file>
-        <file>images/java.png</file>
-        <file>images/javascript.png</file>
-        <file>images/php.png</file>
-        <file>images/css3.png</file>
-        <file>images/html5.png</file>
-        <file>images/flash.jpg</file>
         <file>images/neo.png</file>
-        <file>images/edit-copy.svg</file>
-        <file>images/edit-cut.svg</file>
-        <file>images/edit-paste.svg</file>
-        <file>images/preferences-desktop-keyboard-shortcuts.svg</file>
-        <file>images/text-x-generic.svg</file>
-        <file>images/xml.png</file>
-        <file>images/typescript.ico</file>
-        <file>images/markdown.png</file>
-        <file>images/svg.svg</file>
-        <file>images/sql.png</file>
-        <file>images/ini.png</file>
-        <file>images/txt.png</file>
         <file>images/treeview/branch-end.png</file>
         <file>images/treeview/branch-more.png</file>
         <file>images/treeview/vline.png</file>
@@ -30,11 +8,29 @@
         <file>images/treeview/branch-open.svg</file>
         <file>images/treeview/folder.svg</file>
         <file>images/treeview/file.svg</file>
-        <file>images/close.svg</file>
-        <file>images/close-hover.svg</file>
-        <file>images/right.svg</file>
-        <file>images/left.svg</file>
         <file>images/null.svg</file>
-        <file>images/cplusplus.svg</file>
+        <file>images/languages/cplusplus.svg</file>
+        <file>images/languages/css3.png</file>
+        <file>images/languages/flash.jpg</file>
+        <file>images/languages/generic.svg</file>
+        <file>images/languages/html5.png</file>
+        <file>images/languages/ini.png</file>
+        <file>images/languages/java.png</file>
+        <file>images/languages/javascript.png</file>
+        <file>images/languages/markdown.png</file>
+        <file>images/languages/php.png</file>
+        <file>images/languages/python.ico</file>
+        <file>images/languages/ruby.png</file>
+        <file>images/languages/sql.png</file>
+        <file>images/languages/svg.svg</file>
+        <file>images/languages/txt.png</file>
+        <file>images/languages/typescript.ico</file>
+        <file>images/languages/xml.png</file>
+        <file>images/toolbar/folder-open.svg</file>
+        <file>images/toolbar/preferences-desktop-keyboard-shortcuts.svg</file>
+        <file>images/tabwidget/close-hover.svg</file>
+        <file>images/tabwidget/close.svg</file>
+        <file>images/tabwidget/left.svg</file>
+        <file>images/tabwidget/right.svg</file>
     </qresource>
 </RCC>
