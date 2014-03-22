@@ -51,7 +51,6 @@ MainWindow::MainWindow()
 
     //right panel
     rightTabWidget = new RightTabWidget(this);
-    rightTabWidget->tabBar()->setIconSize(QSize(20, 20));
     connect(this, SIGNAL(openFileRequested(QString)), rightTabWidget, SLOT(open(QString)));
     connect(this, SIGNAL(deleteFileRequested(QString)), rightTabWidget, SLOT(remove(QString)));
     connect(this, SIGNAL(deleteFolderRequested(QString)), rightTabWidget, SLOT(removeFolder(QString)));

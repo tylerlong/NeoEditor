@@ -225,7 +225,7 @@ void RightTabWidget::open(QString filePath)
     }
     else if(filePath.endsWith(".cpp") || filePath.endsWith(".h"))
     {
-        this->setTabIcon(index, QIcon(":/images/cplusplus.png"));
+        this->setTabIcon(index, QIcon(":/images/cplusplus.svg"));
     }
     else if(filePath.endsWith(".sql"))
     {

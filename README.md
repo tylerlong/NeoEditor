@@ -36,7 +36,7 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 
 ## Linux IBus IME issue (中文输入问题)
 
-edit /etc/environment, add:
+edit `/etc/environment`, add:
 
     export GTK_IM_MODULE=ibus
     export XMODIFIERS=@im=ibus

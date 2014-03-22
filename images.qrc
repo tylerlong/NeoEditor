@@ -20,7 +20,6 @@
         <file>images/typescript.ico</file>
         <file>images/markdown.png</file>
         <file>images/svg.svg</file>
-        <file>images/cplusplus.png</file>
         <file>images/sql.png</file>
         <file>images/ini.png</file>
         <file>images/txt.png</file>
@@ -36,5 +35,6 @@
         <file>images/right.svg</file>
         <file>images/left.svg</file>
         <file>images/null.svg</file>
+        <file>images/cplusplus.svg</file>
     </qresource>
 </RCC>
