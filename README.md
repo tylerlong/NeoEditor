@@ -69,6 +69,8 @@ relogin or restart.
         3. maybe this is the key that how can I make the editor extensible
         4. yes, write ext in org NeoEditor on Github
 60. detect file change and reload file
+    1. bug: open file, rename file's folder, save file. cannot save
+    2. check file exists or not, check file content modified or not.
 61. integrate terminal
     1. this is great while it's very hard
     2. https://github.com/skavanagh/KeyBox
@@ -104,5 +106,4 @@ relogin or restart.
 119. treeView hover change icon color
 120. tabbar::tab:first{padding: {gutter_width}px;}
     1. gutter width is dynamic, so this needs to be dynamtic too
-122. bug: open file, rename file's folder, save file. cannot save
 123. tbc
