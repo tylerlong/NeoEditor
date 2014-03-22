@@ -42,7 +42,7 @@ edit `/etc/environment`, add:
     export XMODIFIERS=@im=ibus
     export QT_IM_MODULE=ibus
 
-Relogin or restart.
+relogin or restart.
 
 
 ## Software license
@@ -53,16 +53,10 @@ Relogin or restart.
 ## Todo list
 
 26. create installer for ubuntu
-    1. application icon background color (why is it green like Qt?) It's unity laucher's backlight
-    2. there is specific functionality already in Ubuntu that enables apps to select any tile colour they like.
-    3. choosing the app icon and tile colour is up to the app author.
-    4. https://bugs.launchpad.net/ubuntu/+source/unity/+bug/1173886
-    5. defining the tile background colour in the .desktop file is a hackey solution
-    6. https://developer.gnome.org/integration-guide/stable/desktop-files.html.en
+    1. just create deb file. allow users to apt-get install neo-editor
 32. show minimap
     1. QWebView take screenshot of the whole web page.
-33. handle exceptions (file not readable, not writable, binary file...etc).
-    1. bug: open file, rename file's folder, save file. cannot save
+    2. remove scroll bar because it's not needed
 46. change app title text -- necessary, user don't need to check tooltip for whole file path
     1. if file opened, show file path
     2. if folder opened, show folder path
@@ -86,8 +80,6 @@ Relogin or restart.
     3. to move folder
 83. quick open file (ctrl + p)
     1. use context menu to show file list
-88. use command line + NeoEditor to write NeoEditor, get rid of qtcreator
-    1. not viable, because qtcreator has good acp feature for qt
 89. add "vim mode", a toolbar button on the left with states
 92. show invisible files, otherwise cannot edit .gitignore .bashrc...etc
 94. bug: presessing ESC inserts new character
@@ -99,20 +91,18 @@ Relogin or restart.
     2. use context menu to show candidates
 104. toolbar icon for word wrap
 105. add "open with NeoEditor" context menu to os
+    1. first need to be able to open a file
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
 107. make `parent` as small as possible
 112. refresh treeView after adding new folder or file
     1. because not sorted
 115. theme the whole app
-    1. https://gist.github.com/Zren/2779042
-    2. http://habrahabr.ru/post/152367/  -- contains detailed steps
     3. http://qt-project.org/doc/qt-5/stylesheet-reference.html - reference guide
-    4. scroll bar
-    5. remove window header
 116. use Atom's theme and icons
 117. close folder tab, auto focus remaining tab, disable this behavior
 118. remember current line of active editor before exit
 119. treeView hover change icon color
 120. tabbar::tab:first{padding: {gutter_width}px;}
     1. gutter width is dynamic, so this needs to be dynamtic too
-122. tbc
+122. bug: open file, rename file's folder, save file. cannot save
+123. tbc
