@@ -109,9 +109,6 @@ Relogin or restart.
     3. http://qt-project.org/doc/qt-5/stylesheet-reference.html - reference guide
     4. scroll bar
     5. remove window header
-    6. tool bar
-        1. maybe we can remove it? right click to open file?
-        2. auto hide it
 116. use Atom's theme and icons
 117. close folder tab, auto focus remaining tab, disable this behavior
 118. remember current line of active editor before exit

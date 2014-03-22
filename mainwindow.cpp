@@ -46,6 +46,7 @@ MainWindow::MainWindow()
     saveFileAction->setShortcut(QKeySequence::Save);
     saveFileAction->setStatusTip("Save File");
     connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
+    this->addAction(saveFileAction);
 
     //right panel
     rightTabWidget = new RightTabWidget(this);
