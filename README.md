@@ -106,4 +106,4 @@ You'd have to install [Qt](http://qt-project.org/downloads) and compile the sour
 119. treeView hover change icon color
 120. tabbar::tab:first{padding: {gutter_width}px;}
     1. gutter width is dynamic, so this needs to be dynamtic too
-121. tbc
+122. tbc
