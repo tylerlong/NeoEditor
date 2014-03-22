@@ -7,7 +7,7 @@ An extensible text editor for the 21st Century.
 
 ## Screenshot
 
-![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot6.png)
+![NeoEditor](https://raw.github.com/NeoEditor/NeoEditor/master/images/screenshot7.png)
 
 
 ## Features
