@@ -3,10 +3,6 @@
     src: url(:/fonts/UbuntuMono-R.ttf) format(truetype);
 }
 
-QWidget{
-    background-color: #2F3129;
-}
-
 QTreeView, QTabWidget{
     border: 0;
 }
@@ -77,6 +73,9 @@ QSplitter::handle{
 }
 
 
+QStackedWidget{
+    background-color: #2F3129;
+}
 QTabBar{
     font-size: 16px;
     font-family: Ubuntu Mono;
