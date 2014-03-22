@@ -96,3 +96,20 @@ QTabBar::close-button{
 QTabBar::close-button:hover{
     image: url(:/images/close-hover.svg)
 }
+
+
+QTabBar QToolButton{
+    background-color: #272822;
+}
+QTabBar QToolButton::left-arrow{
+    image: url(:images/left.svg);
+}
+QTabBar QToolButton::right-arrow{
+    image: url(:images/right.svg);
+}
+QTabBar QToolButton::left-arrow:disabled{
+    image: url(:images/null.svg);
+}
+QTabBar QToolButton::right-arrow:disabled{
+    image: url(:images/null.svg);
+}

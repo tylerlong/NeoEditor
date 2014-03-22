@@ -33,5 +33,8 @@
         <file>images/treeview/file.svg</file>
         <file>images/close.svg</file>
         <file>images/close-hover.svg</file>
+        <file>images/right.svg</file>
+        <file>images/left.svg</file>
+        <file>images/null.svg</file>
     </qresource>
 </RCC>
