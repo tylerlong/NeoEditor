@@ -42,7 +42,7 @@ edit `/etc/environment`, add:
     export XMODIFIERS=@im=ibus
     export QT_IM_MODULE=ibus
 
-relogin or restart.
+Relogin or reboot.
 
 
 ## Software license
@@ -52,7 +52,7 @@ relogin or restart.
 
 ## Todo list
 
-26. create installer for ubuntu
+26. create installer for Ubuntu
     1. just create deb file. allow users to apt-get install neo-editor
 32. show minimap
     1. QWebView take screenshot of the whole web page.
