@@ -23,13 +23,19 @@ An extensible text editor for the 21st Century.
 
 Currently there is no binary distribution package available.
 
-You'd have to install [Qt](http://qt-project.org/downloads) and compile the source code yourself.
+You'd have to compile the source code yourself. Here are the steps:
+
+1. Download and Install Qt + Qt Creator
+2. sudo apt-get install libxslt1-dev libgstreamer-plugins-base0.10-dev libx11-dev libglu1-mesa-dev
+3. Open Qt Creator
+4. Open this project
+5. Ctrl + R to run
 
 
 ## Built with
 
-- [Qt](http://qt-project.org/) 5.2.1
-- [Ace](http://ace.c9.io/) [package 03.08.2014](https://github.com/ajaxorg/ace-builds/commit/fc9d2cae9fe8e6e95e74c86a31d21caadd8f9f39)
+- [Qt](http://qt-project.org/)
+- [Ace](http://ace.c9.io/)
 - [Ubuntu Mono font](http://font.ubuntu.com/)
 - [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library)
 
