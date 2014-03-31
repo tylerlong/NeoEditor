@@ -1,8 +1,11 @@
 #include "lefttabwidget.h"
 #include "treeview.h"
+#include "tabbar.h"
 
 LeftTabWidget::LeftTabWidget(QWidget *parent) : QTabWidget(parent)
 {
+    TabBar *tabBar = new TabBar();
+    this->setTabBar(tabBar);
     this->mainWindow = (QMainWindow*)parent;
     this->setTabsClosable(true);
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));
