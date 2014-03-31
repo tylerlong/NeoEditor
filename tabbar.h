@@ -16,6 +16,9 @@ protected:
 
 private slots:
     void showContextMenu(const QPoint &point);
+    void close();
+    void closeOthers();
+    void closeTabsToTheRight();
 };
 
 

@@ -10,40 +10,6 @@ RightTabWidget::RightTabWidget(QWidget *parent) : QTabWidget(parent)
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));
 }
 
-void RightTabWidget::close()
-{
-    QObject *object = sender(); //action
-    QObject *parent = object->parent(); //webview
-    int index = this->indexOf((QWidget*)parent);
-    this->close(index);
-}
-
-void RightTabWidget::closeOthers()
-{
-    QObject *object = sender(); //action
-    QObject *parent = object->parent(); //webview
-    int index = this->indexOf((QWidget*)parent);
-    for(int i = this->count() - 1; i >= 0; i--)
-    {
-        if(i == index)
-        {
-            continue;
-        }
-        this->close(i);
-    }
-}
-
-void RightTabWidget::closeTabsToTheRight()
-{
-    QObject *object = sender(); //action
-    QObject *parent = object->parent(); //webview
-    int index = this->indexOf((QWidget*)parent);
-    for(int i = this->count() - 1; i > index; i--)
-    {
-        this->close(i);
-    }
-}
-
 void RightTabWidget::close(int index)
 {
     if(this->widget(index) == 0)

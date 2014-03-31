@@ -19,10 +19,7 @@ public slots:
     void renameFolder(QString oldFolderPath, QString newFolderPath);
 
 private slots:
-    void close();
     void close(int index);
-    void closeOthers();
-    void closeTabsToTheRight();
 };
 
 

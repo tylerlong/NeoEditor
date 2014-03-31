@@ -20,18 +20,18 @@ void TabBar::showContextMenu(const QPoint &point)
     QMenu menu(this);
 
     QAction closeAction(tr("&Close"), selectedWidget);
-    connect(&closeAction, SIGNAL(triggered()), tabWidget, SLOT(close()));
+    connect(&closeAction, SIGNAL(triggered()), this, SLOT(close()));
     menu.addAction(&closeAction);
 
     QAction closeOthersAction(tr("Close &Others"), selectedWidget);
-    connect(&closeOthersAction, SIGNAL(triggered()), tabWidget, SLOT(closeOthers()));
+    connect(&closeOthersAction, SIGNAL(triggered()), this, SLOT(closeOthers()));
     if(this->count() > 1)
     {
         menu.addAction(&closeOthersAction);
     }
 
     QAction closeTabsToTheRightAction(tr("Close Tabs to the &Right"), selectedWidget);
-    connect(&closeTabsToTheRightAction, SIGNAL(triggered()), tabWidget, SLOT(closeTabsToTheRight()));
+    connect(&closeTabsToTheRightAction, SIGNAL(triggered()), this, SLOT(closeTabsToTheRight()));
     if(this->count() > index + 1)
     {
         menu.addAction(&closeTabsToTheRightAction);
@@ -49,5 +49,42 @@ void TabBar::mouseReleaseEvent(QMouseEvent *mouseEvent)
         {
             emit ((QTabWidget*)this->parentWidget())->tabCloseRequested(tabIndex);
         }
+    }
+}
+
+void TabBar::close()
+{
+    QTabWidget *tabWidget = (QTabWidget*)this->parentWidget();
+    QObject *object = sender(); //action
+    QObject *parent = object->parent();
+    int index = tabWidget->indexOf((QWidget*)parent);
+    emit tabWidget->tabCloseRequested(index);
+}
+
+void TabBar::closeOthers()
+{
+    QTabWidget *tabWidget = (QTabWidget*)this->parentWidget();
+    QObject *object = sender(); //action
+    QObject *parent = object->parent();
+    int index = tabWidget->indexOf((QWidget*)parent);
+    for(int i = this->count() - 1; i >= 0; i--)
+    {
+        if(i == index)
+        {
+            continue;
+        }
+        emit tabWidget->tabCloseRequested(i);
+    }
+}
+
+void TabBar::closeTabsToTheRight()
+{
+    QTabWidget *tabWidget = (QTabWidget*)this->parentWidget();
+    QObject *object = sender(); //action
+    QObject *parent = object->parent();
+    int index = tabWidget->indexOf((QWidget*)parent);
+    for(int i = this->count() - 1; i > index; i--)
+    {
+        emit tabWidget->tabCloseRequested(i);
     }
 }
