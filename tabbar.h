@@ -13,6 +13,9 @@ public:
 
 protected:
     void mouseReleaseEvent(QMouseEvent *mouseEvent);
+
+private slots:
+    void showContextMenu(const QPoint &point);
 };
 
 

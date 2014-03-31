@@ -112,5 +112,4 @@ Relogin or reboot.
 119. treeView hover change icon color
 120. tabbar::tab:first{padding: {gutter_width}px;}
     1. gutter width is dynamic, so this needs to be dynamtic too
-123. click middle button to close tab
 124. tbc

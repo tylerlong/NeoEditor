@@ -23,7 +23,6 @@ private slots:
     void close(int index);
     void closeOthers();
     void closeTabsToTheRight();
-    void showContextMenu(const QPoint &point);
 };
 
 
