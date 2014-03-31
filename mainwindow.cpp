@@ -88,7 +88,7 @@ MainWindow::MainWindow()
 void MainWindow::openFolder()
 {
     QString folderPath = QFileDialog::getExistingDirectory(this, tr("Open Directory"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    if(folderPath != NULL)
+    if(folderPath != 0)
     {
         leftTabWidget->showFolderTree(folderPath);
     }
@@ -218,5 +218,5 @@ MainWindow* MainWindow::GetInstance()
             return (MainWindow*)widget;
         }
     }
-    return NULL;
+    return 0;
 }

@@ -1,12 +1,12 @@
 #include "lefttabwidget.h"
 #include "treeview.h"
 #include "tabbar.h"
+#include "mainwindow.h"
 
 LeftTabWidget::LeftTabWidget(QWidget *parent) : QTabWidget(parent)
 {
     TabBar *tabBar = new TabBar(this);
     this->setTabBar(tabBar);
-    this->mainWindow = (QMainWindow*)parent;
     this->setTabsClosable(true);
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));
 }
@@ -33,7 +33,7 @@ void LeftTabWidget::showFolderTree(QString folderPath)
     }
 
     TreeView *treeView = new TreeView(this, folderPath);
-    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), mainWindow, SLOT(openFile(QModelIndex)));
+    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), MainWindow::GetInstance(), SLOT(openFile(QModelIndex)));
     int index = this->addTab(treeView, QDir(folderPath).dirName());
     treeView->setFocus();
     this->setTabToolTip(index, folderPath);

@@ -108,6 +108,7 @@ Relogin or reboot.
     3. http://qt-project.org/doc/qt-5/stylesheet-reference.html - reference guide
 116. use Atom's theme and icons
 117. close folder tab, auto focus remaining tab, disable this behavior
+    1. confirmed this issue. very annoying.
 118. remember current line of active editor before exit
 119. treeView hover change icon color
 120. tabbar::tab:first{padding: {gutter_width}px;}

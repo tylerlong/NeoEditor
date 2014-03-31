@@ -1,8 +1,8 @@
 #include "tabbar.h"
 
-TabBar::TabBar(QWidget *parent) : QTabBar(parent)
+TabBar::TabBar(QTabWidget *parent) : QTabBar(parent)
 {
-    this->tabWidget = (QTabWidget*)parent;
+    this->tabWidget = parent;
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(showContextMenu(const QPoint &)));
 }

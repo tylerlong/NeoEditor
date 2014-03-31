@@ -9,7 +9,7 @@ class TabBar : public QTabBar
     Q_OBJECT
 
 public:
-    TabBar(QWidget * parent = 0);
+    TabBar(QTabWidget *parent);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *mouseEvent);

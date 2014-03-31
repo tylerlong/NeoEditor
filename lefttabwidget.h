@@ -14,9 +14,6 @@ public:
 
 private slots:
     void close(int index);
-
-private:
-    QMainWindow *mainWindow;
 };
 
 
