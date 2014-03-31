@@ -1,12 +1,13 @@
 #include "righttabwidget.h"
 #include "webview.h"
+#include "tabbar.h"
 
 RightTabWidget::RightTabWidget(QWidget *parent) : QTabWidget(parent)
 {
+    QTabBar *tabBar = new TabBar();
+    this->setTabBar(tabBar);
     this->setTabsClosable(true);
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));
-
-    QTabBar *tabBar = this->tabBar();
     tabBar->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(tabBar, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(showContextMenu(const QPoint &)));
 }

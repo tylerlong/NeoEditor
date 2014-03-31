@@ -9,7 +9,8 @@ SOURCES += \
     righttabwidget.cpp \
     treeview.cpp \
     lefttabwidget.cpp \
-    fileiconprovider.cpp
+    fileiconprovider.cpp \
+    tabbar.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -17,7 +18,8 @@ HEADERS += \
     righttabwidget.h \
     treeview.h \
     lefttabwidget.h \
-    fileiconprovider.h
+    fileiconprovider.h \
+    tabbar.h
 
 RESOURCES += \
     html.qrc \
