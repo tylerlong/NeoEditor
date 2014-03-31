@@ -101,6 +101,7 @@ Relogin or reboot.
 105. add "open with NeoEditor" context menu to os
     1. first need to be able to open a file
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
+    1. js code call cplusplus code to set language icon
 107. make `parent` as small as possible
 112. refresh treeView after adding new folder or file
     1. because not sorted
@@ -113,4 +114,6 @@ Relogin or reboot.
 119. treeView hover change icon color
 120. tabbar::tab:first{padding: {gutter_width}px;}
     1. gutter width is dynamic, so this needs to be dynamtic too
-124. tbc
+124. left browser tree is too dim and dark
+    1. try some bright colors instead
+125. tbc
