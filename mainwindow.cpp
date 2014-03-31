@@ -114,7 +114,7 @@ void MainWindow::openFile(QModelIndex modelIndex)
 
 void MainWindow::about()
 {
-    QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.3.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/orgs/NeoEditor\">https://github.com/orgs/NeoEditor</a>. All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
+    QMessageBox::about(this, tr("About NeoEditor"), tr("<strong>NeoEditor 0.3.0</strong><br/><br/>An extensible text editor for the 21st Century.<br/><br/>Copyright 2014 <a href=\"https://github.com/tylerlong\">https://github.com/tylerlong</a>. All rights reserved.<br/><br/>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."));
 }
 
 void MainWindow::keyboardShortcuts()
@@ -141,7 +141,7 @@ void MainWindow::closeEvent(QCloseEvent *closeEvent)
 
 void MainWindow::writeSettings()
 {
-    QSettings settings("https://github.com/orgs/NeoEditor", "NeoEditor");
+    QSettings settings("https://github.com/tylerlong/NeoEditor", "NeoEditor");
 
     //layout
     settings.setValue("geometry", saveGeometry());
@@ -169,7 +169,7 @@ void MainWindow::writeSettings()
 
 void MainWindow::readSettings()
 {
-    QSettings settings("https://github.com/orgs/NeoEditor", "NeoEditor");
+    QSettings settings("https://github.com/tylerlong/NeoEditor", "NeoEditor");
 
     //layout
     restoreGeometry(settings.value("geometry").toByteArray());
