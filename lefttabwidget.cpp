@@ -4,7 +4,7 @@
 
 LeftTabWidget::LeftTabWidget(QWidget *parent) : QTabWidget(parent)
 {
-    TabBar *tabBar = new TabBar();
+    TabBar *tabBar = new TabBar(this);
     this->setTabBar(tabBar);
     this->mainWindow = (QMainWindow*)parent;
     this->setTabsClosable(true);

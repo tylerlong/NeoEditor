@@ -4,7 +4,7 @@
 
 RightTabWidget::RightTabWidget(QWidget *parent) : QTabWidget(parent)
 {
-    QTabBar *tabBar = new TabBar();
+    QTabBar *tabBar = new TabBar(this);
     this->setTabBar(tabBar);
     this->setTabsClosable(true);
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(close(int)));

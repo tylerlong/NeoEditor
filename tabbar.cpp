@@ -2,6 +2,7 @@
 
 TabBar::TabBar(QWidget *parent) : QTabBar(parent)
 {
+    this->tabWidget = (QTabWidget*)parent;
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(showContextMenu(const QPoint &)));
 }
@@ -14,7 +15,6 @@ void TabBar::showContextMenu(const QPoint &point)
         return;
     }
 
-    QTabWidget *tabWidget = (QTabWidget*)this->parentWidget();
     QWidget *selectedWidget = tabWidget->widget(index);
 
     QMenu menu(this);
@@ -47,14 +47,13 @@ void TabBar::mouseReleaseEvent(QMouseEvent *mouseEvent)
         int tabIndex = this->tabAt(mouseEvent->pos());
         if(tabIndex != -1)
         {
-            emit ((QTabWidget*)this->parentWidget())->tabCloseRequested(tabIndex);
+            emit tabWidget->tabCloseRequested(tabIndex);
         }
     }
 }
 
 void TabBar::close()
 {
-    QTabWidget *tabWidget = (QTabWidget*)this->parentWidget();
     QObject *object = sender(); //action
     QObject *parent = object->parent();
     int index = tabWidget->indexOf((QWidget*)parent);
@@ -63,7 +62,6 @@ void TabBar::close()
 
 void TabBar::closeOthers()
 {
-    QTabWidget *tabWidget = (QTabWidget*)this->parentWidget();
     QObject *object = sender(); //action
     QObject *parent = object->parent();
     int index = tabWidget->indexOf((QWidget*)parent);
@@ -79,7 +77,6 @@ void TabBar::closeOthers()
 
 void TabBar::closeTabsToTheRight()
 {
-    QTabWidget *tabWidget = (QTabWidget*)this->parentWidget();
     QObject *object = sender(); //action
     QObject *parent = object->parent();
     int index = tabWidget->indexOf((QWidget*)parent);

@@ -14,6 +14,9 @@ public:
 protected:
     void mouseReleaseEvent(QMouseEvent *mouseEvent);
 
+private:
+    QTabWidget *tabWidget;
+
 private slots:
     void showContextMenu(const QPoint &point);
     void close();
