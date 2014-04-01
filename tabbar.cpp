@@ -44,18 +44,11 @@ void TabBar::showContextMenu(const QPoint &point)
 void TabBar::mouseReleaseEvent(QMouseEvent *mouseEvent)
 {
     int tabIndex = this->tabAt(mouseEvent->pos());
-    if(tabIndex == -1)
-    {
-        return;
-    }
-    if(mouseEvent->button() == Qt::MidButton)
+    if(tabIndex != -1 && mouseEvent->button() == Qt::MidButton)
     {
         emit tabWidget->tabCloseRequested(tabIndex);
     }
-    else if(mouseEvent->button() == Qt::LeftButton)
-    {
-        this->mousePressEvent(mouseEvent); // fix reorder tab issue
-    }
+    QTabBar::mouseReleaseEvent(mouseEvent);
 }
 
 void TabBar::close()

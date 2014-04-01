@@ -83,7 +83,6 @@ Relogin or reboot.
 72. switch tabs, change file highlight in left file tree.
     1. auto select newly created file / folder
 73. drag & drop
-    1. to reorder tabs
     2. to move file
     3. to move folder
 83. quick open file (ctrl + p)
@@ -116,4 +115,9 @@ Relogin or reboot.
     1. gutter width is dynamic, so this needs to be dynamtic too
 124. left browser tree is too dim and dark
     1. try some bright colors instead
-125. tbc
+125. dragging tab issues
+    1. drag to the right, tab disappear
+    2. when dragging, there is a white line
+    3. don't like the hacked way, there should be a standard way to redorder tabs.
+    4. confirmed, it's caused by self-defined TabBar class
+126. tbc
