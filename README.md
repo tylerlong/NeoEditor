@@ -115,9 +115,6 @@ Relogin or reboot.
     1. gutter width is dynamic, so this needs to be dynamtic too
 124. left browser tree is too dim and dark
     1. try some bright colors instead
-125. dragging tab issues
-    1. drag to the right, tab disappear
-    2. when dragging, there is a white line
-    3. don't like the hacked way, there should be a standard way to redorder tabs.
-    4. confirmed, it's caused by self-defined TabBar class
+125. when dragging, there is a white line
+    1. default QTabBar doesn't have this issue
 126. tbc
