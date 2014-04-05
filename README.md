@@ -75,8 +75,8 @@ Relogin or reboot.
         3. maybe this is the key that how can I make the editor extensible
         4. yes, write ext in org NeoEditor on Github
 60. detect file change and reload file
-    1. bug: open file, rename file's folder, save file. cannot save
     2. check file exists or not, check file content modified or not.
+    3. this is important. my work got overwrited which sucks
 61. integrate terminal
     1. this is great while it's very hard
     2. https://github.com/skavanagh/KeyBox

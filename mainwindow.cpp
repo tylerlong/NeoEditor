@@ -4,6 +4,7 @@
 #include "righttabwidget.h"
 #include "webview.h"
 #include "treeview.h"
+#include "findfiledialog.h"
 
 MainWindow::MainWindow()
 {
@@ -29,6 +30,11 @@ MainWindow::MainWindow()
         this->setStyleSheet(content);
     }
     this->setContextMenuPolicy(Qt::NoContextMenu);
+
+    QAction *findFileAction = new QAction(tr("&Find File"), this);
+    findFileAction->setShortcut(QKeySequence(tr("Ctrl+P", "File|Find")));
+    connect(findFileAction, SIGNAL(triggered()), this, SLOT(findFile()));
+    this->addAction(findFileAction);
 
     //tool bar
     QToolBar *toolBar = new QToolBar(tr("&File"), this);
@@ -83,6 +89,13 @@ MainWindow::MainWindow()
     splitter->setHandleWidth(1);
 
     readSettings();
+}
+
+
+void MainWindow::findFile()
+{
+    FindFileDialog *findFileDialog = new FindFileDialog();
+    findFileDialog->exec();
 }
 
 void MainWindow::openFolder()

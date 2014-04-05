@@ -10,7 +10,8 @@ SOURCES += \
     treeview.cpp \
     lefttabwidget.cpp \
     fileiconprovider.cpp \
-    tabbar.cpp
+    tabbar.cpp \
+    findfiledialog.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -19,7 +20,8 @@ HEADERS += \
     treeview.h \
     lefttabwidget.h \
     fileiconprovider.h \
-    tabbar.h
+    tabbar.h \
+    findfiledialog.h
 
 RESOURCES += \
     html.qrc \

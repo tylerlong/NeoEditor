@@ -25,6 +25,7 @@ protected:
     void closeEvent(QCloseEvent *closeEvent);
 
 private slots:
+    void findFile();
     void openFolder();
     void saveFile();
     void openFile(QModelIndex modelIndex);
