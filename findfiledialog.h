@@ -9,10 +9,15 @@ class FindFileDialog : public QDialog
     Q_OBJECT
 
 public:
-    FindFileDialog();
+    FindFileDialog(QString folderPath);
+
+private slots:
+    void showFiles(QString s);
 
 private:
     QLineEdit *lineEdit;
+    QListView *listView;
+    QString folderPath;
 };
 
 

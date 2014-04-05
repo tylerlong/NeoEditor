@@ -94,7 +94,12 @@ MainWindow::MainWindow()
 
 void MainWindow::findFile()
 {
-    FindFileDialog *findFileDialog = new FindFileDialog();
+    int currentIndex = leftTabWidget->currentIndex();
+    if(currentIndex == -1)
+    {
+        return;
+    }
+    FindFileDialog *findFileDialog = new FindFileDialog(leftTabWidget->tabToolTip(currentIndex));
     findFileDialog->exec();
 }
 
