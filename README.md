@@ -74,6 +74,7 @@ Relogin or reboot.
         2. there are examples about how to write ACE extensions
         3. maybe this is the key that how can I make the editor extensible
         4. yes, write ext in org NeoEditor on Github
+    3. this is about the extensibility, a very big topic. think about it carefully
 60. detect file change and reload file
     2. check file exists or not, check file content modified or not.
     3. this is important. my work got overwrited which sucks
@@ -85,8 +86,6 @@ Relogin or reboot.
 73. drag & drop
     2. to move file
     3. to move folder
-83. quick open file (ctrl + p)
-    1. use context menu to show file list
 89. add "vim mode", a toolbar button on the left with states
 92. show invisible files, otherwise cannot edit .gitignore .bashrc...etc
 94. bug: presessing ESC inserts new character
@@ -99,22 +98,22 @@ Relogin or reboot.
 104. toolbar icon for word wrap
 105. add "open with NeoEditor" context menu to os
     1. first need to be able to open a file
+    2. and create installer for OS
 106. refactor code about how to choose language icon. select icon according to editor language mode. and configure icons in js file.
     1. js code call cplusplus code to set language icon
-107. make `parent` as small as possible
+107. refactoring: make `parent` as small as possible
 112. refresh treeView after adding new folder or file
     1. because not sorted
-115. theme the whole app
-    3. http://qt-project.org/doc/qt-5/stylesheet-reference.html - reference guide
 116. use Atom's theme and icons
+    1. don't forget the OpenAtom idea
 117. close folder tab, auto focus remaining tab, disable this behavior
     1. confirmed this issue. very annoying.
 118. remember current line of active editor before exit
-119. treeView hover change icon color
 120. tabbar::tab:first{padding: {gutter_width}px;}
     1. gutter width is dynamic, so this needs to be dynamtic too
 124. left browser tree is too dim and dark
     1. try some bright colors instead
 125. when dragging, there is a white line
     1. default QTabBar doesn't have this issue
-126. tbc
+126. improve ctrl + p feature
+127. tbc

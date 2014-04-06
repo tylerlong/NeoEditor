@@ -1,4 +1,5 @@
 #include "findfiledialog.h"
+#include "mainwindow.h"
 
 FindFileDialog::FindFileDialog(QString folderPath)
 {
@@ -17,6 +18,8 @@ FindFileDialog::FindFileDialog(QString folderPath)
     connect(lineEdit, SIGNAL(textChanged(const QString &)), this, SLOT(showFiles(const QString &)));
 
     listView = new QListView(lineEdit);
+    listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    connect(listView, SIGNAL(clicked(QModelIndex)), this, SLOT(openFile(QModelIndex)));
     layout->addWidget(listView);
 
     layout->setSpacing(0);
@@ -45,4 +48,11 @@ void FindFileDialog::showFiles(QString s)
 
     stringListModel->setStringList(*stringList);
     listView->setModel(stringListModel);
+}
+
+void FindFileDialog::openFile(QModelIndex modelIndex)
+{
+    QString filePath = QString("%1/%2").arg(folderPath, ((QStringListModel*)listView->model())->stringList().at(modelIndex.row()));
+    emit MainWindow::GetInstance()->openFileRequested(filePath);
+    this->close();
 }

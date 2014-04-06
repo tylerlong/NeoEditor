@@ -13,6 +13,7 @@ public:
 
 private slots:
     void showFiles(QString s);
+    void openFile(QModelIndex modelIndex);
 
 private:
     QLineEdit *lineEdit;
