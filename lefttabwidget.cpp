@@ -33,7 +33,7 @@ void LeftTabWidget::showFolderTree(QString folderPath)
     }
 
     TreeView *treeView = new TreeView(this, folderPath);
-    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), MainWindow::GetInstance(), SLOT(openFile(QModelIndex)));
+    connect(treeView, SIGNAL(clicked(QModelIndex)), MainWindow::GetInstance(), SLOT(openFile(QModelIndex)));
     int index = this->addTab(treeView, QDir(folderPath).dirName());
     treeView->setFocus();
     this->setTabToolTip(index, folderPath);
