@@ -36,6 +36,10 @@ void FindFileDialog::showFiles(QString s)
     {
         directory_walker.next();
         QString fileName = directory_walker.filePath().mid(folderPath.length() + 1);
+        if(fileName.endsWith(".pyc"))
+        {
+            continue;
+        }
         if(fileName.contains(s))
         {
             stringList->append(fileName);
